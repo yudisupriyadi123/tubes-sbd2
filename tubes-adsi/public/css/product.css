@@ -1,0 +1,447 @@
+.content-post {
+	position: relative;
+	width: 100%;
+	height: 500px;
+	margin-top: 15px;
+	border: 1px #ededed solid;
+}
+.content-post .main-post {
+	position: relative;
+	width: 60%;
+	height: 100%;
+	background-color: #000;
+	float: left;
+	background-size: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.content-post .side-post {
+	position: relative;
+	width: 40%;
+	height: 100%;
+	float: right;
+	color: #555;
+}
+.content-post .side-post .notif-panel {
+	margin-bottom: 10px;
+}
+.content-post .side-post .desk {
+	line-height: 1.5;
+	margin-bottom: 10px;
+}
+.content-post .side-post .desk p {
+	font-size: 14px;
+}
+.content-post .notif-content {
+	height: 460px;
+}
+
+
+.comment-content {
+	margin-top: 15px;
+	height: 800px;
+	overflow-y: auto;
+}
+#ctn-ulasan .txt {
+	width: 89%;
+	padding: 10px 5%;
+	font-size: 14px;
+	border-radius: 3px;
+	border: 1px #ededed solid;
+}
+
+/*start frame-comment*/
+.frame-comment {
+	position: relative;
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 14px;
+}
+.frame-comment .tgl {
+	font-size: 14px;
+	color: #999;
+}
+.comment-guess .tgl {
+	text-align: left;
+}
+.comment-guess .desk {
+	position: relative;
+	max-width: 95%;
+	padding: 2.5%;
+	text-align: left;
+	background-color: #f0f0f0;
+	color: #555;
+}
+.comment-owner {
+	position: relative;
+	display: block;
+}
+.comment-owner .tgl {
+	text-align: right;
+}
+.comment-owner .desk {
+	position: relative;
+	max-width: 95%;
+	padding: 2.5%;
+	text-align: right;
+	background-color: #CA4F4F;
+	color: #fff;
+}
+.comment-guess-radius {
+	border-top-right-radius: 30px;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+}
+.comment-owner-radius {
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+}
+/*end frame-comment*/
+
+/*start other picture*/
+.other-picts {
+	position: relative;
+	width: 100%;
+	height: 500px;
+	overflow-y: auto;
+}
+.other-picts .view-picts {
+	position: relative;
+	width: 50%;
+	padding-bottom: 50%;
+	background-size: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: #000;
+	cursor: pointer;
+	float: left;
+}
+.other-picts .view-picts:hover {
+	background-size: 110%;
+	transition: 0.3s;
+}
+/*end other picture*/
+
+/*start header post*/
+.header-post {
+	color: #555;
+	padding: 20px 0px 20px 0px;
+	border-bottom: 1px #ededed solid;
+}
+.header-post h1 {
+	margin-bottom: 10px;
+}
+.idr {
+	position: relative;
+	vertical-align: top;
+}
+.idr .ttl {
+	font-size: 25px;
+	font-weight: bold;
+	color: #CA4F4F;
+	display: inline-block;
+}
+.idr .ttl2 {
+	font-size: 20px;
+	font-weight: normal;
+	color: #CA4F4F;
+	display: inline-block;
+	text-decoration: line-through;
+}
+.header-post .pub {
+	font-size: 14px;
+}
+
+.post-bot {
+	position: relative;
+	top: 0px;
+	margin-bottom: 10px;
+	display: inline-block;
+}
+.post-bot .ctn {
+	border-left: 1px #999 solid;
+	padding: 0px 10px;
+	margin-left: 5px;
+}
+.post-bot .ratting {
+	color: #CA4F4F;
+	margin-bottom: 10px;
+	padding-right: 10px;
+}
+.post-bot .ratting .review {
+	color: #555;
+}
+.post-bot .locate {
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+.post-bot .post-tool {
+	top: 10px;
+}
+
+/*end header post*/
+
+/*start deskripsi post*/
+.description-post {
+	position: relative;
+	width: 100%;
+	margin-top: 10px;
+	color: #555;
+	border-bottom: 1px #ededed solid;
+}
+.description-post .main {
+	position: relative;
+	width: 55%;
+	padding-right: 5%;
+	display: inline-block;
+	vertical-align: top;
+}
+.description-post .side {
+	position: relative;
+	width: 38%;
+	display: inline-block;
+	vertical-align: top;
+}
+.description-post .content {
+	position: relative;
+	width: 100%;
+	line-height: 1.5;
+	margin-bottom: 30px;
+}
+.description-post .content h2 {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.description-post .content ul {
+	position: relative;
+}
+.description-post .content ul li {
+	list-style: none;
+}
+.description-post .content ul li .fa {
+	width: 30px;
+	text-align: center;
+	font-size: 15px;
+}
+.description-post .content .tool {
+	position: relative;
+	height: 35px;
+	width: 100%;
+	padding: 25px 0px;
+}
+.description-post .content .tool ul li {
+	float: left;
+}
+.description-post .content .tool ul li.main-tool {
+	float: right;
+}
+.description-post .content .tool ul li.main-tool .fa {
+	color: #CA4F4F;
+}
+.description-post .content .tool ul li.main-tool .fa:hover {
+	color: #CA4F4F;
+}
+.description-post .content .tool ul li .fa:hover {
+	color: #555;
+	background-color: #f0f0f0;
+}
+.description-post .content .tool ul li .fa {
+	position: relative;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 20px;
+	cursor: pointer;
+	border-radius: 100%;
+	margin-right: 5px;
+	color: #999;
+}
+.description-post .content .location {
+	position: relative;
+	width: 300px;
+	height: 300px;
+	border: 1px #ededed solid;
+	text-align: center;
+	line-height: 300px;
+	background-color: #f0f0f0;
+}
+/*end deskripsi post*/
+
+.give-ratting {
+	position: relative;
+	width: 100%;
+	padding-bottom: 30px;
+	border-bottom: 1px #ededed solid;
+}
+.give-ratting .give-review {
+	position: relative;
+	width: 100%;
+	height: 50px;
+	line-height: 35px;
+	cursor: default;
+	color: #CA4F4F;
+}
+.give-ratting .give-review .title {
+	position: relative;
+	top: 3px;
+	font-weight: bold;
+	font-size: 30px;
+}
+.give-ratting .give-review .icn {
+	font-size: 30px;
+	cursor: pointer;
+}
+.give-ratting .give-review .ttl {
+	float: right;
+}
+.give-ratting ul li {
+	position: relative;
+	margin-bottom: 5px;
+	font-size: 14px;
+	cursor: pointer;
+}
+.give-ratting ul li .title {
+	position: relative;
+	width: 110px;
+	display: inline-block;
+}
+.give-ratting ul li:hover > .title {
+	color: #CA4F4F;
+}
+.give-ratting ul li .row-select {
+	position: relative;
+	display: inline-block;
+	top: 5px;
+	width: 200px;
+	height: 20px;
+	background-color: #f0f0f0;
+	display: inline-block;
+}
+.give-ratting ul li .row-select .row-length {
+	position: absolute;
+	height: 20px;
+	background-color: #CA4F4F;
+}
+.give-ratting ul li .ttl {
+	position: relative;
+	width: 40px;
+	height: 20px;
+	text-align: right;
+	display: inline-block;
+}
+
+.view-post {
+	position: relative;
+	width: 1200px;
+	padding: 25px;
+	margin-top: 80px;
+	margin-bottom: 0px;
+	background-color: #fff;
+}
+
+.product-panel {
+	position: fixed;
+	top: 61px;
+	width: 100%;
+	height: 40px;
+	padding: 10px 0px;
+	z-index: 10;
+	background-color: rgba(255,255,255,0.9);
+}
+.product-panel .main {
+	width: 92%;
+	margin: auto;
+}
+.product-panel .main .post-idr {
+	line-height: 40px;
+	float: left;
+}
+.product-panel .main .post-btn {
+	float: right;
+}
+.product-panel .main .post-btn .btn {
+	margin-left: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+	.product-panel {
+		position: fixed;
+		bottom: 0;
+	}
+	.product-panel .main .post-btn {
+		float: none;
+	}
+	.product-panel .main .post-btn .btn {
+		width: 50%;
+		float: left;
+	}
+	.product-panel .main {
+		width: 95%;
+	}
+	.product-panel .main .post-idr {
+		display: none;
+	}
+	.content-post {
+		height: auto;
+	}
+	.content-post .main-post {
+		width: 100%;
+		height: 300px;
+		background-size: 768px;
+		float: none;
+	}
+	.content-post .side-post {
+		width: 100%;
+		float: none;
+	}
+	.content-post .notif-content {
+		height: auto;
+	}
+	.comment-content {
+		height: auto;
+	}
+	.other-picts {
+		height: 200px;
+		overflow-y: hidden;
+		overflow-x: auto;
+		white-space: nowrap;
+	}
+	.other-picts .view-picts {
+		width: 200px;
+		padding-bottom: 180px;
+		float: none;
+		display: inline-block;
+	}
+	.description-post {
+		border-bottom: 0px #ededed solid;
+	}
+	.description-post .content .location {
+		width: 100%;
+	}
+	.description-post .main {
+		width: 100%;
+		padding-right: 0%;
+		display: block;
+		border-bottom: 1px #ededed solid;
+	}
+	.description-post .side {
+		width: 100%;
+		display: block;
+		border-bottom: 1px #ededed solid;
+	}
+	.description-post .content ul {
+		left: 0;
+	}
+	.product-panel .main .post-btn .btn {
+		margin-left: 0;
+		border-radius: 0;
+	}
+	.view-post {
+		position: relative;
+		width: 95%;
+		padding: 2.5%;
+	}
+}

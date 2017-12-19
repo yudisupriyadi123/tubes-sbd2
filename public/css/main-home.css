@@ -1,0 +1,51 @@
+.main-home {
+	position: relative;
+	width: 100%;
+	margin: auto;
+	display: grid;
+	grid-template-columns: 25% 1fr;
+	grid-column-gap: 20px;
+	margin-top: 20px;
+}
+.main-home .main {
+	position: relative;
+	width: 100%;
+	margin: auto;
+}
+.main-home-left {
+	position: relative;
+	width: 100%;
+	grid-column: 1;
+}
+.main-home-right {
+	position: relative;
+	width: 100%;
+	grid-column: 2;
+}
+.main-home .mn {
+	margin-bottom: 20px;
+}
+.main-home .mn-white {
+	background-color: #fff;
+	border-radius: 0px;
+}
+.main-home .mn-1 {
+	height: 400px;
+}
+
+.main-home .mn-2 {
+	height: auto;
+}
+
+@media only screen and (max-width: 768px) {
+	.main-home {
+		grid-template-columns: 100%;
+		grid-column-gap: 0px;
+	}
+	.main-home-left {
+		display: none;
+	}
+	.main-home-right {
+		grid-column: 1;
+	}
+}

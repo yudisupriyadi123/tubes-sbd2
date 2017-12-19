@@ -1,0 +1,128 @@
+.frame-popup.show {
+	display: block;
+}
+.frame-popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	display: none;
+}
+.main-popup {
+	position: fixed;
+	top: 60px;
+	right: 5%;
+	width: 400px;
+	background-color: #fff;
+	box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+}
+.main-popup .main-ctr {
+	position: relative;
+	width: 95%;
+	height: 400px;
+	padding: 2.5%;
+	margin-bottom: 10px;
+	overflow-y: auto;
+}
+.main-popup .main {
+	position: relative;
+	width: 95%;
+	height: 350px;
+	padding: 2.5%;
+	margin: auto;
+	overflow-y: auto;
+}
+.main-popup .bot {
+	position: relative;
+	width: 95%;
+	height: 60px;
+	margin: auto;
+	padding: 10px 0px 0px 0px;
+	text-align: right;
+}
+.main-popup .main-ctr ul li {
+	position: relative;
+	width: 50%;
+	list-style: none;
+	padding: 10px 0px;
+	font-size: 14px;
+	font-weight: 900;
+}
+.main-popup .main-ctr ul a {
+	color: #999;
+}
+.main-popup .main-ctr ul a:hover {
+	color: #555;
+}
+.main-popup .main-ctr ul li .fa {
+	width: 30px;
+	text-align: center;
+}
+
+#category:hover > #menu-explore {
+	display: block;
+}
+#menu-explore {
+	position: fixed;
+	top: 60px;
+	width: 260px;
+	padding: 0px 20px 30px 20px;
+	background-color: #fff;
+	z-index: 100;
+	overflow-y: auto;
+	box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+	display: none;
+}
+#menu-explore .frame-explore {
+	position: relative;
+	height: 40px;
+	padding-bottom: 15px;
+	color: #999;
+	font-size: 14px;
+}
+#menu-explore .frame-explore:hover {
+	color: #555;
+}
+#menu-explore .frame-explore .fa {
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 100%;
+	font-size: 18px;
+	margin-right: 10px;
+	background-color: #f0f0f0;
+	text-align: center;
+}
+#menu-explore .frame-explore .ctr-text {
+	position: relative;
+	top: 5px;
+	font-weight: 900;
+}
+#menu-explore .frame-explore label {
+	cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+	.frame-popup {
+		background-color: rgba(0,0,0,0.3);
+	}
+	.main-popup {
+		top: 10px;
+		width: 95%;
+		right: 2.5%;
+	}
+	#menu-explore {
+		position: relative;
+		z-index: 0;
+		top: 0;
+		padding: 0;
+		padding-bottom: 20px;
+		width: 100%;
+		display: block;
+		box-shadow: 0 0 0;
+		overflow-y: hidden;
+		border-top: 1px #ededed solid;
+	}
+}

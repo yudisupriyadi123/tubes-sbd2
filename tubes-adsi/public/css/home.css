@@ -1,0 +1,358 @@
+.banner {
+	position: relative;
+	width: 100%;
+	padding-bottom: 70%;
+}
+.banner-color {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.4);
+	z-index: 2;
+}
+.banner-cover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: 100%;
+	background-position: center;
+}
+.frame-home {
+	position: relative;
+	width: 100%;
+}
+.home-categories {
+	position: relative;
+	width: 100%;
+}
+.home-categories ul li {
+	list-style: none;
+}
+.frame-ctr {
+	position: relative;
+	text-align: center;
+	width: 100%;
+	padding: 45% 0%;
+	background-color: #fff;
+	color: #999;
+	cursor: pointer;
+	border-radius: 0%;
+	border: 1px #e1e1e1 solid;
+	font-size: 30px;
+	display: inline-block;
+}
+.frame-ctr:hover {
+	transition: 0.3s;
+	color: #555;
+}
+
+.home-articles {
+	position: relative;
+	padding-bottom: 34%;
+}
+.home-articles .left {
+	position: relative;
+	width: 50%;
+	float: left;
+	background-color: #f0f0f0;
+}
+.home-articles .right {
+	position: relative;
+	width: 50%;
+	float: right;
+	background-color: #e1e1e1;
+}
+.home-articles .frame-articles .desk {
+	position: absolute;
+	bottom: 0px;
+	width: 95%;
+	padding: 2.5%;
+	line-height: 1.5;
+	background-color: rgba(0,0,0,0.5);
+	color: #fff;
+	font-weight: 900;
+	font-size: 14px;
+}
+.home-articles .frame-articles .desk .idr .ttl {
+	color: #fff;
+}
+.home-articles .frame-articles .desk .idr .ttl2 {
+	color: #fff;
+}
+.home-articles .left .frame-articles {
+	position: relative;
+	width: 100%;
+	padding-bottom: 66.66%;
+	background-color: #000;
+}
+.home-articles .right .frame-articles {
+	position: relative;
+	width: 50%;
+	padding-bottom: 33.33%;
+	float: left;
+	background-color: #000;
+}
+.frame-articles {
+	background-size: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.home-products {
+	position: relative;
+}
+.home-products .frame-products {
+	display: inline-block;
+	margin-bottom: 15px;
+}
+.frame-products {
+	position: relative;
+	width: 100%;
+	height: auto;
+	background-color: #fff;
+	overflow: hidden;
+	border-radius: 5px;
+	border: 1px #e1e1e1 solid;
+}
+.frame-products:hover {
+	-webkit-transition: 0.3s;
+	   -moz-transition: 0.3s;
+	    -ms-transition: 0.3s;
+	     -o-transition: 0.3s;
+	        transition: 0.3s;
+	box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+}
+.frame-products:hover > .cen .bot .btn {
+	transition: 0.3s;
+	background-color: #CA4F4F;
+	color: #fff;
+	border: 2px #CA4F4F solid;
+}
+.frame-products .onsale {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	z-index: 1;
+	background-color: #CA4F4F;
+	color: #fff;
+	width: 50px;
+	padding: 8px 0px;
+	border-radius: 100%;
+	text-align: center;
+	font-size: 14px;
+}
+.frame-products .top .images {
+	position: relative;
+	margin: auto;
+	width: 100%;
+	background-color: #000;
+	padding-bottom: 100%;
+	background-size: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.frame-products .cen {
+	position: relative;
+	margin: auto;
+	width: 90%;
+	padding: 5%;
+	font-size: 14px;
+	font-family: sans-serif;
+	color: #555;
+	line-height: 1.5;
+	cursor: default;
+}
+.frame-products .cen .idr {
+	font-weight: 900;
+	color: #CA4F4F;
+	font-size: 16px;
+}
+.frame-products .cen .idr2 {
+	text-decoration: line-through;
+}
+.frame-products .cen .rated {
+	font-size: 14px;
+}
+.frame-products .cen .rated .st {
+	color: #CA4F4F;
+}
+.frame-products .cen .tgl {
+	font-size: 12px;
+}
+.frame-products .cen .bot {
+	position: relative;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+}
+.frame-products .cen .mid {
+	position: relative;
+	width: 100%;
+}
+.frame-products .cen .bot .btn {
+	width: 100%;
+}
+.frame-products .cen .bot ul li {
+	list-style: none;
+	float: left;
+}
+.frame-products .cen .bot ul li .fa {
+	font-size: 18px;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	color: #555;
+	text-align: center;
+	border-radius: 100%;
+	cursor: pointer;
+}
+.frame-products .cen .bot ul li .fa:hover {
+	-webkit-transition: 0.3s;
+	   -moz-transition: 0.3s;
+	    -ms-transition: 0.3s;
+	     -o-transition: 0.3s;
+	        transition: 0.3s;
+	background-color: #f0f0f0;
+	color: #555;
+}
+.frame-products .cen .bot ul li .bot-left {
+	margin-right: 5px;
+}
+.frame-products .cen .bot ul li .bot-right {
+	position: absolute;
+	width: 40px;
+	line-height: 40px;
+	top: 10px;
+	right: 0px;
+}
+.frame-products .cen .bot ul li .bot-right-color {
+	color: #CA4F4F;
+}
+.frame-products .cen .bot ul li .bot-right-color:hover {
+	background-color: #CA4F4F;
+	color: #fff;
+}
+.home-content {
+	padding: 20px 0px;
+}
+.home-panel {
+	position: relative;
+	width: 100%;
+	height: 60px;
+}
+.home-panel .panel-title {
+	line-height: 60px;
+	font-size: 25px;
+	font-weight: 500;
+	color: #555;
+}
+.home-panel .panel-more {
+	position: absolute;
+	right: 0px;
+	top: 5px;
+}
+
+.home-content .content-left {
+	position: relative;
+	width: 59.55%;
+	display: inline-block;
+}
+.home-content .content-right {
+	position: relative;
+	float: right;
+	right: 0px;
+	width: 39%;
+	height: 400px;
+	display: inline-block;
+	vertical-align: top;
+}
+.home-products .for-small-articles {
+	margin-bottom: 10px;
+}
+.for-small-articles .top {
+	position: relative;
+	float: left;
+	width: 39.40%;
+}
+.for-small-articles .top .images {
+	width: 100%;
+	padding-bottom: 60%;
+}
+.for-small-articles .cen {
+	position: relative;
+	margin: auto;
+	float: right;
+	width: 55%;
+	padding: 2.5%;
+}
+
+.home-tags {
+
+}
+.frame-tags {
+	position: relative;
+	display: inline-block;
+	width: 90%;
+	padding: 15px 5%;
+	cursor: pointer;
+	margin-bottom: 20px;
+	border: 1px #e1e1e1 solid;
+	background-color: #fff;
+	color: #999;
+}
+.frame-tags:hover {
+	transition: 0.3s;
+	color: #555;
+}
+.frame-tags .title {
+	font-size: 16px;
+	font-weight: 900;
+}
+.frame-tags .count {
+	font-size: 12px;
+}
+
+@media only screen and (max-width: 768px) {
+	.home-articles {
+		padding-bottom: 250px;
+	}
+	.home-articles .left {
+		float: none;
+		width: 100%;
+	}
+	.home-articles .right {
+		float: none;
+		width: 100%;
+	}
+	.home-articles .left .frame-articles {
+		padding-bottom: 250px;
+	}
+	.home-articles .right .frame-articles {
+		padding-bottom: 125px;
+	}
+	.scroll-left {
+		white-space: nowrap;
+		overflow-x: auto;
+	}
+	.scroll-left .frame-products {
+		width: 250px;
+		margin-left: 5px;
+		margin-right: 5px;
+		margin-bottom: 0;
+	}
+	.scroll-left .frame-ctr {
+		width: 150px;
+		padding: 55px 0px;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	.scroll-left .frame-tags {
+		width: auto;
+		margin-bottom: 0;
+	}
+}

@@ -1,0 +1,55 @@
+.frame-sign {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 50px 0px;
+	background-color: #f0f0f0;
+}
+.main-sign {
+	position: relative;
+	width: 400px;
+	padding: 2.5%;
+	margin: auto;
+	background-color: #fff;
+	border: 1px #ededed solid;
+	border-radius: 5px;
+}
+.main-sign .top {
+	text-align: center;
+	color: #555;
+}
+.main-sign .top .panel-logo img {
+	width: 100%;
+}
+.main-sign .mid .block {
+	position: relative;
+	width: 100%;
+	padding: 10px 0px;
+}
+.main-sign .mid .block .btn {
+	width: 100%;
+	margin: auto;
+}
+.main-sign .mid .block .icn {
+	width: 100%;
+	color: #999;
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+.main-sign .mid .block select {
+	width: 100%;
+}
+.main-sign .bot {
+	padding: 20px 0px;
+}
+
+@media only screen and (max-width: 768px) {
+	.frame-sign {
+		padding: 0;
+		background-color: #fff;
+	}
+	.main-sign {
+		width: 85%;
+		border: 0;
+	}	
+}
