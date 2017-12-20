@@ -3,6 +3,7 @@
 @section('content')
 <div class="main-width">
 	<div class="main-home">
+		<!-- TODO: remove these if not used surely
 		<div class="main-home-left">
 			<div class="main mn mn-white">
 				@include('main.category')
@@ -11,6 +12,7 @@
 				@include('main.tags')
 			</div>
 		</div>
+		-->
 		<div class="main-home-right">
 			<div class="home-articles">
 				<div class="left">
@@ -33,7 +35,7 @@
 			<div class="main mn mn-2">
 				<div class="home-panel">
 					<div class="panel-title">
-						RECENTLY POSTS
+						NEWEST PRODUCTS
 					</div>
 				</div>
 				<div class="home-products grid-4 scroll-left">
@@ -45,7 +47,7 @@
 			<div class="main mn mn-2">
 				<div class="home-panel">
 					<div class="panel-title">
-						POPULAR POSTS
+						BIGGEST DISCOUNT PRODUCTS
 					</div>
 				</div>
 				<div class="home-products grid-4 scroll-left">
@@ -57,7 +59,7 @@
 			<div class="main mn mn-2">
 				<div class="home-panel">
 					<div class="panel-title">
-						MOST VIEWED
+						MOST SALED PRODUCTS
 					</div>
 				</div>
 				<div class="home-products grid-4 scroll-left">
