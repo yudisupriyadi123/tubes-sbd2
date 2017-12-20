@@ -21,6 +21,8 @@ class CreateProductTable extends Migration
             $table->string('description', 5000);
             $table->smallInteger('stock');
             $table->integer('category_id')->unsigned()->nullable()->index();
+            $table->timestamps();
+            $table->integer('thumbnail_image_id')->index();
         });
     }
 

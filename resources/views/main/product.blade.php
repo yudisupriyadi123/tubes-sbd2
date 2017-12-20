@@ -10,10 +10,11 @@
 	<div class="cen">
 		<div class="mid">
 			<div class="desc">
-				<div class="des">this is descriptions. this is descriptions.</div>
+				<div class="des">{{ $product->name }}</div>
 				<div class="des-idr">
-					<label class="idr">IDR 250,000</label>
-					<label class="idr2">IDR 350,000</label>
+					<!-- TODO: make discount logic code cleaner -->
+					<label class="idr">IDR {{$product->price - ($product->price * ($product->discount_in_percent/100))}}</label>
+					<label class="idr2">IDR {{$product->price}}</l	abel>
 				</div>
 			</div>
 		</div>

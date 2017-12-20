@@ -3,13 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
 
 class MainController extends Controller
 {
     //
     function index()
     {
-    	return view('/home/home',['title' => 'Home']);
+        $newest_products =
+        Product::orderBy('created_at', 'desc')
+            ->take(4)
+            ->get();
+
+        $biggest_discount_products =
+        Product::orderBy('discount_in_percent', 'desc')
+            ->take(4)
+            ->get();
+
+    	return view('/home/home', [
+            'title' => 'Home',
+            'newest_products' => $newest_products,
+            'biggest_discount_products' => $biggest_discount_products,
+        ]);
     }
     function shops()
     {

@@ -39,9 +39,9 @@
 					</div>
 				</div>
 				<div class="home-products grid-4 scroll-left">
-					@for ($i = 0; $i < 4; $i++) 
+					@foreach ($newest_products as $key => $product) 
 						@include('main.product')
-					@endfor
+					@endforeach
 				</div>
 			</div>
 			<div class="main mn mn-2">
@@ -51,14 +51,15 @@
 					</div>
 				</div>
 				<div class="home-products grid-4 scroll-left">
-					@for ($i = 0; $i < 4; $i++) 
+					@foreach ($biggest_discount_products as $key => $product) 
 						@include('main.product')
-					@endfor
+					@endforeach
 				</div>
 			</div>
 			<div class="main mn mn-2">
 				<div class="home-panel">
 					<div class="panel-title">
+						<!-- TODO: add database query to fetch most saled products -->
 						MOST SALED PRODUCTS
 					</div>
 				</div>
@@ -71,6 +72,7 @@
 			<div class="main mn mn-2">
 				<div class="home-panel">
 					<div class="panel-title">
+						<!-- TODO: remove these if not needed. Newest-product is enough, isn't it? -->
 						ALL PRODUCTS
 					</div>
 					<div class="panel-more">
