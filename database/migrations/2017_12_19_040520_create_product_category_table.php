@@ -16,7 +16,7 @@ class CreateProductCategoryTable extends Migration
         Schema::create('product_category', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 20);
-            $table->integer('parent_category')->unsigned()->index();
+            $table->integer('parent_category')->unsigned()->nullable()->index();
         });
     }
 
