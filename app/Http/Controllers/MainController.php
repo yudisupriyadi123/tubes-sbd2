@@ -55,10 +55,6 @@ class MainController extends Controller
     {
         return view('/category/index',['title' => 'Category '.$ctr]);
     }
-    function tags($ctr)
-    {
-        return view('/tags/index',['title' => 'Tag '.$ctr]);
-    }
     function orderCek()
     {
         return view('/main/cek',['title' => 'Order Cek']);

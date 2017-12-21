@@ -21,6 +21,5 @@ Route::get('/product/{id}', 'MainController@product');
 Route::get('/order/cek', 'MainController@orderCek');
 Route::get('/order/proof', 'MainController@orderProof');
 Route::get('/category/{ctr}', 'MainController@category');
-Route::get('/tags/{ctr}', 'MainController@tags');
 Route::get('/signin', 'MainController@signin');
 Route::get('/signup', 'MainController@signup');
