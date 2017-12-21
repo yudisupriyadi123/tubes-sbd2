@@ -69,3 +69,15 @@
 .costumer .main .ctn-hide {
 	display: none;
 }
+
+@media only screen and (max-width: 768px) {
+	.costumer {
+		grid-template-columns: 100%;
+	}
+	.costumer .main {
+		grid-column: 1;
+	}
+	.costumer .side {
+		grid-column: 1;
+	}
+}

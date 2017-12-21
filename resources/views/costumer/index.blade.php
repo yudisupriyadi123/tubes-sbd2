@@ -209,6 +209,9 @@
 									<span>Your Feed Back will show in here</span>
 								</div>
 							</div>
+							<div class="mid-3">
+								<span class="sh">by Admin</span>
+							</div>
 						</div>
 						<div class="bot-cart">
 							<div class="sub">
@@ -216,7 +219,7 @@
 								<div class="sh">On Sale</div>
 							</div>
 							<div class="pur">
-								<span>35 Feeds Back</span>
+								<button class="btn btn-white-color-red">35 Feeds Back</button>
 							</div>
 						</div>
 					</div>
