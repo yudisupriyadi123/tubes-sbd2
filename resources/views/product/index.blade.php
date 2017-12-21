@@ -47,11 +47,11 @@
 		$('#qty-plus').on('click', function(event) {
 			var new_qty = (parseInt($('#qty').val()) + 1);
 			if (new_qty >= qty_cost_max) {
-				$('#qty').val(qty_cost_max);	
+				$('#qty').val(qty_cost_max);
 			} else {
 				$('#qty').val(new_qty);
 			}
-			
+
 		});
 	});
 </script>
@@ -306,10 +306,11 @@
 			</div>
 		</div>
 		<div class="side">
-			
+
 		</div>
 	</div>
 </div>
+	{{{-- TODO: atur related post [ini adalah blade comment]
 	<div class="home-content main-width">
 		<div class="home-panel">
 			<div class="panel-title">
@@ -317,10 +318,11 @@
 			</div>
 		</div>
 		<div class="home-products grid-5 scroll-left">
-			<?php for ($i = 0; $i < 5; $i++) { ?>
+			@for ($i = 0; $i < 5; $i++)
 			@include('main.product')
-			<?php } ?>
+			@endfor
+			}}}
 		</div>
 	</div>
-	
+	--}}}
 @endsection

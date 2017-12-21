@@ -39,7 +39,7 @@
 					</div>
 				</div>
 				<div class="home-products grid-4 scroll-left">
-					@foreach ($newest_products as $key => $product) 
+					@foreach ($newest_products as $key => $product)
 						@include('main.product')
 					@endforeach
 				</div>
@@ -51,7 +51,7 @@
 					</div>
 				</div>
 				<div class="home-products grid-4 scroll-left">
-					@foreach ($biggest_discount_products as $key => $product) 
+					@foreach ($biggest_discount_products as $key => $product)
 						@include('main.product')
 					@endforeach
 				</div>
@@ -64,7 +64,7 @@
 					</div>
 				</div>
 				<div class="home-products grid-4 scroll-left">
-					@for ($i = 0; $i < 4; $i++) 
+					@for ($i = 0; $i < 4; $i++)
 						@include('main.product')
 					@endfor
 				</div>
@@ -82,7 +82,7 @@
 					</div>
 				</div>
 				<div class="home-products grid-4 scroll-left">
-					@for ($i = 0; $i < 4; $i++) 
+					@for ($i = 0; $i < 4; $i++)
 						@include('main.product')
 					@endfor
 				</div>
