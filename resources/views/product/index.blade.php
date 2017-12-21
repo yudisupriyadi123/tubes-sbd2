@@ -310,7 +310,6 @@
 		</div>
 	</div>
 </div>
-	{{{-- TODO: atur related post [ini adalah blade comment]
 	<div class="home-content main-width">
 		<div class="home-panel">
 			<div class="panel-title">
@@ -318,11 +317,9 @@
 			</div>
 		</div>
 		<div class="home-products grid-5 scroll-left">
-			@for ($i = 0; $i < 5; $i++)
+		@foreach ($newest_products as $key => $product)
 			@include('main.product')
-			@endfor
-			}}}
+		@endforeach
 		</div>
 	</div>
-	--}}}
 @endsection

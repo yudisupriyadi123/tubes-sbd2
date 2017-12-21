@@ -21,5 +21,8 @@ Route::get('/product/{id}', 'MainController@product');
 Route::get('/order/cek', 'MainController@orderCek');
 Route::get('/order/proof', 'MainController@orderProof');
 Route::get('/category/{ctr}', 'MainController@category');
+Route::get('/cart', 'MainController@cart');
+Route::get('/purchase/{idcart}', 'MainController@purchase');
+Route::get('/purchase/all', 'MainController@purchaseAll');
 Route::get('/signin', 'MainController@signin');
 Route::get('/signup', 'MainController@signup');

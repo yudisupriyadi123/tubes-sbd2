@@ -18,14 +18,16 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/cart.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/product.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/sign.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('/css/main-home.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/css/purchase.css') }}">
 
 	<script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
 
 	<script type="text/javascript">
+		
 		window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
+
         function setScroll(ctr) {
         	if (ctr == "hide") {
         		$('html').addClass('no-scroll');
