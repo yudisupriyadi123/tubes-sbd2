@@ -19,6 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/product.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/sign.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/purchase.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/css/frame.css') }}">
 
 	<script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
 

@@ -32,6 +32,12 @@ Route::get('/cart', 'MainController@cart');
 Route::get('/admin', 'AdminController@index');
 Route::get('/admin/dashboard', 'AdminController@dashboard');
 Route::get('/admin/post', 'AdminController@post');
+Route::get('/admin/categories', 'AdminController@categories');
+Route::get('/admin/orders', 'AdminController@orders');
+Route::get('/admin/costumers', 'AdminController@costumers');
+Route::get('/admin/products', 'AdminController@products');
+Route::get('/admin/setting', 'AdminController@setting');
+Route::get('/admin/info', 'AdminController@info');
 
 //Customer
 Route::get('/costumer', 'CostumerController@index');

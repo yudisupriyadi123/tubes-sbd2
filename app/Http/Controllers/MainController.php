@@ -49,7 +49,7 @@ class MainController extends Controller
     }
     function product($id)
     {
-        //jangan lupa ganti pake related post
+        //jangan lupa ganti khusu untuk admin
         $newest_products =
         Product::orderBy('created_at', 'desc')
             ->take(5)

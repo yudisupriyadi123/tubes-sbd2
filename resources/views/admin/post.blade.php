@@ -5,7 +5,7 @@
 <form>
 	<div class="content border-bottom">
 		<div class="panel">
-			<label class="ttl">Gambar untuk Sampul *</label>
+			<label class="ttl">Cover *</label>
 		</div>
 		<div class="place padding-bottom">
 			<div class="cover">
@@ -17,7 +17,7 @@
 	</div>
 	<div class="content">
 		<div class="panel">
-			<label class="ttl">Galeri *</label>
+			<label class="ttl">Galery *</label>
 		</div>
 		<div class="place">
 			<div class="galeri">
@@ -27,31 +27,31 @@
 	</div>
 	<div class="content">
 		<div class="panel">
-			<label class="ttl">Judul *</label>
+			<label class="ttl">Title *</label>
 		</div>
 		<div class="place">
-			<input type="text" name="title" class="txt title" placeholder="" required="true">
+			<input type="text" name="title" class="txt txt-main-color title" placeholder="" required="true">
 		</div>
 	</div>
 	<div class="content">
 		<div class="panel">
-			<label class="ttl">Harga *</label>
+			<label class="ttl">Price *</label>
 		</div>
 		<div class="place">
-			<input type="text" name="harga-1" class="txt title" placeholder="IDR" required="true">
+			<input type="text" name="harga-1" class="txt txt-main-color title" placeholder="" required="true">
 		</div>
 	</div>
 	<div class="content">
 		<div class="panel">
-			<label class="ttl">Harga ke 2</label>
+			<label class="ttl">Second Price or Discount</label>
 		</div>
 		<div class="place">
-			<input type="text" name="harga-2" class="txt title" placeholder="IDR">
+			<input type="text" name="harga-2" class="txt txt-main-color title" placeholder="">
 		</div>
 	</div>
 	<div class="content">
 		<div class="panel">
-			<label class="ttl">Deskripsi *</label>
+			<label class="ttl">Description *</label>
 			<div class="tool">
 				<ul>
 				    <li>
@@ -67,25 +67,25 @@
 			</div>
 		</div>
 		<div class="place">
-			<div contenteditable="true" class="txt deskripsi"></div>
+			<div contenteditable="true" class="txt txt-main-color deskripsi"></div>
 		</div>
 	</div>
 	<div class="content">
 		<div class="panel">
-			<label class="ttl">Alamat *</label>
+			<label class="ttl">Address *</label>
 		</div>
 		<div class="place">
-			<div contenteditable="true" class="txt deskripsi"></div>
+			<div contenteditable="true" class="txt txt-main-color deskripsi"></div>
 		</div>
 	</div>
 	<div class="content">
 		<div class="panel">
-			<label class="ttl">Fasilitas</label>
+			<label class="ttl">Add Details</label>
 		</div>
 		<div class="place">
 			<div class="facility">
-				<input type="text" name="fasilty" class="txt fs" placeholder="Tambahkan Fasilitas">
-				<div class="btn btn-color-sekunder">
+				<input type="text" name="fasilty" class="txt txt-main-color fs" placeholder="">
+				<div class="btn btn-main-color">
 					<label class="fa fa-lg fa-plus"></label>
 				</div>
 				<ul id="place-facility"></ul>
@@ -94,53 +94,46 @@
 	</div>
 	<div class="content">
 		<div class="panel">
-			<label class="ttl">Tags</label>
-		</div>
-		<div class="place">
-			<div class="facility">
-				<input type="text" name="fasilty" class="txt fs" placeholder="Tambahkan Tag">
-				<div class="btn btn-color-sekunder">
-					<label class="fa fa-lg fa-plus"></label>
-				</div>
-				<ul id="place-tags"></ul>
-			</div>
-		</div>
-	</div>
-	<div class="content">
-		<div class="panel">
-			<label class="ttl">Kategori *</label>
+			<label class="ttl">Category *</label>
 		</div>
 		<div class="place">
 			<div class="facility">
 				<div class="select">
 					<select name="place" required="true">
-						<option value="pilih">Pilih Kategori</option>
+						<option value="choose">Choose Category</option>
 						@for ($i=1; $i < 25; $i++)
-						<option value="Kategori{{ $i }}">Kategori {{ $i }}</option>
+						<option value="Category{{ $i }}">Category {{ $i }}</option>
 						@endfor
 					</select>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="content border-bottom">
+	<div class="content">
 		<div class="panel">
-			<label class="ttl">Lokasi</label>
+			<label class="ttl">Sub Category *</label>
 		</div>
-		<div class="place padding-bottom">
-			<div class="galeri">
-				<div class="add loc fa fa-lg fa-map-marker"></div>
+		<div class="place">
+			<div class="facility">
+				<div class="select">
+					<select name="place" required="true">
+						<option value="choose">Choose Sub-category</option>
+						@for ($i=1; $i < 25; $i++)
+						<option value="Subcategory{{ $i }}">Sub-category {{ $i }}</option>
+						@endfor
+					</select>
+				</div>
 			</div>
 		</div>
 	</div>
 	<div class="content">
 		<div class="place">
-			<input type="submit" name="submit" class="btn btn-main-color" value="Kirim Sekarang">
+			<input type="submit" name="submit" class="btn btn-main-color" value="Add Product">
 		</div>
 	</div>
 	<div class="content border-bottom">
 		<div class="place padding-bottom">
-			<input type="submit" name="submit" class="btn btn-main-color-2" value="Simpan Dulu">
+			<input type="submit" name="submit" class="btn btn-main-color-2" value="Save It">
 		</div>
 	</div>
 </form>

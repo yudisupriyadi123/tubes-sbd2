@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/assets.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/admin/admin.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/admin/post.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/css/frame.css') }}">
 	
 
 	<script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
@@ -47,43 +48,43 @@
 			    		<label class="ttl">Add Product</label>
 			    	</li>
 			    </a>
-			    <a href="#">
+			    <a href="{{ url('/admin/categories') }}">
 			    	<li>
 			    		<label class="icn fa fa-lg fa-th"></label>
 			    		<label class="ttl">Categories</label>
 			    	</li>
 			    </a>
-			    <a href="#">
+			    <a href="{{ url('/admin/orders') }}">
 			    	<li>
 			    		<label class="icn fa fa-lg fa-shopping-cart"></label>
 			    		<label class="ttl">Orders</label>
 			    	</li>
 			    </a>
-			    <a href="#">
+			    <a href="{{ url('/admin/costumers') }}">
 			    	<li>
 			    		<label class="icn fa fa-lg fa-users"></label>
 			    		<label class="ttl">Costumers</label>
 			    	</li>
 			    </a>
-			    <a href="#">
+			    <a href="{{ url('/admin/products') }}">
 			    	<li>
 			    		<label class="icn fa fa-lg fa-shopping-bag"></label>
 			    		<label class="ttl">List Products</label>
 			    	</li>
 			    </a>
-			    <a href="#">
+			    <a href="{{ url('/admin/setting') }}">
 			    	<li>
 			    		<label class="icn fa fa-lg fa-gear"></label>
 			    		<label class="ttl">Setting</label>
 			    	</li>
 			    </a>
-			    <a href="#">
+			    <a href="{{ url('/admin/info') }}">
 			    	<li>
 			    		<label class="icn fa fa-lg fa-info"></label>
 			    		<label class="ttl">Info</label>
 			    	</li>
 			    </a>
-			    <a href="#">
+			    <a href="{{ url('/logout') }}">
 			    	<li>
 			    		<label class="icn fa fa-lg fa-power-off"></label>
 			    		<label class="ttl">Logout</label>
