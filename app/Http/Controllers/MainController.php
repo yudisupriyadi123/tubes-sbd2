@@ -71,4 +71,7 @@ class MainController extends Controller
     {
         return view('/sign/up',['title' => 'Signup']);
     }
+    function cart() {
+        return view('cart/index', ['title' => 'Your Cart']);
+    }
 }

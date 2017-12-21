@@ -23,3 +23,4 @@ Route::get('/order/proof', 'MainController@orderProof');
 Route::get('/category/{ctr}', 'MainController@category');
 Route::get('/signin', 'MainController@signin');
 Route::get('/signup', 'MainController@signup');
+Route::get('/cart', 'MainController@cart');

@@ -2,50 +2,83 @@
 @section('title',$title)
 @section('content')
 <div class="main-width">
-	
+
 	<div class="main-cart">
-	
-		<div class="place-cart">
-			<div class="crt cart-1"></div>
-			<div class="crt cart-2"><b>Product</b></div>
-			<div class="crt cart-3"><b>Price</b></div>
-			<div class="crt cart-4"><b>Quantity</b></div>
-			<div class="crt cart-5"><b>Total</b></div>
-			<div class="crt cart-6"></div>
-			@for ($i=1; $i <= 10; $i++)
-			<div class="crt cart-1">
-				<div class="image-crt" style="background-image: url('{{ url('/') }}/img/banner1.jpg');"></div>
-			</div>
-			<div class="crt cart-2">
-				This is just for a test.
-			</div>
-			<div class="crt cart-3">
-				Rp. 16.000.000
-			</div>
-			<div class="crt cart-4">
-				<!--
-				<div class="stock need-p">
-					<div class="place-stock">
-						<button class="op btn-qty" id="qty-min">
-							<label class="fa fa-lg fa-minus"></label>
-						</button>
-						<input type="text" name="qty" class="op txt" placeholder="qty" value="1" id="qty" disabled="true">
-						<button class="op btn-qty" id="qty-plus">
-							<label class="fa fa-lg fa-plus"></label>
-						</button>
+		<div class="cart-items">
+			<!-- item #1 -->
+			<div class="cart-item">
+				<div class="header">
+					<div class="checkbox"><input type="checkbox"></div>
+					<div class="brand-logo"><i class="fa fa-cube"></i></div>
+					<div class="brand">Monster</div>
+				</div>
+				<div class="item">
+					<div class="thumbnail"><img src="https://s2.bukalapak.com/img/729118547/small/Earplug_Penutup_Telinga_mirip_ultrafit_with_casing.jpg"></div>
+					<div class="layout">
+						<span class="product-name">Earplug Penutup Telinga mirip ultrafit with casing</span>
+						<div class="quantity-editor"><input type="number"></div>
+					</div>
+					<div class="delete-btn">
+						<i class="fa fa-trash-o"></i>
 					</div>
 				</div>
-				-->
-				2
 			</div>
-			<div class="crt cart-5">
-				Rp. 24.000.000
+
+
+			<!-- item #2 -->
+			<div class="cart-item">
+				<div class="header">
+					<div class="checkbox"><input type="checkbox"></div>
+					<div class="brand-logo"><i class="fa fa-cube"></i></div>
+					<div class="brand">Monster</div>
+				</div>
+				<div class="item">
+					<div class="thumbnail"><img src="https://s2.bukalapak.com/img/729118547/small/Earplug_Penutup_Telinga_mirip_ultrafit_with_casing.jpg"></div>
+					<div class="layout">
+						<span class="product-name">Earplug Penutup Telinga mirip ultrafit with casing</span>
+						<div class="quantity-editor"><input type="number"></div>
+					</div>
+					<div class="delete-btn">
+						<i class="fa fa-trash-o"></i>
+					</div>
+				</div>
 			</div>
-			<div class="crt cart-6"></div>
-			@endfor
+
+			<!-- item #3 -->
+			<div class="cart-item">
+				<div class="header">
+					<div class="checkbox"><input type="checkbox"></div>
+					<div class="brand-logo"><i class="fa fa-cube"></i></div>
+					<div class="brand">Monster</div>
+				</div>
+				<div class="item">
+					<div class="thumbnail"><img src="https://s2.bukalapak.com/img/729118547/small/Earplug_Penutup_Telinga_mirip_ultrafit_with_casing.jpg"></div>
+					<div class="layout">
+						<span class="product-name">Earplug Penutup Telinga mirip ultrafit with casing</span>
+						<div class="quantity-editor"><input type="number"></div>
+					</div>
+					<div class="delete-btn">
+						<i class="fa fa-trash-o"></i>
+					</div>
+				</div>
+			</div>
 		</div>
-	
+
+		<div class="pay-at-once">
+			<div class="header">
+				<div class="title">Bayar Sekaligus</div>
+			</div>
+			<div class="content">
+				<span class="status">Silahkan pilih transaksi yang ingin dibayar</span>
+				<hr />
+				<div class="price">
+					<span class="label">Total bayar</span>
+					<span class="price-total">Rp.100.000</span>
+				</div>
+				<button>Bayar Sekaligus</button>
+			</div>
+		</div>
 	</div>
-	
+
 </div>
 @endsection
