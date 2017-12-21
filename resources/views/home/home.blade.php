@@ -39,7 +39,7 @@
 					</div>
 				</div>
 				<div class="home-products grid-4 scroll-left">
-					@foreach ($newest_products as $key => $product) 
+					@foreach ($newest_products as $key => $product)
 						@include('main.product')
 					@endforeach
 				</div>
@@ -51,7 +51,7 @@
 					</div>
 				</div>
 				<div class="home-products grid-4 scroll-left">
-					@foreach ($biggest_discount_products as $key => $product) 
+					@foreach ($biggest_discount_products as $key => $product)
 						@include('main.product')
 					@endforeach
 				</div>
@@ -64,7 +64,7 @@
 					</div>
 				</div>
 				<div class="home-products grid-4 scroll-left">
-					@for ($i = 0; $i < 4; $i++) 
+					@for ($i = 0; $i < 4; $i++)
 						@include('main.product')
 					@endfor
 				</div>
@@ -74,10 +74,17 @@
 				<div class="panel-title">
 					TOP RATED
 				</div>
+<<<<<<< HEAD
 				<div class="panel-more">
 					<a href="{{ url('top') }}">
 						<input type="button" name="more-shopp" class="btn btn-sekunder-color" value="View All">
 					</a>
+=======
+				<div class="home-products grid-4 scroll-left">
+					@for ($i = 0; $i < 4; $i++)
+						@include('main.product')
+					@endfor
+>>>>>>> 0fbe6212f6c8cdae5e773a3ccb1691ef974ab078
 				</div>
 			</div>
 			<div class="home-products grid-5 scroll-left">
