@@ -1,12 +1,10 @@
 .main-home {
 	position: relative;
-	width: 80%;
+	width: 100%;
 	margin: auto;
-	/*
 	display: grid;
 	grid-template-columns: 25% 1fr;
 	grid-column-gap: 20px;
-	*/
 	margin-top: 20px;
 }
 .main-home .main {
@@ -41,10 +39,8 @@
 
 @media only screen and (max-width: 768px) {
 	.main-home {
-		/*
 		grid-template-columns: 100%;
 		grid-column-gap: 0px;
-		*/
 	}
 	.main-home-left {
 		display: none;
@@ -52,45 +48,4 @@
 	.main-home-right {
 		grid-column: 1;
 	}
-}
-
-/* ----------------------------------------------------------------
- | CATEGORY DROPDOWN
- | ---------------------------------------------------------------- */
-.tab-group {
-	list-style:none;
-	padding:0;
-	margin:0 0 10px 0;
-	border: 2px solid #c95a5a;
-	height: auto!important;
-}
-.tab-group:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-.tab-group li a {
-    display:block;
-    box-sizing: border-box;
-    text-decoration:none;
-    padding:15px;
-    background: white;
-    color: #555;
-    font-size: 14px;
-    float:left;
-    width:50%;
-    text-align:center;
-    cursor:pointer;
-    transition:.5s ease;
-}
-.tab-group li a:hover {
-	background: #e1ab76;
-	color: white;
-}
-.tab-group li.active a {
-	background: #c95a5a;
-	color: white;
-}
-.tab-content > div:last-child {
-  display:none;
 }

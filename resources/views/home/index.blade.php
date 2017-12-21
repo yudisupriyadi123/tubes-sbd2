@@ -61,52 +61,38 @@
 	<div class="home-content main-width">
 		<div class="home-panel">
 			<div class="panel-title">
-				RECENTLY POSTS
-			</div>
-			<div class="panel-more">
-				<a href="{{ url('shops') }}">
-					<input type="button" name="more-shopp" class="btn btn-sekunder-color" value="View All">
-				</a>
+				NEWEST PRODUCTS
 			</div>
 		</div>
 		<div class="home-products grid-5 scroll-left">
-			<?php for ($i = 0; $i < 5; $i++) { ?>
-			@include('main.product')
-			<?php } ?>
+			@foreach ($newest_products as $key => $product) 
+				@include('main.product')
+			@endforeach
 		</div>
 	</div>
 	<div class="home-content main-width">
 		<div class="home-panel">
 			<div class="panel-title">
-				POPULAR
-			</div>
-			<div class="panel-more">
-				<a href="{{ url('popular') }}">
-					<input type="button" name="more-shopp" class="btn btn-sekunder-color" value="View All">
-				</a>
+				BIGGEST DISCOUNT PRODUCTS
 			</div>
 		</div>
 		<div class="home-products grid-5 scroll-left">
-			<?php for ($i = 0; $i < 5; $i++) { ?>
-			@include('main.product')
-			<?php } ?>
+			@foreach ($biggest_discount_products as $key => $product) 
+				@include('main.product')
+			@endforeach
 		</div>
 	</div>
 	<div class="home-content main-width">
 		<div class="home-panel">
 			<div class="panel-title">
-				TOP RATED
-			</div>
-			<div class="panel-more">
-				<a href="{{ url('top') }}">
-					<input type="button" name="more-shopp" class="btn btn-sekunder-color" value="View All">
-				</a>
+				<!-- TODO: add database query to fetch most saled products -->
+				MOST SALED PRODUCTS
 			</div>
 		</div>
 		<div class="home-products grid-5 scroll-left">
-			<?php for ($i = 0; $i < 5; $i++) { ?>
-			@include('main.product')
-			<?php } ?>
+			@for ($i = 0; $i < 5; $i++) 
+				@include('main.product')
+			@endfor
 		</div>
 	</div>
 

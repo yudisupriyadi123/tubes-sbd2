@@ -12,15 +12,15 @@ class MainController extends Controller
     {
         $newest_products =
         Product::orderBy('created_at', 'desc')
-            ->take(4)
+            ->take(5)
             ->get();
 
         $biggest_discount_products =
         Product::orderBy('discount_in_percent', 'desc')
-            ->take(4)
+            ->take(5)
             ->get();
 
-    	return view('/home/home', [
+    	return view('/home/index', [
             'title' => 'Home',
             'newest_products' => $newest_products,
             'biggest_discount_products' => $biggest_discount_products,

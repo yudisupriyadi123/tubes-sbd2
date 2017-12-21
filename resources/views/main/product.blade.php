@@ -1,5 +1,5 @@
 <div class="frame-products">
-	<a href="{{ url('product/12045') }}">
+	<a href="{{ url('product/'.$product->id) }}">
 		<div class="onsale">
 			On Sale
 		</div>
