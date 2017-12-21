@@ -31,22 +31,6 @@
 	<div class="home-content main-width">
 		<div class="home-panel">
 			<div class="panel-title">
-				TRANDINGS NOW
-			</div>
-		</div>
-		<div class="home-tags grid-3 scroll-left">
-				<?php for ($i = 0; $i < 9; $i++) { ?>
-				<a href="#">
-					<div class="frame-tags">
-				    	<div class="title">#this is a tags</div>
-				    	<div class="count">33333 Posts</div>
-				    </div>
-				</a>
-				<?php } ?>
-			</ul>
-		</div>
-		<div class="home-panel">
-			<div class="panel-title">
 				CATEGORIES
 			</div>
 		</div>
@@ -65,7 +49,7 @@
 			</div>
 		</div>
 		<div class="home-products grid-5 scroll-left">
-			@foreach ($newest_products as $key => $product) 
+			@foreach ($newest_products as $key => $product)
 				@include('main.product')
 			@endforeach
 		</div>
@@ -77,7 +61,7 @@
 			</div>
 		</div>
 		<div class="home-products grid-5 scroll-left">
-			@foreach ($biggest_discount_products as $key => $product) 
+			@foreach ($biggest_discount_products as $key => $product)
 				@include('main.product')
 			@endforeach
 		</div>
@@ -90,7 +74,7 @@
 			</div>
 		</div>
 		<div class="home-products grid-5 scroll-left">
-			@for ($i = 0; $i < 5; $i++) 
+			@for ($i = 0; $i < 5; $i++)
 				@include('main.product')
 			@endfor
 		</div>
