@@ -26,3 +26,4 @@ Route::get('/purchase/{idcart}', 'MainController@purchase');
 Route::get('/purchase/all', 'MainController@purchaseAll');
 Route::get('/signin', 'MainController@signin');
 Route::get('/signup', 'MainController@signup');
+Route::get('/cart', 'MainController@cart');
