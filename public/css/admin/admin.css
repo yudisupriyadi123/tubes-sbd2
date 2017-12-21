@@ -97,7 +97,6 @@
 }
 #header .place .main ul {
 	float: right;
-	display: none;
 }
 #header .place .main ul li {
 	position: relative;

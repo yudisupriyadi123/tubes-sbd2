@@ -9,6 +9,6 @@ class CostumerController extends Controller
     //
     function index()
     {
-    	return view('costumer/index');
+    	return view('costumer/index', ['title' => 'Costumer']);
     }
 }

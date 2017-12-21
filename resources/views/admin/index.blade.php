@@ -99,15 +99,21 @@
 				<div class="main">
 					<h1>{{ $title }}</h1>
 					<ul>
-					    <li>
-					    	<div class="fa fa-lg fa-gear"></div>
-					    </li>
-					    <li>
-					    	<div class="fa fa-lg fa-bell"></div>
-					    </li>
-					    <li>
-					    	<div class="fa fa-lg fa-user"></div>
-					    </li>
+						<a href="{{ url('/logout') }}">
+							<li>
+						    	<div class="fa fa-lg fa-power-off"></div>
+						    </li>
+						</script>
+					    <a href="{{ url('/admin/setting') }}">
+						    <li>
+						    	<div class="fa fa-lg fa-gear"></div>
+						    </li>
+						</script>
+					    <a href="{{ url('/admin/profile') }}">
+						    <li>
+						    	<div class="fa fa-lg fa-user"></div>
+						    </li>
+						</a>
 					</ul>
 				</div>
 			</div>
