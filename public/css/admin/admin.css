@@ -161,6 +161,9 @@
 	-webkit-column-count: 2;
 	-webkit-column-gap: 20px;
 }
+.grid-block-2 label {
+	cursor: pointer;
+}
 
 /*orders*/
 .frame-order .ctn {
@@ -181,7 +184,7 @@
 	background-color: #fff;
 	box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
 	display: grid;
-	grid-template-columns: 150px 100px 250px 2fr 120px;
+	grid-template-columns: 150px 150px 1fr 100px;
 	grid-gap: 10px;
 	font-size: 14px;
 }

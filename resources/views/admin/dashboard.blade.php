@@ -11,7 +11,7 @@
 			    		<label class="fa fa-lg fa-edit"></label>
 			    	</li>
 			    </a>
-			    <a href="{{ url('/admin/category') }}">
+			    <a href="{{ url('/admin/categories') }}">
 			    	<li>
 			    		<label class="fa fa-lg fa-th"></label>
 			    	</li>
@@ -82,7 +82,7 @@
 					<div class="ctn-4"></div>
 					<div class="ctn-5"></div>
 					<div class="ctn-6">
-						<a href="{{ url('/') }}">
+						<a href="{{ url('/admin/orders') }}">
 							<input type="button" name="view_more" class="btn btn-main-color" value="View All">
 						</a>
 					</div>
@@ -147,7 +147,7 @@
 					<div class="ctn-4"></div>
 					<div class="ctn-5"></div>
 					<div class="ctn-6">
-						<a href="{{ url('/') }}">
+						<a href="{{ url('/admin/costumers') }}">
 							<input type="button" name="view_more" class="btn btn-main-color" value="View All">
 						</a>
 					</div>
@@ -218,12 +218,29 @@
 					<div class="ctn-4"></div>
 					<div class="ctn-5"></div>
 					<div class="ctn-6">
-						<a href="{{ url('/') }}">
+						<a href="{{ url('/admin/products') }}">
 							<input type="button" name="view_more" class="btn btn-main-color" value="View All">
 						</a>
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+	<div class="block">
+		<h3>Others</h3>
+		<div class="content grid-block-2">
+			<ul>
+			    <a href="{{ url('/admin/setting') }}">
+			    	<li>
+			    		<label class="fa fa-lg fa-gear"></label>
+			    	</li>
+			    </a>
+			    <a href="{{ url('/admin/info') }}">
+			    	<li>
+			    		<label class="fa fa-lg fa-info"></label>
+			    	</li>
+			    </a>
+			</ul>
 		</div>
 	</div>
 </div>

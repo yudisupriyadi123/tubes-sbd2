@@ -69,9 +69,6 @@
 						Category
 					</div>
 					<div class="ctn-4">
-						Sub Category
-					</div>
-					<div class="ctn-5">
 						Actions
 					</div>
 				</div>
@@ -89,9 +86,6 @@
 						Category in HereCategory in Here
 					</div>
 					<div class="ctn-4">
-						Sub Category
-					</div>
-					<div class="ctn-5">
 						<button class="btn-circle btn-main-color-2">
 							<div class="fa fa-lg fa-pencil"></div>
 						</button>
