@@ -53,14 +53,14 @@
 .home-articles {
 	position: relative;
 	width: 100%;
-	height: 300px;
+	height: 400px;
 	overflow: hidden;
 	margin-bottom: 30px;
 }
 .home-articles .left {
 	position: relative;
 	width: 70%;
-	height: 300px;
+	height: 400px;
 	float: left;
 	background-color: #f0f0f0;
 }
@@ -90,13 +90,13 @@
 .home-articles .left .frame-articles {
 	position: relative;
 	width: 100%;
-	padding-bottom: 300px;
+	padding-bottom: 400px;
 	background-color: #000;
 }
 .home-articles .right .frame-articles {
 	position: relative;
 	width: 100%;
-	padding-bottom: 150px;
+	padding-bottom: 200px;
 	float: left;
 	background-color: #000;
 }
@@ -326,7 +326,7 @@
 		background-size: 100%;
 	}
 	.home-articles {
-		height: 450px;
+		height: 600px;
 	}
 	.home-articles .left {
 		float: none;
@@ -344,7 +344,7 @@
 		overflow-x: auto;
 	}
 	.scroll-left .frame-products {
-		width: 250px;
+		width: 200px;
 		margin-left: 5px;
 		margin-right: 5px;
 		margin-bottom: 0;

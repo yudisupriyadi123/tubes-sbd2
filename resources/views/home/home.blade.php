@@ -71,21 +71,20 @@
 			</div>
 			<div class="main mn mn-2">
 				<div class="home-panel">
-					<div class="panel-title">
-						<!-- TODO: remove these if not needed. Newest-product is enough, isn't it? -->
-						ALL PRODUCTS
-					</div>
-					<div class="panel-more">
-						<a href="{{ url('shops') }}">
-							<input type="button" name="more-shopp" class="btn btn-white-color-red" value="View All">
-						</a>
-					</div>
+				<div class="panel-title">
+					TOP RATED
 				</div>
-				<div class="home-products grid-4 scroll-left">
-					@for ($i = 0; $i < 4; $i++) 
-						@include('main.product')
-					@endfor
+				<div class="panel-more">
+					<a href="{{ url('top') }}">
+						<input type="button" name="more-shopp" class="btn btn-sekunder-color" value="View All">
+					</a>
 				</div>
+			</div>
+			<div class="home-products grid-5 scroll-left">
+				<?php for ($i = 0; $i < 5; $i++) { ?>
+				@include('main.product')
+				<?php } ?>
+			</div>
 			</div>
 		</div>
 	</div>
