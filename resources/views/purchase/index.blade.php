@@ -152,6 +152,7 @@
 						<a href="{{ url('/') }}">
 							<input type="button" name="Purchase" class="btn btn-main-color" value="Submit your Order">
 						</a>
+						<p>When you submit your order. It will otomatic create an Account. </p>
 					</div>
 				</div>
 			</div>

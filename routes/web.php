@@ -27,3 +27,11 @@ Route::get('/purchase/all', 'MainController@purchaseAll');
 Route::get('/signin', 'MainController@signin');
 Route::get('/signup', 'MainController@signup');
 Route::get('/cart', 'MainController@cart');
+
+//Admin
+Route::get('/admin', 'AdminController@index');
+Route::get('/admin/dashboard', 'AdminController@dashboard');
+Route::get('/admin/post', 'AdminController@post');
+
+//Customer
+Route::get('/costumer', 'CostumerController@index');
