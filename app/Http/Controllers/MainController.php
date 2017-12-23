@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\TransactionDetail;
 
 class MainController extends Controller
 {
@@ -79,7 +80,7 @@ class MainController extends Controller
     {
         return view('/purchase/index',['title' => 'Purchase '.$idcart]);
     }
-    function puchaseAll() 
+    function puchaseAll()
     {
         return view('/purchase/index',['title' => 'Purchase All']);
     }
@@ -104,7 +105,7 @@ class MainController extends Controller
     function checkoutStep1($req)
     {
         $cart_items = Cart::whereIn('id', $req->cart_ids)
-                            ->join('product', 'product.id', '=', 'cart.product_id');
+                        ->join('product', 'product.id', '=', 'cart.product_id');
 
         // TODO: buat view nya
         return view('/checkout/step1', [
@@ -117,6 +118,9 @@ class MainController extends Controller
      * Tahap dimana data transaksi dibuat.
      * Tahap alamat baru disimpan.
      * Tahap dimana setelahnya tinggal menunggu konfirmasi pembayaran dari costumer.
+     *
+     * Daftar Singkatan;
+     *      - CSA = Costumer Shipping Address
      *
      * @param  Request  $req
      * @return Response
@@ -133,32 +137,27 @@ class MainController extends Controller
             // artinya costumer membuat alamat baru
             // TODO: buat model costumer_shipping_address
             $csa = new CSA;
-
             $csa->costumer_email = $costumer_email;
             $csa->address = $req->new_address['address'];
-            $csa->kecamatan = $req->new_address['kecamatan']
-            $csa->kotamadya = $req->new_address['kotamadya']
-            $csa->provinsi = $req->new_address['provinsi']
-            $csa->postal_code = $req->new_address['postal_code']
-            $csa->receiver_name = $req->new_address['receiver_name']
-            $csa->receiver_phone_number = $req->new_address['receiver_phone_number']
-
+            $csa->kecamatan = $req->new_address['kecamatan'];
+            $csa->kotamadya = $req->new_address['kotamadya'];
+            $csa->provinsi = $req->new_address['provinsi'];
+            $csa->postal_code = $req->new_address['postal_code'];
+            $csa->receiver_name = $req->new_address['receiver_name'];
+            $csa->receiver_phone_number = $req->new_address['receiver_phone_number'];
             $csa->save();
 
             $CSA_id = $csa->id; // last id
         }
 
-        // TODO: membuat model Transaction
         $trans = new Transaction;
-
         $trans->courier = $req->courier;
         $trans->costumer_email = $costumer_email;
         $trans->costumer_shipping_address_id = $CSA_id;
-
         $trans->save();
 
-        // TODO: buat metode ini di Transaction model
-        Transaction::moveFromCart($trans->id, $req->cart_ids);
+        // move item from cart to transaction-detail table in DB
+        TransactionDetail::pullItemFromCart($trans->id, $req->cart_ids);
 
         return view('/checkout/step2', [
             'title' => 'Checkout Step 2',
