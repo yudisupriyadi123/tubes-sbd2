@@ -28,6 +28,7 @@ Route::get('/signin', 'MainController@signin');
 Route::get('/signup', 'MainController@signup');
 Route::get('/cart', 'MainController@cart');
 Route::post('/ajax/add-to-cart', 'AjaxController@addToCart');
+Route::post('/ajax/on-change-quantity-cart-item', 'AjaxController@onChangeQuantityOfCartItem');
 
 //Admin
 Route::get('/admin', 'AdminController@index');

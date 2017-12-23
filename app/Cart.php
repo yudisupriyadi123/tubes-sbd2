@@ -12,4 +12,6 @@ class Cart extends Model
      * @var string
      */
     protected $table = 'cart';
+
+    public $timestamps = false;
 }
