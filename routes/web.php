@@ -40,6 +40,9 @@ Route::get('/admin/costumers', 'AdminController@costumers');
 Route::get('/admin/products', 'AdminController@products');
 Route::get('/admin/setting', 'AdminController@setting');
 Route::get('/admin/info', 'AdminController@info');
+Route::get('/admin/profile', 'AdminController@profile');
+Route::get('/admin/costumer/{idcostumer}', 'AdminController@costumer');
 
 //Customer
 Route::get('/costumer', 'CostumerController@index');
+Route::get('/costumer/{idcostumer}', 'CostumerController@costumer');

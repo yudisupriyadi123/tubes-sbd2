@@ -11,4 +11,8 @@ class CostumerController extends Controller
     {
     	return view('costumer/index', ['title' => 'Costumer']);
     }
+    function costumer($idcostumer)
+    {
+    	return view('costumer/index', ['title' => 'Costumer '.$idcostumer]);
+    }
 }
