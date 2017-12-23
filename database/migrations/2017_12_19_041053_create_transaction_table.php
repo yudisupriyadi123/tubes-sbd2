@@ -15,8 +15,10 @@ class CreateTransactionTable extends Migration
     {
         Schema::create('transaction', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps('payment_has_verified_at');
+            $table->string('courier', 8);
+            $table->dateTime('payment_has_verified_at');
             $table->string('costumer_email', 35)->nullable()->index();
+            $table->integer('costumer_shipping_address_id')->nullable()->index();
         });
     }
 
