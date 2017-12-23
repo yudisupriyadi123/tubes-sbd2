@@ -66,7 +66,7 @@
 	font-size: 15px;
 	top: -2.5px;
 }
-.place-panel ul li:hover {
+.place-panel ul li:hover > .text-panel {
 	color: #CA4F4F;
 }
 .place-panel .panel-block-search .btn-circle, .btn-head {
@@ -119,9 +119,7 @@
 	cursor: pointer;
 	font-size: 20px;
 }
-.place-panel .panel-block-search .menu-user .icon-top:hover {
-	color: #CA4F4F;
-}
+
 .place-panel .panel-block-search .head-top {
 	top: 12px;
 }

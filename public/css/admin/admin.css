@@ -1,0 +1,247 @@
+#main-place {
+	position: relative;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 300px 1fr;
+}
+
+/*menu samping*/
+#side {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	grid-column: 1;
+}
+#side .place {
+	position: fixed;
+	width: 300px;
+	height: 100%;
+	background-color: #fff;
+	box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+}
+#side .place ul {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+}
+#side .place ul a {
+	text-decoration: none;
+	cursor: pointer;
+}
+#side .place ul li {
+	position: relative;
+	list-style: none;
+	display: block;
+	width: 95%;
+	color: #555;
+	padding: 10px 2.5%;
+}
+#side .place ul li:hover {
+	background-color: rgba(0,0,0,0.1);
+	color: #000;
+}
+#side .place ul li label {
+	cursor: pointer;
+}
+#side .place ul li .icn {
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	background-color: #CA4F4F;
+	color: #fff;
+	text-align: center;
+	border-radius: 100%;
+}
+#side .place ul li .ttl {
+	position: relative;
+	top: 5px;
+	font-size: 14px;
+	font-weight: 900;
+	margin-left: 10px;
+}
+
+/*main*/
+#main {
+	position: relative;
+	width: 100%;
+	grid-column: 2;
+}
+
+/*header*/
+#header {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 80px;
+}
+#header .place {
+	position: relative;
+	width: 95%;
+	height: 80px;
+	line-height: 80px;
+	margin: auto;
+	background-color: #fff;
+	box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+	margin-top: 20px;
+}
+#header .place .main {
+	position: relative;
+	width: 95%;
+	margin: auto;
+}
+#header .place h1 {
+	color: #555;
+	float: left;
+}
+#header .place .main ul {
+	float: right;
+}
+#header .place .main ul li {
+	position: relative;
+	width: 40px;
+	text-align: center;
+	list-style: none;
+	float: left;
+	color: #555;
+	cursor: pointer;
+}
+
+/*body*/
+#body {
+	position: relative;
+	width: 100%;
+	margin: 30px 0;
+}
+#body .ctn {
+	position: relative;
+	width: 95%;
+	margin: auto;
+}
+#body .ctn h1 {
+	color: #555;
+}
+
+.main-admin .block {
+	margin-bottom: 20px;
+}
+.main-admin .block h3 {
+	margin-bottom: 20px;
+	color: #555;
+}
+.main-admin .block ul li {
+	position: relative;
+	width: 100%;
+	height: 200px;
+	line-height: 200px;
+	background-color: #fff;
+	box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+	text-align: center;
+	list-style: none;
+	display: inline-block;
+	font-size: 35px;
+}
+
+/*footer*/
+#footer {
+	position: relative;
+	width: 100%;
+	height: 100px;
+	background-color: #000;
+}
+
+/*setting*/
+.grid-block-2 {
+	column-count: 2;
+	column-gap: 20px;
+	-moz-column-count: 2;
+	-moz-column-gap: 20px;
+	-webkit-column-count: 2;
+	-webkit-column-gap: 20px;
+}
+.grid-block-2 label {
+	cursor: pointer;
+}
+
+/*orders*/
+.frame-order .ctn {
+	position: relative;
+	width: 100%;
+	padding: 15px 2.5%;
+	background-color: #fff;
+	box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+	display: grid;
+	grid-template-columns: 100px 100px 1fr 180px 120px 100px;
+	grid-gap: 10px;
+	font-size: 14px;
+}
+.frame-order .ctn-ctr {
+	position: relative;
+	width: 95%;
+	padding: 15px 2.5%;
+	background-color: #fff;
+	box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+	display: grid;
+	grid-template-columns: 150px 150px 1fr 100px;
+	grid-gap: 10px;
+	font-size: 14px;
+}
+.ctn .head {
+	font-weight: 900;
+}
+.ctn .value {
+	font-weight: 100;
+}
+.ctn .btn-circle {
+	width: 30px;
+	height: 30px;
+	line-height: 10px;
+}
+.ctn .btn-circle .fa {
+	font-size: 14px;
+}
+.ctn .ctn-1 {
+	grid-column: 1;
+}
+.ctn .ctn-1 a {
+	font-weight: 900;
+	color: #CA4F4F;
+}
+.ctn .ctn-2 {
+	grid-column: 2;
+}
+.ctn .ctn-3 {
+	grid-column: 3;
+}
+.ctn .ctn-4 {
+	grid-column: 4;
+}
+.ctn .ctn-5 {
+	grid-column: 5;
+}
+.ctn .ctn-6 {
+	grid-column: 6;
+}
+.ctn .image {
+	position: relative;
+	width: 70px;
+	padding-bottom: 70px;
+	background-size: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: #000;
+	border-radius: 3px;
+}
+.value .ctn-6 {
+	text-align: left;
+}
+.main-admin .frame-products {
+	margin-bottom: 20px;
+	display: inline-block;
+}
+.main-admin .compose {
+	width: 95%;
+	padding: 10px 2.5% 40px 2.5%;
+	display: inline-block;
+}

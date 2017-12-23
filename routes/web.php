@@ -21,8 +21,24 @@ Route::get('/product/{id}', 'MainController@product');
 Route::get('/order/cek', 'MainController@orderCek');
 Route::get('/order/proof', 'MainController@orderProof');
 Route::get('/category/{ctr}', 'MainController@category');
+Route::get('/cart', 'MainController@cart');
+Route::get('/purchase/{idcart}', 'MainController@purchase');
+Route::get('/purchase/all', 'MainController@purchaseAll');
 Route::get('/signin', 'MainController@signin');
 Route::get('/signup', 'MainController@signup');
 Route::get('/cart', 'MainController@cart');
-
 Route::post('/ajax/add-to-cart', 'AjaxController@addToCart');
+
+//Admin
+Route::get('/admin', 'AdminController@index');
+Route::get('/admin/dashboard', 'AdminController@dashboard');
+Route::get('/admin/post', 'AdminController@post');
+Route::get('/admin/categories', 'AdminController@categories');
+Route::get('/admin/orders', 'AdminController@orders');
+Route::get('/admin/costumers', 'AdminController@costumers');
+Route::get('/admin/products', 'AdminController@products');
+Route::get('/admin/setting', 'AdminController@setting');
+Route::get('/admin/info', 'AdminController@info');
+
+//Customer
+Route::get('/costumer', 'CostumerController@index');

@@ -332,7 +332,7 @@
 	background-color: #fff;
 	display: grid;
 	grid-template-columns: 50% 1fr;
-	border: 1px #ededed solid;
+	box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
 }
 
 .product-panel {
@@ -397,7 +397,11 @@
 .need-p clr {
 	color: #CA4F4F;
 }
-.stock .place-stock {
+.total-order {
+	font-size: 14px;
+	color: #999;
+}
+.place-stock {
 	position: relative;
 	margin-top: 5px;
 	width: 200px;
@@ -408,10 +412,10 @@
 	overflow: hidden;
 	border-radius: 3px;
 }
-.stock .place-stock .op {
+.place-stock .op {
 	float: left;
 }
-.stock .place-stock .btn-qty {
+.place-stock .btn-qty {
 	width: 100%;
 	height: 35px;
 	padding: 0;
@@ -420,11 +424,11 @@
 	background-color: #fff;
 	color: #999;
 }
-.stock .place-stock .btn:hover {
+.place-stock .btn:hover {
 	background-color: #f0f0f0;
 	color: #CA4F4F;
 }
-.stock .place-stock .txt {
+.place-stock .txt {
 	width: 94%;
 	border-radius: 0;
 	text-align: center;
@@ -539,5 +543,8 @@
 		padding: 2.5%;
 		grid-template-columns: 100%;
 		border: 0;
+	}
+	.place-stock {
+		width: 100%;
 	}
 }

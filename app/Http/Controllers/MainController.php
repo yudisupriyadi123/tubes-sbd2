@@ -49,7 +49,15 @@ class MainController extends Controller
     }
     function product($id)
     {
-        return view('/product/index',['title' => 'Product '.$id]);
+        // TODO: jangan lupa ganti khusu untuk admin
+        $newest_products =
+        Product::orderBy('created_at', 'desc')
+            ->take(5)
+            ->get();
+        return view('/product/index',[
+            'title' => 'Product '.$id,
+            'newest_products' => $newest_products
+        ]);
     }
     function category($ctr)
     {
@@ -63,6 +71,18 @@ class MainController extends Controller
     {
         return view('/main/proof',['title' => 'Order Proof']);
     }
+    function cart()
+    {
+        return view('/cart/index',['title' => 'cart']);
+    }
+    function purchase($idcart)
+    {
+        return view('/purchase/index',['title' => 'Purchase '.$idcart]);
+    }
+    function puchaseAll() 
+    {
+        return view('/purchase/index',['title' => 'Purchase All']);
+    }
     function signin()
     {
         return view('/sign/in',['title' => 'Signin']);
@@ -70,10 +90,6 @@ class MainController extends Controller
     function signup()
     {
         return view('/sign/up',['title' => 'Signup']);
-    }
-    function cart()
-    {
-        return view('cart/index', ['title' => 'Your Cart']);
     }
     /**
      * TODO: atur route nya
@@ -149,3 +165,4 @@ class MainController extends Controller
         ]);
     }
 }
+

@@ -66,10 +66,13 @@
 				<label class="fa fa-lg fa-shopping-cart"></label>
 				<label>Add to Cart</label>
 			</button>
-			<button class="btn btn-sekunder-color">
-				<label class="fa fa-lg fa-money"></label>
-				<label>Order Now</label>
-			</button>
+			<!--id nya harus diganti-->
+			<a href="{{ url('/purchase/12045') }}">
+				<button class="btn btn-main-color-2">
+					<label class="fa fa-lg fa-money"></label>
+					<label>Order Now</label>
+				</button>
+			</a>
 		</div>
 	</div>
 </div>
@@ -155,10 +158,13 @@
 							<label class="fa fa-lg fa-shopping-cart"></label>
 							<label>Add to Cart</label>
 						</button>
-						<button class="btn btn-sekunder-color">
-							<label class="fa fa-lg fa-money"></label>
-							<label>Order Now</label>
-						</button>
+						<!--id nya harus diganti-->
+						<a href="{{ url('/purchase/12045') }}">
+							<button class="btn btn-main-color-2">
+								<label class="fa fa-lg fa-money"></label>
+								<label>Order Now</label>
+							</button>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -310,7 +316,6 @@
 		</div>
 	</div>
 </div>
-	{{{-- TODO: atur related post [ini adalah blade comment]
 	<div class="home-content main-width">
 		<div class="home-panel">
 			<div class="panel-title">
@@ -318,11 +323,9 @@
 			</div>
 		</div>
 		<div class="home-products grid-5 scroll-left">
-			@for ($i = 0; $i < 5; $i++)
+		@foreach ($newest_products as $key => $product)
 			@include('main.product')
-			@endfor
-			}}}
+		@endforeach
 		</div>
 	</div>
-	--}}}
 @endsection

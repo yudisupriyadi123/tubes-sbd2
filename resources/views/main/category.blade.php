@@ -37,15 +37,4 @@
 	    </a>
 	    @endfor
 	</ol>
-	<div class="ctr-head">Tranding Nows</div>
-	<ol>
-		@for ($i=1; $i <= 5; $i++)
-	    <a href="{{ url('/tags/ctr'.$i) }}">
-	    	<li>
-	    		<label class="icn fa fa-lg fa-star"></label>
-	    		<label class="ttl">Tags {{ $i }}</label>
-	    	</li>
-	    </a>
-	    @endfor
-	</ol>
 </div>
