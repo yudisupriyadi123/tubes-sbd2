@@ -17,7 +17,7 @@ class CreateCartTable extends Migration
             $table->increments('id');
             $table->string('size', 3);
             $table->string('color', 20);
-            $table->tinyInteger('amount');
+            $table->tinyInteger('quantity');
             $table->string('costumer_email', 35)->index();
             $table->integer('product_id')->unsigned()->index();;
         });

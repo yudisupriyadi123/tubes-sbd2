@@ -27,6 +27,7 @@ Route::get('/purchase/all', 'MainController@purchaseAll');
 Route::get('/signin', 'MainController@signin');
 Route::get('/signup', 'MainController@signup');
 Route::get('/cart', 'MainController@cart');
+Route::post('/ajax/add-to-cart', 'AjaxController@addToCart');
 
 //Admin
 Route::get('/admin', 'AdminController@index');

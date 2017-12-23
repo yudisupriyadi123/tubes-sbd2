@@ -49,7 +49,7 @@ class MainController extends Controller
     }
     function product($id)
     {
-        //jangan lupa ganti khusu untuk admin
+        // TODO: jangan lupa ganti khusu untuk admin
         $newest_products =
         Product::orderBy('created_at', 'desc')
             ->take(5)
@@ -57,8 +57,7 @@ class MainController extends Controller
         return view('/product/index',[
             'title' => 'Product '.$id,
             'newest_products' => $newest_products
-        ]
-        );
+        ]);
     }
     function category($ctr)
     {
@@ -92,4 +91,78 @@ class MainController extends Controller
     {
         return view('/sign/up',['title' => 'Signup']);
     }
+    /**
+     * TODO: atur route nya
+     * Tahap dimana data transaksi masih belum dibuat, masih tetap hanya di keranjang.
+     * Tahap dimana costumer (1) mengisi alamat dan (2) memilih kurir.
+     * Tahap lanjutan dari halaman keranjang setelah menekan tombol Bayar.
+     *
+     * @param  Request  $req    berisi cart_id dari produk yang dipilih ketika di laman
+     *                          keranjang
+     * @return Response
+     */
+    function checkoutStep1($req)
+    {
+        $cart_items = Cart::whereIn('id', $req->cart_ids)
+                            ->join('product', 'product.id', '=', 'cart.product_id');
+
+        // TODO: buat view nya
+        return view('/checkout/step1', [
+            'title' => 'Checkout Step 1',
+            'cart_items' => $cart_items,
+        ]);
+    }
+    /**
+     * TODO: atur route nya
+     * Tahap dimana data transaksi dibuat.
+     * Tahap alamat baru disimpan.
+     * Tahap dimana setelahnya tinggal menunggu konfirmasi pembayaran dari costumer.
+     *
+     * @param  Request  $req
+     * @return Response
+     */
+    function checkoutStep2($req)
+    {
+        // TODO: get current logged in costumer email
+        $costumer_email = "fake_costumer@gmail.com";
+
+        if (!empty($req->address['costumer_shipping_address_id'])) {
+            // artinya costumer memilih alamat yang sudah ada
+            $CSA_id = $req->address['costumer_shipping_address_id'];
+        } else {
+            // artinya costumer membuat alamat baru
+            // TODO: buat model costumer_shipping_address
+            $csa = new CSA;
+
+            $csa->costumer_email = $costumer_email;
+            $csa->address = $req->new_address['address'];
+            $csa->kecamatan = $req->new_address['kecamatan']
+            $csa->kotamadya = $req->new_address['kotamadya']
+            $csa->provinsi = $req->new_address['provinsi']
+            $csa->postal_code = $req->new_address['postal_code']
+            $csa->receiver_name = $req->new_address['receiver_name']
+            $csa->receiver_phone_number = $req->new_address['receiver_phone_number']
+
+            $csa->save();
+
+            $CSA_id = $csa->id; // last id
+        }
+
+        // TODO: membuat model Transaction
+        $trans = new Transaction;
+
+        $trans->courier = $req->courier;
+        $trans->costumer_email = $costumer_email;
+        $trans->costumer_shipping_address_id = $CSA_id;
+
+        $trans->save();
+
+        // TODO: buat metode ini di Transaction model
+        Transaction::moveFromCart($trans->id, $req->cart_ids);
+
+        return view('/checkout/step2', [
+            'title' => 'Checkout Step 2',
+        ]);
+    }
 }
+
