@@ -48,4 +48,12 @@ class AdminController extends Controller
     {
     	return view('admin/info', ['title' => 'Info']);
     }
+    function profile()
+    {
+        return view('admin/profile', ['title' => 'Profile']);
+    }
+    function costumer($idcostumer)
+    {
+        return view('admin/costumerProfile', ['title' => 'Costumer Profile ',$idcostumer]);
+    }
 }

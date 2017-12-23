@@ -30,7 +30,9 @@
 			@endfor
 		</div>
 		<div class="bot">
-			<input type="button" name="to_purchase" class="btn btn-main-color" value="Next to Purchase">
+			<a href="{{ url('/purchase/all') }}">
+				<input type="button" name="to_purchase" class="btn btn-main-color" value="Next to Purchase">
+			</a>
 			<a href="{{ url('/cart') }}">
 				<input type="button" name="to_purchase" class="btn btn-white-color-red" value="View All Carts">
 			</a>

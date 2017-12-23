@@ -242,6 +242,33 @@ a {
 	top: 45%;
 }
 
+.desc-panel {
+	position: relative;
+	width: 100%;
+	height: 50px;
+	background-color: #f0f0f0;
+	border: 2px #f0f0f0 solid;
+	border-radius: 4px;
+}
+.desc-panel ul li {
+	position: relative;
+	width: 25%;
+	line-height: 50px;
+	text-align: center;
+	float: left;
+	list-style: none;
+	font-size: 14px;
+	cursor: pointer;
+	color: #999;
+}
+.desc-panel ul li:hover {
+	color: #555;
+}
+.desc-panel ul li.desc-panel-select {
+	background-color: #fff;
+	color: #555;
+}
+
 @media only screen and (max-width: 768px) {
 	.main-width {
 		width: 95%;

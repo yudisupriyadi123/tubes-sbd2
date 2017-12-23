@@ -15,6 +15,8 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/admin/admin.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/admin/post.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/frame.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/css/costumer.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/css/cart.css') }}">
 	
 
 	<script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
@@ -72,16 +74,16 @@
 			    		<label class="ttl">List Products</label>
 			    	</li>
 			    </a>
+			    <a href="{{ url('/admin/profile') }}">
+			    	<li>
+			    		<label class="icn fa fa-lg fa-user"></label>
+			    		<label class="ttl">Admin Profile</label>
+			    	</li>
+			    </a>
 			    <a href="{{ url('/admin/setting') }}">
 			    	<li>
 			    		<label class="icn fa fa-lg fa-gear"></label>
 			    		<label class="ttl">Setting</label>
-			    	</li>
-			    </a>
-			    <a href="{{ url('/admin/info') }}">
-			    	<li>
-			    		<label class="icn fa fa-lg fa-info"></label>
-			    		<label class="ttl">Info</label>
 			    	</li>
 			    </a>
 			    <a href="{{ url('/logout') }}">
