@@ -14,4 +14,14 @@ class Cart extends Model
     protected $table = 'cart';
 
     public $timestamps = false;
+
+    public function product()
+    {
+        return $this->hasOne('App\Product', 'id', 'product_id');
+    }
+
+    public function costumer()
+    {
+        return $this->hasOne('App\Costumer');
+    }
 }
