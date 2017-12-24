@@ -16,7 +16,7 @@
         // TODO: make ajax request more efficient
         $(".btn-qty").click(function(){
             var parentElm = $(this).closest(".mn.mid");
-            var cart_id = parentElm.find("input[name=cart_id]").val();
+            var cart_id = parentElm.find("input[name^=cart_ids]").val();
             var qtyElm = parentElm.find("input[name=qty]");
 
             if ($(this).attr('id') == 'qty-min' && qtyElm.val() > 1) qtyElm.val(parseInt(qtyElm.val())-1);
@@ -34,35 +34,44 @@
                 },
                 dataType: 'json',
             }).done(function(res){
-                console.log(res);
+                parentElm.find(".subtotal").text(res.subtotal_price);
             }).fail(function(err){
                 console.log(err);
             });
         });
+
+        $("input[name^=cart_ids]").attr('disabled', true);
+        $(".ck.ckbox").click(function(){
+            var bool = true;
+            if ($(this).prop('checked') == true) bool = false;
+
+            $(this).closest(".mn.mid").find("input[name^=cart_ids]").attr('disabled', bool);
+        });
     });
 </script>
+<form method="post" action="{{url('checkout/step1')}}">
+{{ csrf_field() }}
 <div class="main-width">
     <h1>Shopping Cart</h1>
     <div class="main-cart">
         <div class="main">
             <div class="mn top">
                 <span class="cek left">
-                    <input type="checkbox" name="sellect_all" class="ck ckbox" value="false">
+                    <input type="checkbox" class="ck ckbox-all" value="false">
                     <span>Sellect All Transactions</span>
                 </span>
                 <span class="right">
                     <input type="button" name="delete_all" class="btn btn-white-color-red" value="Dellete All">
                 </span>
             </div>
-            @for ($i=1; $i < 4; $i++)
+            @foreach ($cart_items as $key => $cart_item)
             <div class="mn mid">
-                <!-- TODO: ganti 4 dengan cart_id sebenarnya dari variabel -->
-                <input type="hidden" name="cart_id" value="4">
+                <input type="hidden" name="cart_ids[]" value="{{ $cart_item->cart_id }}">
                 <div class="frame-cart">
                     <div class="top">
                         <span class="cek left">
-                            <input type="checkbox" name="sellect_all" class="ck ckbox" value="false">
-                            <span>Sellect This Product</span>
+                            <input type="checkbox" class="ck ckbox" value="false">
+                            <span>Select This Product</span>
                         </span>
                         <span class="right">
                             <button class="btn btn-white-color">
@@ -76,36 +85,36 @@
                         </div>
                         <div class="mid-2">
                             <div class="ttl">
-                                The title product will be in here.
+                                {{ $cart_item->product_name }}
                             </div>
                             <div class="place-stock">
                                 <button class="op btn-qty" id="qty-min">
                                     <label class="fa fa-lg fa-minus"></label>
                                 </button>
-                                <input type="text" name="qty" class="op txt" placeholder="qty" value="1" id="qty" readonly>
+                                <input type="text" name="qty" class="op txt" placeholder="qty" value="{{ $cart_item->cart_quantity }}" id="qty" readonly>
                                 <button class="op btn-qty" id="qty-plus">
                                     <label class="fa fa-lg fa-plus"></label>
                                 </button>
                             </div>
                         </div>
                         <div class="mid-3">
-                            <span>IDR 350,000,00</span>
+                            <span>IDR {{ $cart_item->product_price_discount }}</span>
                         </div>
                     </div>
                     <div class="bot-cart">
                         <div class="sub">
-                            <div>Subtotal: <b>IDR 350,000,00</b></div>
+                            <div>Subtotal: <b class="subtotal">IDR {{ $cart_item->product_price_discount * $cart_item->cart_quantity }} </b></div>
                             <div class="sh">Shipping not included</div>
                         </div>
                         <div class="pur">
-                            <a href="{{ url('/purchase/'.$i) }}">
+                            <a href="{{ url('/purchase/') }}">
                                 <input type="button" name="purchase" class="btn btn-main-color" value="Purchase Now">
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-            @endfor
+            @endforeach
         </div>
         <div class="side">
             <div class="mn total-shipping" id="all-shipping">
@@ -118,9 +127,9 @@
                         <label class="sh"><b>IDR 350,000,00</b></label>
                     </div>
                     <div class="pur">
-                        <a href="{{ url('/purchase/all') }}">
-                            <input type="button" name="Purchase" class="btn btn-main-color" value="Purchase All">
-                        </a>
+
+                        <button class="btn btn-main-color">Purchase All</button>
+
                     </div>
                 </div>
             </div>
@@ -128,4 +137,5 @@
     </div>
 
 </div>
+</form>
 @endsection
