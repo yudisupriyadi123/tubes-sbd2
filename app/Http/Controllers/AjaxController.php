@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use App\Cart;
-
+use App\CSA;
 
 class AjaxController extends Controller
 {
@@ -55,7 +55,85 @@ class AjaxController extends Controller
             $cart_item->quantity = $r['qty'];
             $cart_item->save();
 
-            return response()->json(['status' => 'OK']);
+            $prod = $cart_item->product()->get()->first();
+            $price_discount =
+            $prod->price-($prod->price*($prod->discount_in_percent/100));
+
+            return response()->json([
+                'status' => 'OK',
+                'subtotal_price' => $price_discount * $cart_item->quantity,
+            ]);
+        } catch (QueryException $e) {
+            return response()->json([
+                'status' => 'BAD',
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
+
+    function addCSA(Request $req)
+    {
+        $r = $req->all();
+
+        // TODO: get current logged in costumer email
+        $costumer_email = "fake_costumer@gmail.com";
+
+        try {
+            $csa = new CSA();
+
+            $csa->costumer_email = $costumer_email;
+            $csa->address = $r['address'];
+            $csa->kecamatan = $r['kecamatan'];
+            $csa->kotamadya = $r['kotamadya'];
+            $csa->provinsi = $r['provinsi'];
+            $csa->postal_code = $r['postal_code'];
+            $csa->receiver_name = $r['receiver_name'];
+            $csa->receiver_phone_number = $r['receiver_phone_number'];
+
+            $csa->save();
+
+            $returnHTML = view('costumer_shipping_address/index', [
+                'csa' => $csa,
+            ])->render();
+
+            return response()->json([
+                'status' => 'OK',
+                'html'=> $returnHTML,
+            ]);
+        } catch (QueryException $e) {
+            return response()->json([
+                'status' => 'BAD',
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
+
+    function getAllCSA(Request $req)
+    {
+        $r = $req->all();
+
+        $csa_items = CSA::where('costumer_email', '=', $r['costumer_email'])->get();
+
+        $returnHTML = view('ajax/list-of-costumer-shipping-address', [
+                        'csa_items' => $csa_items,
+                     ])->render();
+
+        return  response()->json([
+            'status' => 'OK',
+            'html'=> $returnHTML,
+        ]);
+    }
+
+    function getCSAbyId(Request $req) {
+        $id = $req->all()['id'];
+
+        try {
+            $csa = CSA::find($id);
+
+            return  response()->json([
+                'status' => 'OK',
+                'data'=> $csa,
+            ]);
         } catch (QueryException $e) {
             return response()->json([
                 'status' => 'BAD',
