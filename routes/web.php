@@ -29,6 +29,15 @@ Route::get('/signup', 'MainController@signup');
 Route::get('/cart', 'MainController@cart');
 Route::post('/ajax/add-to-cart', 'AjaxController@addToCart');
 Route::post('/ajax/on-change-quantity-cart-item', 'AjaxController@onChangeQuantityOfCartItem');
+Route::get('/ajax/on-change-quantity-cart-item', 'AjaxController@onChangeQuantityOfCartItem');
+Route::post('/checkout/step1', 'MainController@checkoutStep1');
+Route::get('/checkout/step1', 'MainController@checkoutStep1');
+Route::get('/ajax/add-csa', 'AjaxController@addCSA');
+Route::post('/ajax/add-csa', 'AjaxController@addCSA');
+Route::post('/ajax/get-csa-by-id', 'AjaxController@getCSAbyId');
+// TODO: hapus
+Route::get('/ajax/get-all-csa', 'AjaxController@getAllCSA');
+Route::post('/ajax/get-all-csa', 'AjaxController@getAllCSA');
 
 //Admin
 Route::get('/admin', 'AdminController@index');
