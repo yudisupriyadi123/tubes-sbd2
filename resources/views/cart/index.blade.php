@@ -74,7 +74,7 @@
                             <span>Select This Product</span>
                         </span>
                         <span class="right">
-                            <button class="btn btn-white-color">
+                            <button type="button" class="btn btn-white-color">
                                 <div class="fa fa-lg fa-close"></div>
                             </button>
                         </span>
@@ -88,11 +88,11 @@
                                 {{ $cart_item->product_name }}
                             </div>
                             <div class="place-stock">
-                                <button class="op btn-qty" id="qty-min">
+                                <button type="button" class="op btn-qty" id="qty-min">
                                     <label class="fa fa-lg fa-minus"></label>
                                 </button>
                                 <input type="text" name="qty" class="op txt" placeholder="qty" value="{{ $cart_item->cart_quantity }}" id="qty" readonly>
-                                <button class="op btn-qty" id="qty-plus">
+                                <button type="button" class="op btn-qty" id="qty-plus">
                                     <label class="fa fa-lg fa-plus"></label>
                                 </button>
                             </div>
@@ -128,7 +128,7 @@
                     </div>
                     <div class="pur">
 
-                        <button class="btn btn-main-color">Purchase All</button>
+                        <button type="submit" class="btn btn-main-color">Purchase All</button>
 
                     </div>
                 </div>
