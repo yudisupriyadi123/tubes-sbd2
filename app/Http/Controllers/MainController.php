@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\TransactionDetail;
+use App\Costumer;
+use App\Cart;
+use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
 {
@@ -74,7 +77,23 @@ class MainController extends Controller
     }
     function cart()
     {
-        return view('/cart/index',['title' => 'cart']);
+        // TODO: get current logged in costumer email
+        $costumer_email = "fake_costumer@gmail.com";
+
+        $cart_items = Costumer::find($costumer_email)
+            ->cart()
+            ->join('product AS prod', 'prod.id', '=', 'cart.product_id')
+            ->get([
+                'cart.id AS cart_id',
+                'cart.quantity AS cart_quantity',
+                'prod.name AS product_name',
+                DB::raw('prod.price - (prod.price * (prod.discount_in_percent/100)) AS product_price_discount'),
+            ]);
+
+        return view('/cart/index', [
+            'title' => 'cart',
+            'cart_items' => $cart_items
+        ]);
     }
     function purchase($idcart)
     {
@@ -102,13 +121,28 @@ class MainController extends Controller
      *                          keranjang
      * @return Response
      */
-    function checkoutStep1($req)
+    function checkoutStep1(Request $req)
     {
+        $r = $req->all();
         $cart_items = Cart::whereIn('id', $req->cart_ids)
                         ->join('product', 'product.id', '=', 'cart.product_id');
 
+        // TODO: get current logged in costumer email
+        $costumer_email = "fake_costumer@gmail.com";
+
+        $cart_items = Costumer::find($costumer_email)
+            ->cart()
+            ->whereIn('cart.id', $req->cart_ids)
+            ->join('product AS prod', 'prod.id', '=', 'cart.product_id')
+            ->get([
+                'cart.id AS cart_id',
+                'cart.quantity AS cart_quantity',
+                'prod.name AS product_name',
+                DB::raw('prod.price - (prod.price * (prod.discount_in_percent/100)) AS product_price_discount'),
+            ]);
+
         // TODO: buat view nya
-        return view('/checkout/step1', [
+        return view('/purchase/index', [
             'title' => 'Checkout Step 1',
             'cart_items' => $cart_items,
         ]);
