@@ -21,11 +21,12 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/purchase.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/frame.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/costumer.css') }}">
-
+	<link rel="stylesheet" type="text/css" href="{{ asset('/js/jquery-ui/jquery-ui.min.css') }}">
 	<script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('/js/jquery-ui/jquery-ui.min.js') }}"></script>
 
 	<script type="text/javascript">
-		
+
 		window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
@@ -161,7 +162,7 @@
 						    	</div>
 							</li>
 						</div>
-						
+
 					</div>
 				</ul>
 			</div>
