@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Transaction;
 use App\TransactionDetail;
 use App\Costumer;
 use App\Cart;
@@ -159,42 +160,25 @@ class MainController extends Controller
      * @param  Request  $req
      * @return Response
      */
-    function checkoutStep2($req)
+    function checkoutStep2(Request $req)
     {
+        $r = $req->all();
+
         // TODO: get current logged in costumer email
         $costumer_email = "fake_costumer@gmail.com";
 
-        if (!empty($req->address['costumer_shipping_address_id'])) {
-            // artinya costumer memilih alamat yang sudah ada
-            $CSA_id = $req->address['costumer_shipping_address_id'];
-        } else {
-            // artinya costumer membuat alamat baru
-            // TODO: buat model costumer_shipping_address
-            $csa = new CSA;
-            $csa->costumer_email = $costumer_email;
-            $csa->address = $req->new_address['address'];
-            $csa->kecamatan = $req->new_address['kecamatan'];
-            $csa->kotamadya = $req->new_address['kotamadya'];
-            $csa->provinsi = $req->new_address['provinsi'];
-            $csa->postal_code = $req->new_address['postal_code'];
-            $csa->receiver_name = $req->new_address['receiver_name'];
-            $csa->receiver_phone_number = $req->new_address['receiver_phone_number'];
-            $csa->save();
-
-            $CSA_id = $csa->id; // last id
-        }
-
         $trans = new Transaction;
-        $trans->courier = $req->courier;
+        $trans->courier = $r['courier'];
         $trans->costumer_email = $costumer_email;
-        $trans->costumer_shipping_address_id = $CSA_id;
+        $trans->costumer_shipping_address_id = $r['csa_id'];
         $trans->save();
 
         // move item from cart to transaction-detail table in DB
-        TransactionDetail::pullItemFromCart($trans->id, $req->cart_ids);
+        TransactionDetail::pullItemFromCart($trans->id, $r['cart_ids']);
 
-        return view('/checkout/step2', [
+        return view('/checkout/step-2', [
             'title' => 'Checkout Step 2',
+            'trans_id' => $trans->id,
         ]);
     }
 }

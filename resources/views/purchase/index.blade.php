@@ -143,10 +143,28 @@
 		$("#change-address").click(function(){
 			dialog2.dialog( "open" );
 		});
+
+		// ===========================
+
+		$("form#primary").submit(function(event){
+
+
+			var csa_id = $("input[name=csa_id]").val();
+			// TODO: make it safe from inspect element
+			var courier = $("select[name=courier]").val();
+			console.log(courier);
+			if (csa_id == -1 || courier == "") {
+				$("#submit-hint").html('<span class="alert">Courier and shipping address is required</span>');
+				event.preventDefault();
+			}
+
+			return;
+		});
 	});
 </script>
 
-<form id="primary" method="post" action="">
+<form id="primary" method="post" action="{{ url('checkout/step2') }}">
+	{{ csrf_field() }}
 	<input type="hidden" name="csa_id" value="-1">
 
 	<div class="main-width">
@@ -157,6 +175,7 @@
 						<h3>Detail Customer</h3>
 					</div>
 					<div id="shipping-address" class="place-mn mid">
+						<!-- TODO: use last CSA -->
 						No selected address
 					</div>
 					<div class="place-mn bot">
@@ -218,14 +237,19 @@
 				</div>
 				<div class="mn">
 					<div class="place-mn top">
-						<h3>Put your Cupoun</h3>
+						<h3>Choose Courier</h3>
 					</div>
 					<div class="place-mn">
 						<div class="block">
 							<div class="ttl">
-								Code Cupoun
+								<!-- empty -->
 							</div>
-							<input type="text" name="name" class="txt txt-main-color">
+							<select name="courier" class="select">
+								<option value="">Select Courier</option>
+								<option value="JNE">JNE</option>
+								<option value="JNE">TIKI</option>
+								<option value="JNE">J&T</option>
+							</select>
 						</div>
 					</div>
 				</div>
@@ -262,10 +286,8 @@
 								<b class="ttl">IDR 10.000,00</b>
 							</div>
 						</div>
-						<a href="{{ url('/') }}">
-							<input type="button" name="Purchase" class="btn btn-main-color" value="Submit your Order">
-						</a>
-						<p>When you submit your order. It will otomatic create an Account. </p>
+						<button class="btn btn-main-color">Submit your Order</button>
+						<p id="submit-hint"></p>
 					</div>
 				</div>
 			</div>

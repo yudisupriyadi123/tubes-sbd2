@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use app\Cart;
+use App\Cart;
 
 class TransactionDetail extends Model
 {
@@ -14,16 +14,18 @@ class TransactionDetail extends Model
      */
     protected $table = 'transaction_detail';
 
+    public $timestamps = false;
+
     /**
      * Move db record from Cart to TransactionDetail table
      *
      * @var integer             $trans_id
      * @var array of integer    $cart_ids
      */
-    function pullItemFromCart($trans_id, $cart_ids)
+    static function pullItemFromCart($trans_id, $cart_ids)
     {
         foreach ($cart_ids as $key => $cart_id) {
-            $cart_item = Cart::find($cart_id));
+            $cart_item = Cart::find($cart_id);
             $trans_detail = new Self;
 
             $trans_detail->size = $cart_item->size;

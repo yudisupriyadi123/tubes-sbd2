@@ -12,4 +12,14 @@ class Transaction extends Model
      * @var string
      */
     protected $table = 'transaction';
+
+    public $timestamps = false;
+
+    /**
+     * the $timestamps laravel still not OK.
+     *
+     */
+    public function setCreatedAtAttribute($value) {
+        $this->attributes['created_at'] = \Carbon\Carbon::now();
+    }
 }

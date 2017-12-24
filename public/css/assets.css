@@ -341,3 +341,21 @@ a {
 	color: #555;
 	font-size: 15px;
 }
+
+.alert {
+	display: block;
+	color: red;
+	background-color: yellow;
+	padding: 10px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.select {
+	width: 100%;
+	background-color: white;
+	border: 1px solid #dcdcdc;
+	border-radius: 3px;
+	padding: 10px;
+	box-sizing: border-box;
+}
