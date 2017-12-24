@@ -68,9 +68,26 @@ class MainController extends Controller
     {
         return view('/category/index',['title' => 'Category '.$ctr]);
     }
-    function orderCek()
+    function orderCek(Request $req)
     {
-        return view('/main/cek',['title' => 'Order Cek']);
+        if (!$req->isMethod('post')) {
+            return view('/main/cek',['title' => 'Order Cek']);
+        }
+
+        $r = $req->all();
+        $trans = Transaction::whereRaw("MD5(`id`) = '{$r['trans_id']}'")->first();
+
+        if (!$trans) {
+            return view('/main/cek',[
+                'title' => 'Order Cek',
+                'order_id_not_found' => true
+            ]);
+        }
+
+        return view('/main/order-status', [
+            'title' => 'Order Status',
+            'status' => $trans->status,
+        ]);
     }
     function orderProof()
     {

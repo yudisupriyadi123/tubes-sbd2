@@ -9,10 +9,16 @@
 			<div class="border-bottom"></div>
 		</div>
 		<div class="mid">
-			<form>
+			<form method="post" action="{{ url('order/cek') }}">
+				{{ csrf_field() }}
+				@if (isset($order_id_not_found))
+				<div class="block">
+					<span class="alert">Order ID tidak ditemukan</span>
+				</div>
+				@endif
 				<div class="block">
 					<div class="icn">Order ID</div>
-					<input type="text" name="text" class="txt" placeholder="123456..." required="true">
+					<input type="text" name="trans_id" class="txt" required="true">
 				</div>
 				<div class="block">
 					<input type="submit" name="cek" value="Check" class="btn btn-active-2 btn-main-color">
