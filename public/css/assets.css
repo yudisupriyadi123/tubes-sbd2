@@ -23,7 +23,7 @@ a {
 }
 
 .no-scroll {
-	position: fixed; 
+	position: fixed;
     overflow-y: scroll;
     width: 100%;
 }
@@ -316,4 +316,28 @@ a {
 		margin-top: 15px;
 		border-top: 1px #ededed solid;
 	}
+}
+
+#error-405 {
+	margin: 40px auto;
+	width: 40%;
+	background-color: white;
+	border-radius: 3px;
+	padding: 100px 100px;
+	box-sizing: border-box;
+	font-size: 18px;
+	text-align: center;
+}
+
+#error-405 .fa {
+	color: orange;
+	font-size: 80px;
+	text-shadow: 1px 1px 3px #dcdcdc;
+	margin-bottom: 30px;
+	display: block;
+}
+
+#error-405 .hint {
+	color: #555;
+	font-size: 15px;
 }
