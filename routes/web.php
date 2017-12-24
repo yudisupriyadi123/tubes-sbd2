@@ -31,7 +31,6 @@ Route::post('/ajax/add-to-cart', 'AjaxController@addToCart');
 Route::post('/ajax/on-change-quantity-cart-item', 'AjaxController@onChangeQuantityOfCartItem');
 Route::get('/ajax/on-change-quantity-cart-item', 'AjaxController@onChangeQuantityOfCartItem');
 Route::post('/checkout/step1', 'MainController@checkoutStep1');
-Route::get('/checkout/step1', 'MainController@checkoutStep1');
 Route::get('/ajax/add-csa', 'AjaxController@addCSA');
 Route::post('/ajax/add-csa', 'AjaxController@addCSA');
 Route::post('/ajax/get-csa-by-id', 'AjaxController@getCSAbyId');
