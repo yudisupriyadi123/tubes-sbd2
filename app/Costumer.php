@@ -19,4 +19,11 @@ class Costumer extends Model
     {
         return $this->hasMany('App\Cart', 'costumer_email');
     }
+
+    static function getCartItemsWithJoinProduct($costumer_email)
+    {
+        return Self::find($costumer_email)
+                    ->cart()
+                    ->join('product AS prod', 'prod.id', '=', 'cart.product_id');
+    }
 }
