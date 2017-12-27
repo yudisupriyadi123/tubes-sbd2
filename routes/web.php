@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'MainController@index');
+Route::get('/', 'HomeController@index');
 Route::get('/shops', 'MainController@shops');
 Route::get('/recent', 'MainController@recent');
 Route::get('/popular', 'MainController@popular');
