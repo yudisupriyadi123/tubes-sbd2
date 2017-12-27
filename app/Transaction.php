@@ -22,4 +22,9 @@ class Transaction extends Model
     public function setCreatedAtAttribute($value) {
         $this->attributes['created_at'] = \Carbon\Carbon::now();
     }
+
+    static function getByIdMD5()
+    {
+        return Self::whereRaw("MD5(`id`) = '{$r['trans_id']}'");
+    }
 }

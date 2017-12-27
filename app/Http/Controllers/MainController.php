@@ -74,26 +74,7 @@ class MainController extends Controller
     {
         return view('/main/proof',['title' => 'Order Proof']);
     }
-    function cart()
-    {
-        // TODO: get current logged in costumer email
-        $costumer_email = "fake_costumer@gmail.com";
 
-        $cart_items = Costumer::find($costumer_email)
-            ->cart()
-            ->join('product AS prod', 'prod.id', '=', 'cart.product_id')
-            ->get([
-                'cart.id AS cart_id',
-                'cart.quantity AS cart_quantity',
-                'prod.name AS product_name',
-                DB::raw('prod.price - (prod.price * (prod.discount_in_percent/100)) AS product_price_discount'),
-            ]);
-
-        return view('/cart/index', [
-            'title' => 'cart',
-            'cart_items' => $cart_items
-        ]);
-    }
     function purchase($idcart)
     {
         return view('/purchase/index',['title' => 'Purchase '.$idcart]);
