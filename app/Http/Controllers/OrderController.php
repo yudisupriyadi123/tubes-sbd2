@@ -7,6 +7,10 @@ use App\Transaction;
 
 class OrderController extends Controller
 {
+    /**
+     * Web page used by costumer to check their order status.
+     *
+     */
     function check(Request $req)
     {
         if (!$req->isMethod('post')) {
@@ -19,20 +23,24 @@ class OrderController extends Controller
         $trans = Transaction::getByIdMD5($r['trans_id'])->first();
 
         if (!$trans) {
-            return view('/main/cek',[
+            return view('/order/cek',[
                 'title' => 'Order Cek',
                 'order_id_not_found' => true
             ]);
         }
 
-        return view('/main/order-status', [
+        return view('/order/order-status', [
             'title' => 'Order Status',
             'status' => $trans->status,
         ]);
     }
 
-    function orderProof()
+    /**
+     * Web page used by costumer to send photo of her evidence of transfer.
+     *
+     */
+    function proof()
     {
-        return view('/main/proof',['title' => 'Order Proof']);
+        return view('/order/proof',['title' => 'Order Proof']);
     }
 }
