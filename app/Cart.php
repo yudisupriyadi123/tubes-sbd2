@@ -24,4 +24,10 @@ class Cart extends Model
     {
         return $this->hasOne('App\Costumer');
     }
+
+    static function getWithJoinProductByIds($cart_ids)
+    {
+        return Cart::whereIn('id', $cart_ids)
+                    ->join('product', 'product.id', '=', 'cart.product_id');
+    }
 }
