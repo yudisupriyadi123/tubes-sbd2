@@ -7,7 +7,7 @@ use App\Costumer;
 
 class CartController extends Controller
 {
-    function cart()
+    function index()
     {
         // TODO: get current logged in costumer email
         $costumer_email = "fake_costumer@gmail.com";
