@@ -34,7 +34,7 @@ class CheckoutController extends Controller
             ]);
 
         // TODO: buat view nya
-        return view('/purchase/index', [
+        return view('/checkout/step-1', [
             'title' => 'Checkout Step 1',
             'cart_items' => $cart_items,
         ]);
