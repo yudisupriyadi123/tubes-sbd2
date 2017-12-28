@@ -27,7 +27,7 @@ class Cart extends Model
 
     static function getWithJoinProductByIds($cart_ids)
     {
-        return Cart::whereIn('id', $cart_ids)
-                    ->join('product', 'product.id', '=', 'cart.product_id');
+        return Cart::whereIn('cart.id', $cart_ids)
+                    ->join('product AS prod', 'prod.id', '=', 'cart.product_id');
     }
 }
