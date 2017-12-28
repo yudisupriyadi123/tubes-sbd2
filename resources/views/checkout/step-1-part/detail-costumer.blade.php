@@ -1,5 +1,6 @@
-<!-- DIALOG FORM -->
+<!-- DIALOG FORM 1 -->
 @include('checkout.step-1-part.dialog-form-create-new-address')
+<!-- DIALOG FORM 2 -->
 @include('checkout.step-1-part.dialog-form-choose-address')
 
 <div class="mn">
@@ -17,6 +18,8 @@
 </div>
 
 <script>
+/* the documentReady is important here */
+$(document).ready(function() {
 // TODO: remove this
 // var dtAddress = '<div class="block"><div class="ttl">Address</div><textarea class="txt txt-main-color textarea"></textarea></div>';
 //
@@ -94,13 +97,13 @@
         }
     });
 
-    $("#new-address").click(function(){
-        dialog.dialog( "open" );
-    });
-
     form = dialog.find( "form" ).on( "submit", function( event ) {
         event.preventDefault();
         addCSA();
+    });
+
+    $("#new-address").click(function(){
+        dialog.dialog( "open" );
     });
 
 /* ---------------------------------------------------------------------------------
@@ -138,8 +141,6 @@
         },
         close: function() {
             console.log('test');
-            form[ 0 ].reset();
-            allFields.removeClass( "ui-state-error" );
         },
         open: function() {
             $.ajax({
@@ -165,4 +166,5 @@
     $("#change-address").click(function(){
         dialog2.dialog( "open" );
     });
+});
 </script>

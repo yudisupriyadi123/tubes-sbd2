@@ -31,11 +31,10 @@
 	{{ csrf_field() }}
 	<input type="hidden" name="csa_id" value="-1">
 
-	<!-- DETAIL COSTUMER -->
-	@include('checkout.step-1-part.detail-costumer')
-
 	<div class="main-width">
 		<div class="purchase">
+			<!-- DETAIL COSTUMER -->
+			@include('checkout.step-1-part.detail-costumer')
 
 			<!-- DETAIL PRODUCT -->
 			@include('checkout.step-1-part.detail-product',
