@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Cart;
 use App\Costumer;
 use App\Transaction;
@@ -29,8 +30,7 @@ class CheckoutController extends Controller
                 'cart.id AS cart_id',
                 'cart.quantity AS cart_quantity',
                 'prod.name AS product_name',
-                'prod.discount_in_percent/100 AS product_discount'
-                DB::raw('prod.price - (prod.price * product_discount) AS product_price_discount'),
+                DB::raw('prod.price - (prod.price * (prod.discount_in_percent/100)) AS product_price_discount'),
             ]);
 
         // TODO: buat view nya
