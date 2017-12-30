@@ -86,7 +86,7 @@
 			    		<label class="ttl">Setting</label>
 			    	</li>
 			    </a>
-			    <a href="{{ url('/logout') }}">
+			    <a href="{{ url('/admin/logout') }}">
 			    	<li>
 			    		<label class="icn fa fa-lg fa-power-off"></label>
 			    		<label class="ttl">Logout</label>
@@ -101,7 +101,7 @@
 				<div class="main">
 					<h1>{{ $title }}</h1>
 					<ul>
-						<a href="{{ url('/logout') }}">
+						<a href="{{ url('/admin/logout') }}">
 							<li>
 						    	<div class="fa fa-lg fa-power-off"></div>
 						    </li>

@@ -269,6 +269,21 @@ a {
 	color: #555;
 }
 
+.failed {
+	position: fixed;
+	top: 60px;
+	left: 0;
+	z-index: 100;
+	width: 100%;
+	padding: 10px 0;
+	background-color: #e68c80;
+	color: #fff;
+	font-weight: 900;
+	text-align: center;
+	cursor: pointer;
+	display: none;
+}
+
 @media only screen and (max-width: 768px) {
 	.main-width {
 		width: 95%;

@@ -52,7 +52,16 @@ Route::get('/admin/setting', 'AdminController@setting');
 Route::get('/admin/info', 'AdminController@info');
 Route::get('/admin/profile', 'AdminController@profile');
 Route::get('/admin/costumer/{idcostumer}', 'AdminController@costumer');
+Route::post('/admin/login', 'LoginController@loginAdmin');
+Route::get('/admin/logout', 'LoginController@logoutAdmin');
 
 //Customer
 Route::get('/costumer', 'CostumerController@index');
 Route::get('/costumer/{idcostumer}', 'CostumerController@costumer');
+
+//login
+Route::post('/user/login', 'LoginController@loginUser');
+Route::get('/user/logout', 'LoginController@logout');
+
+//signup
+Route::post('/user/signup', 'LoginController@signupUser');

@@ -50,10 +50,12 @@
 					    	<span class="icn fa fa-lg fa-gear"></span>
 					    	<span>Setting</span>
 					    </li>
-					    <li>
-					    	<span class="icn fa fa-lg fa-power-off"></span>
-					    	<span>Logout</span>
-					    </li>
+					    <a href="{{ url('/user/logout') }}">
+						    <li>
+						    	<span class="icn fa fa-lg fa-power-off"></span>
+						    	<span>Logout</span>
+						    </li>
+						</a>
 					</ul>
 				</div>
 				<div class="bot">

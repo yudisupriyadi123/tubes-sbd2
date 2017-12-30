@@ -9,7 +9,12 @@ class CostumerController extends Controller
     //
     function index()
     {
-    	return view('costumer/index', ['title' => 'Costumer']);
+    	$iduser = session()->get('iduser');
+    	if (!empty($iduser)) {
+    		return view('costumer/index', ['title' => 'Costumer']);	
+    	} else {
+    		redirect(url('/'));
+    	}
     }
     function costumer($idcostumer)
     {

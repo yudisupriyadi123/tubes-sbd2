@@ -7,53 +7,116 @@ use App\Product;
 
 class AdminController extends Controller
 {
-    //
+    function layout($path, $title)
+    {
+        $idadmin = session()->get('idadmin');
+        if (!empty($idadmin)) {
+            return view($path, ['title' => $title]);
+        } else {
+            return view('admin/login');
+        }
+    }
     function index()
     {
-    	return view('admin/dashboard', ['title' => 'Dashboard']);
+        $idadmin = session()->get('idadmin');
+        if (!empty($idadmin)) {
+            return view('admin/dashboard', ['title' => 'Dashboard']);
+        } else {
+            return view('admin/login');
+        }
     }
     function dashboard()
     {
-    	return view('admin/dashboard', ['title' => 'Dashboard']);
+        $idadmin = session()->get('idadmin');
+        if (!empty($idadmin)) {
+            return view('admin/dashboard', ['title' => 'Dashboard']);
+        } else {
+            return view('admin/login');
+        }
     }
     function post()
     {
-    	return view('admin/post', ['title' => 'Add Product']);
+        $idadmin = session()->get('idadmin');
+        if (!empty($idadmin)) {
+            return view('admin/post', ['title' => 'Add Product']);
+        } else {
+            return view('admin/login');
+        }
     }
     function orders()
     {
-    	return view('admin/orders', ['title' => 'List Orders']);
+        $idadmin = session()->get('idadmin');
+        if (!empty($idadmin)) {
+            return view('admin/orders', ['title' => 'List Orders']);
+        } else {
+            return view('admin/login');
+        }
     }
     function costumers()
     {
-    	return view('admin/costumers', ['title' => 'List Costumers']);
+        $idadmin = session()->get('idadmin');
+        if (!empty($idadmin)) {
+            return view('admin/costumers', ['title' => 'List Costumers']);
+        } else {
+            return view('admin/login');
+        }
     }
     function products()
     {
-    	$newest_products =
-        Product::orderBy('created_at', 'desc')
-            ->take(5)
-            ->get();
-    	return view('admin/products', ['title' => 'List Products','newest_products' => $newest_products]);
+        $idadmin = session()->get('idadmin');
+        if (!empty($idadmin)) {
+            $newest_products =
+            Product::orderBy('created_at', 'desc')
+                ->take(5)
+                ->get();
+            return view('admin/products', ['title' => 'List Products','newest_products' => $newest_products]);
+        } else {
+            return view('admin/login');
+        }
     }
     function categories()
     {
-    	return view('admin/categories', ['title' => 'Categories']);
+        $idadmin = session()->get('idadmin');
+        if (!empty($idadmin)) {
+            return view('admin/categories', ['title' => 'Categories']);
+        } else {
+            return view('admin/login');
+        }
     }
     function setting()
     {
-    	return view('admin/setting', ['title' => 'Setting']);
+        $idadmin = session()->get('idadmin');
+        if (!empty($idadmin)) {
+            return view('admin/setting', ['title' => 'Setting']);
+        } else {
+            return view('admin/login');
+        }
     }
     function info()
     {
-    	return view('admin/info', ['title' => 'Info']);
+        $idadmin = session()->get('idadmin');
+        if (!empty($idadmin)) {
+            return view('admin/info', ['title' => 'Info']);
+        } else {
+            return view('admin/login');
+        }
     }
     function profile()
     {
-        return view('admin/profile', ['title' => 'Profile']);
+        $idadmin = session()->get('idadmin');
+        if (!empty($idadmin)) {
+            return view('admin/profile', ['title' => 'Profile']);
+        } else {
+            return view('admin/login');
+        }
     }
     function costumer($idcostumer)
     {
-        return view('admin/costumerProfile', ['title' => 'Costumer Profile ',$idcostumer]);
+        $idadmin = session()->get('idadmin');
+        if (!empty($idadmin)) {
+            return view('admin/costumerProfile', ['title' => 'Costumer Profile ',$idcostumer]);
+        } else {
+            return view('admin/login');
+        }
     }
 }
