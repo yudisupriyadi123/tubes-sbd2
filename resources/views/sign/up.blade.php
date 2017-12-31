@@ -21,6 +21,14 @@
 				<div class="block">
 					<div class="icn">Your Email</div>
 					<input type="email" name="email" class="txt" placeholder="" required="true">
+				<div class="block">
+					<div class="icn">Your Home Address</div>
+					<input type="text" name="address" class="txt" placeholder="" required="true">
+					@if ($errors->has('address'))
+	                    <span class="help-block">
+	                        <strong>{{ $errors->first('address') }}</strong>
+	                    </span>
+	                @endif
 				</div>
 				<div class="block">
 					<div class="icn">Create Password</div>
