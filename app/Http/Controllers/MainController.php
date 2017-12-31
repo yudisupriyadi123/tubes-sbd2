@@ -63,12 +63,4 @@ class MainController extends Controller
     {
         return view('/purchase/index',['title' => 'Purchase All']);
     }
-    function signin()
-    {
-        return view('/sign/in',['title' => 'Signin']);
-    }
-    function signup()
-    {
-        return view('/sign/up',['title' => 'Signup']);
-    }
 }
