@@ -13,14 +13,27 @@
 		</div>
 		<div class="mid">
 			<div class="border-bottom"></div>
-			<form>
+			<form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                {{ csrf_field() }}
+
 				<div class="block">
 					<div class="icn">Full Name</div>
 					<input type="text" name="name" class="txt" placeholder="" required="true">
+					@if ($errors->has('name'))
+	                    <span class="help-block">
+	                        <strong>{{ $errors->first('name') }}</strong>
+	                    </span>
+	                @endif
 				</div>
 				<div class="block">
 					<div class="icn">Your Email</div>
 					<input type="email" name="email" class="txt" placeholder="" required="true">
+					@if ($errors->has('email'))
+	                    <span class="help-block">
+	                        <strong>{{ $errors->first('email') }}</strong>
+	                    </span>
+	                @endif
+				</div>
 				<div class="block">
 					<div class="icn">Your Home Address</div>
 					<input type="text" name="address" class="txt" placeholder="" required="true">
@@ -33,6 +46,15 @@
 				<div class="block">
 					<div class="icn">Create Password</div>
 					<input type="password" name="password" class="txt" placeholder="" required="true">
+					@if ($errors->has('password'))
+	                    <span class="help-block">
+	                        <strong>{{ $errors->first('password') }}</strong>
+	                    </span>
+	                @endif
+				</div>
+				<div class="block">
+					<div class="icn">Password Confirmation</div>
+					<input type="password" name="password_confirmation" class="txt" placeholder="" required="true">
 				</div>
 				<div class="block">
 					<input type="submit" name="login" value="Signup" class="btn btn-active-2 btn-main-color">

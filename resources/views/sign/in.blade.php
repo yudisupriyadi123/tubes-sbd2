@@ -13,14 +13,26 @@
 		</div>
 		<div class="mid">
 			<div class="border-bottom"></div>
-			<form>
+			<form class="form-horizontal" method="POST" action="{{ route('login') }}">
+				{{ csrf_field() }}
+
 				<div class="block">
 					<div class="icn">Email</div>
 					<input type="email" name="email" class="txt" placeholder="" required="true">
+					@if ($errors->has('email'))
+					<span class="help-block">
+						<strong>{{ $errors->first('email') }}</strong>
+					</span>
+					@endif
 				</div>
 				<div class="block">
 					<div class="icn">Password</div>
 					<input type="password" name="password" class="txt" placeholder="" required="true">
+					@if ($errors->has('password'))
+					<span class="help-block">
+						<strong>{{ $errors->first('password') }}</strong>
+					</span>
+					@endif
 				</div>
 				<div class="block">
 					<input type="submit" name="login" value="Login" class="btn btn-active-2 btn-main-color">
