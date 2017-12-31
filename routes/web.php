@@ -29,6 +29,8 @@ Route::get('/purchase/all', 'MainController@purchaseAll');
 Route::get('/signin', 'MainController@signin');
 Route::get('/signup', 'MainController@signup');
 Route::post('/ajax/add-to-cart', 'AjaxController@addToCart');
+Route::post('/ajax/update-cart', 'AjaxController@updateCart');
+Route::get('/ajax/update-cart', 'AjaxController@updateCart');
 Route::post('/ajax/on-change-quantity-cart-item', 'AjaxController@onChangeQuantityOfCartItem');
 Route::get('/ajax/on-change-quantity-cart-item', 'AjaxController@onChangeQuantityOfCartItem');
 Route::post('/checkout/step1', 'CheckoutController@checkoutStep1');

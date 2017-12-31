@@ -36,4 +36,24 @@ class Product extends Model
                     ->take($max_record)
                     ->get();
     }
+
+    public function sizes()
+    {
+        return $this->hasMany('\App\ProductSizes', 'product_id', 'id');
+    }
+
+    public function colors()
+    {
+        return $this->hasMany('\App\ProductColors', 'product_id', 'id');
+    }
+
+    public function images()
+    {
+        return $this->hasMany('\App\ProductImages', 'product_id', 'id');
+    }
+
+    public function thumbnail()
+    {
+        return $this->hasOne('\App\ProductImages', 'id', 'thumbnail_image_id');
+    }
 }

@@ -36,13 +36,19 @@ class MainController extends Controller
     function product($id)
     {
         // TODO: jangan lupa ganti khusu untuk admin
-        $newest_products =
-        Product::orderBy('created_at', 'desc')
-            ->take(5)
-            ->get();
+        $product = Product::find($id);
+        $product_sizes = $product->sizes;
+        $product_colors = $product->colors;
+        $product_images = $product->images;
+        $product_thumbnail = $product->thumbnail;
+
         return view('/product/index',[
-            'title' => 'Product '.$id,
-            'newest_products' => $newest_products
+            'title' => 'Product '.$product->name,
+            'product' => $product,
+            'product_sizes' => $product_sizes,
+            'product_colors' => $product_colors,
+            'product_images' => $product_images,
+            'product_thumbnail' => $product_thumbnail,
         ]);
     }
     function category($ctr)

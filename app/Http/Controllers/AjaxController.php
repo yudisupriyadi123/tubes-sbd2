@@ -15,23 +15,28 @@ class AjaxController extends Controller
      * @param  Request  $req
      * @return Response
      */
-    function addToCart($req)
+    function addToCart(Request $req)
     {
+        $r = $req->all();
+
         // TODO: get current logged in costumer email
         $costumer_email = "fake_costumer@gmail.com";
 
         try {
             $cart = new Cart;
 
-            $cart->size = $req->size;
-            $cart->color = $req->color;
-            $cart->quantity = $req->quantity;
+            $cart->size = $r['size'];
+            $cart->color = $r['color'];
+            $cart->quantity = $r['quantity'];
             $cart->costumer_email = $costumer_email;
-            $cart->product_id = $req->product_id;
+            $cart->product_id = $r['product_id'];
 
             $cart->save();
 
-            return response()->json(['status' => 'OK']);
+            return response()->json([
+                'status' => 'OK',
+                'cart_id' => $cart->id,
+            ]);
         } catch (QueryException $e) {
             return response()->json([
                 'status' => 'ERR',
@@ -39,6 +44,31 @@ class AjaxController extends Controller
             ]);
         }
 
+    }
+
+    function updateCart(Request $req)
+    {
+        $r = $req->all();
+
+        try {
+            $cart = Cart::find($r['cart_id']);
+
+            $cart->size = $r['size'];
+            $cart->color = $r['color'];
+            $cart->quantity = $r['quantity'];
+
+            $cart->save();
+
+            return response()->json([
+                'status' => 'OK',
+                'cart_id' => $cart->id,
+            ]);
+        } catch (QueryException $e) {
+            return response()->json([
+                'status' => 'ERR',
+                'message' => $e->getMessage(),
+            ]);
+        }
     }
 
     /**

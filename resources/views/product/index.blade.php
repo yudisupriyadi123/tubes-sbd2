@@ -53,43 +53,75 @@
       }
 
     });
-  });
+
+    /* --------------------------------------------------------------------------
+     |
+     |
+     | -------------------------------------------------------------------------- */
+
+    // mengandung data keranjang yang akan dikirim ke server
+    var json = {size: null, color: null, quantity: null, product_id: null, cart_id: -1};
+
+    $(".btn-color").click(function(){
+      $(".btn-color").removeClass("selected");
+      $(this).addClass("selected");
+      if (json.cart_id == -1) return; // not needed to update DB
+      updateJson();
+    });
+    $(".btn-size").click(function(){
+      $(".btn-size").removeClass("selected");
+      $(this).addClass("selected");
+      if (json.cart_id == -1) return;
+      updateJson();
+    });
+
+    $("#btn-addto-cart").click(function(){
+      updateJson();
+    });
+
+    function updateJson() {
+      // this is important, don't change assign form of json object below (see line 104)
+      json.size = $(".btn-size.selected").data('id') || null,
+      json.color = $(".btn-color.selected").data('id') || null,
+      json.quantity = $("input[name=qty]").val(),
+      json.product_id = {{ $product->id }},
+      json.cart_id = json.cart_id || null,
+      sendToServer();
+    }
+
+    function sendToServer() {
+      // HATI-HATI: apakah index.php terikuti atau tidak, mungkin bergantung pada URL yang diakses user
+      var destination = json.cart_id == -1 ? '{{ url('/ajax/add-to-cart') }}' : '{{ url('ajax/update-cart') }}';
+      $.ajax({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name=csrf-token]').attr('content')
+          },
+          method: 'POST',
+          // TODO: penting. atur agar tidak memakai fixed url gini
+          url: destination,
+          data: json,
+          dataType: 'json',
+      }).done(function(res){
+          if (res.status == 'OK') {
+            alert('Telah disimpan ke keranjang');
+            json.cart_id = res.cart_id; // take successful saved cart_id from server
+          }
+          if (res.status == 'ERR') alert('Gagal menyimpan: ',  res.message);
+      }).fail(function(err){
+          alert('FAIL');
+      });
+    }
+});
 </script>
-<div class="product-panel">
-  <div class="main">
-    <div class="post-idr idr">
-      <div class="ttl">IDR: 587,000</div>
-      <div class="ttl2">IDR: 687,000</div>
-    </div>
-    <div class="post-btn">
-      <button class="btn btn-main-color">
-        <label class="fa fa-lg fa-shopping-cart"></label>
-        <label>Add to Cart</label>
-      </button>
-      <!--id nya harus diganti-->
-      <a href="{{ url('/purchase/12045') }}">
-        <button class="btn btn-main-color-2">
-          <label class="fa fa-lg fa-money"></label>
-          <label>Order Now</label>
-        </button>
-      </a>
-    </div>
-  </div>
-</div>
 <div class="view-post main-width">
 
   <div class="content-post">
-    <div class="main-post" style="background-image: url('{{ url('/') }}/img/banner1.jpg');"></div>
+    <div class="main-post" style="background-image: url('{{ asset($product_thumbnail->image) }}');"></div>
     <div class="side-post">
       <div class="other-picts">
-        <div class="view-picts" style="background-image: url('{{ url('/') }}/img/banner1.jpg');"></div>
-        <div class="view-picts" style="background-image: url('{{ url('/') }}/img/banner1.jpg');"></div>
-        <div class="view-picts" style="background-image: url('{{ url('/') }}/img/banner1.jpg');"></div>
-        <div class="view-picts" style="background-image: url('{{ url('/') }}/img/banner1.jpg');"></div>
-        <div class="view-picts" style="background-image: url('{{ url('/') }}/img/banner1.jpg');"></div>
-        <div class="view-picts" style="background-image: url('{{ url('/') }}/img/banner1.jpg');"></div>
-        <div class="view-picts" style="background-image: url('{{ url('/') }}/img/banner1.jpg');"></div>
-        <div class="view-picts" style="background-image: url('{{ url('/') }}/img/banner1.jpg');"></div>
+        @foreach ($product_images as $key => $image)
+          <div class="view-picts" style="background-image: url('{{ asset($image->image) }}');"></div>
+        @endforeach
       </div>
     </div>
   </div>
@@ -108,53 +140,48 @@
 
       <div class="content content-show" id="info">
         <div class="header-post">
-          <h1>This is Just for a Test</h1>
+          <h1>{{ $product->name }}</h1>
           <div class="post-bot">
             <div class="locate">
               <label class="fa fa-lg fa-user"></label>
-              <label class="val">Wisata Kampung</label>
+              <label class="val"> Admin 1</label>
             </div>
             <div class="locate">
               <label class="fa fa-lg fa-clock-o"></label>
-              <label class="val">Published on 01/02/2018 12:00:00 PM</label>
+              <label class="val">Published on {{ $product->created_at }}</label>
             </div>
           </div>
           <div class="idr">
-            <div class="ttl">IDR: 587,000</div>
-            <div class="ttl2">IDR: 687,000</div>
+            <div class="ttl">IDR: {{ $product->price-($product->price*($product->discount_in_percent/100)) }}</div>
+            <div class="ttl2">IDR: {{ $product->price }}</div>
           </div>
           <div class="size need-p">
-            <p><b>Availble size on</b></p>
-            <p>You can specificed it letter</p>
-            <button class="btn">S</button>
-            <button class="btn">M</button>
-            <button class="btn">L</button>
-            <button class="btn">XL</button>
-            <button class="btn">XXL</button>
+            <p><b>Available size on</b></p>
+            @foreach ($product_sizes as $key => $size)
+              <button data-id="{{ $size->id }}" type="button" class="btn btn-size">{{ $size->size }}</button>
+            @endforeach
           </div>
           <div class="color need-p">
             <p><b>Availble color on</b></p>
-            <button class="btn btn-color color-1"></button>
-            <button class="btn btn-color color-2"></button>
-            <button class="btn btn-color color-3"></button>
-            <button class="btn btn-color color-4"></button>
-            <button class="btn btn-color color-5"></button>
+            @foreach ($product_colors as $key => $color)
+              <button data-id="{{ $color->id }}" class="btn btn-color color-{{$color->color}}"></button>
+            @endforeach
           </div>
           <div class="stock need-p">
-            <p><b>Available <clr> on > 9 Stock </clr> Products</b></p>
+            <p><b>Available on <clr> {{ $product->stock }} Stock </clr> Products</b></p>
             <p>Put count of product that you want</p>
             <div class="place-stock">
               <button class="op btn-qty" id="qty-min">
                 <label class="fa fa-lg fa-minus"></label>
               </button>
-              <input type="text" name="qty" class="op txt" placeholder="qty" value="1" id="qty" disabled="true">
+              <input type="text" name="qty" class="op txt" placeholder="qty" value="1" id="qty" readonly="true">
               <button class="op btn-qty" id="qty-plus">
                 <label class="fa fa-lg fa-plus"></label>
               </button>
             </div>
           </div>
           <div class="post-btn">
-            <button class="btn btn-main-color">
+            <button class="btn btn-main-color" id="btn-addto-cart">
               <label class="fa fa-lg fa-shopping-cart"></label>
               <label>Add to Cart</label>
             </button>
@@ -171,9 +198,7 @@
 
       <div class="content" id="desc">
         <h2>Descriptions</h2>
-        <p>Method Lock()digunakan untuk menandai bahwa semua operasi pada baris setelah kode tersebut adalah bersifat eksklusif. Hanya ada satu buah goroutine yang bisa melakukannya dalam satu waktu. Jika ada banyak goroutine yang eksekusinya bersamaan, harus antri. Pada kode di atas terdapat kode untuk increment nilai meter.val. Maka property tersebut hanya bisa diakses oleh satu goroutine saja. Method Unlock() akan membuka kembali akses operasi ke property/variabel yang di lock. Bisa dibilang, proses mutual exclusion terjadi diantara kedua method tersebut, Unlock() Lock() dan. Tak hanya ketika pengubahan nilai, pada saat pengaksesan juga perlu ditambahkan kedua fungsi ini, agar data yang diambil benar-benar data pada waktu itu.</p>
-        <h2>Notes</h2>
-        <p>Method Lock()digunakan untuk menandai bahwa semua operasi pada baris setelah kode tersebut adalah bersifat eksklusif. Hanya ada satu buah goroutine yang bisa melakukannya dalam satu waktu. Jika ada banyak goroutine yang eksekusinya bersamaan, harus antri. Pada kode di atas terdapat kode untuk increment nilai meter.val. Maka property tersebut hanya bisa diakses oleh satu goroutine saja.</p>
+        <p>{{ $product->description }}</p>
       </div>
       <div class="content" id="other">
         <h2>Details Product</h2>
@@ -323,9 +348,11 @@
       </div>
     </div>
     <div class="home-products grid-5 scroll-left">
-    @foreach ($newest_products as $key => $product)
+    {{-- TODO: remove
+    @foreach ($s as $key => $product)
       @include('main.product')
     @endforeach
+    --}}
     </div>
   </div>
 @endsection
