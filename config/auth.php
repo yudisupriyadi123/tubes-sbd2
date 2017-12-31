@@ -66,8 +66,8 @@ return [
 
     'providers' => [
         'costumers' => [
-            'driver' => 'database',
-            'table' => 'costumer',
+            'driver' => 'eloquent',
+            'model' => App\Costumer::class,
         ],
 
         //'users' => [
