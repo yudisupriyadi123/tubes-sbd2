@@ -38,12 +38,12 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'costumers',
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'users',      // TODO: ubah
         ],
     ],
 
@@ -65,10 +65,15 @@ return [
     */
 
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\User::class,
+        'costumers' => [
+            'driver' => 'database',
+            'table' => 'costumer',
         ],
+
+        //'users' => [
+        //    'driver' => 'eloquent',
+        //    'model' => App\User::class,
+        //],
 
         // 'users' => [
         //     'driver' => 'database',
@@ -93,7 +98,7 @@ return [
 
     'passwords' => [
         'users' => [
-            'provider' => 'users',
+            'provider' => 'users',              // TODO: ubah
             'table' => 'password_resets',
             'expire' => 60,
         ],
