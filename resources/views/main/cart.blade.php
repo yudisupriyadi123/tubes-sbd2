@@ -11,23 +11,32 @@
 		-->
 		</div>
 		<div class="mid">
-			@for ($i=1; $i < 10; $i++)
-			<div class="frame-cart-popup">
-				<div class="main-crt">
-					<div class="image-cart" style="background-image: url('{{ url('/') }}/img/banner1.jpg');"></div>
-				</div>
-				<div class="side-crt">
-					<div class="ttl">
-						This is place title
+		@if (!Auth::check())
+		You must login
+		@else
+<?php $cart_items = \App\Costumer::getCartItemsWithJoinProduct(Auth::user()['email'])->get() ?>
+			@if ($cart_items->count() == 0)
+			Empty
+			@else
+				@foreach ($cart_items as $key => $cart_item)
+				<div class="frame-cart-popup">
+					<div class="main-crt">
+						<div class="image-cart" style="background-image: url('{{ asset($cart_item->product->thumbnail->image) }}');"></div>
 					</div>
-					<div class="count">
-						<span>1 Products</span>
-						<span>.</span>
-						<span>IDR 150,000,00</span>
+					<div class="side-crt">
+						<div class="ttl">
+							{{ $cart_item->product->name }}
+						</div>
+						<div class="count">
+							<span>{{ $cart_item->quantity }} Products</span>
+							<span>.</span>
+							<span>IDR {{ $cart_item->getTotalPrice() }}</span>
+						</div>
 					</div>
 				</div>
-			</div>
-			@endfor
+				@endforeach
+			@endif
+		@endif
 		</div>
 		<div class="bot">
 			<a href="{{ url('/purchase/all') }}">
