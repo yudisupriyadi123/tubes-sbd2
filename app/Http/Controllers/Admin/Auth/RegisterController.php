@@ -73,7 +73,7 @@ class RegisterController extends Controller
         ]);
     }
 
-    function showRegistrationForm()
+    public function showRegistrationForm()
     {
         // TODO: buat laman viewnya
         return view('admin/register', [
