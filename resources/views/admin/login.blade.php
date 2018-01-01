@@ -23,48 +23,6 @@
 	window.Laravel = {!! json_encode([
         'csrfToken' => csrf_token(),
     ]) !!};
-    $.ajaxSetup({
-	    headers: {
-	            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-	    }
-	});
-	$(document).ready(function() {
-		$('#login-admin').submit(function(event) {
-			/* Act on the event */
-			var email = $('#login-admin #email-admin').val();
-			var paswd = $('#login-admin #paswd-admin').val();
-			
-			$.ajax({
-				url: '{{ url("admin/login") }}',
-				type: 'post',
-				data: {'email':email, 'password':paswd},
-				beforeSend: function() {
-					$('#btn-login-admin').val('Please Wait...');
-					$('.btn').attr('disabled','disabled');
-				}
-			})
-			.done(function(data) {
-				if (data === 'failed') {
-					alert('Email or Password is wrong.');
-					$('#btn-login-admin').val('Try again');
-					$('.btn').removeAttr('disabled');
-				} else {
-					window.location = server+'/admin';
-					$('#btn-login-admin').val('Success');
-				}
-			})
-			.fail(function() {
-				alert('Please try again, and check your internet connections.');
-				$('#btn-login-admin').val('Try again');
-				$('.btn').removeAttr('disabled');
-			})
-			.always(function() {
-				$('#btn-login-admin').val('Login');
-				$('.btn').removeAttr('disabled');
-			});
-			
-		});
-	});
 </script>
 <body>
 <div class="main-admin">
@@ -80,14 +38,26 @@
 			</div>
 			<div class="mid">
 				<div class="border-bottom"></div>
-				<form id="login-admin" action="javascript:void(0)">
+				<form id="login-admin" method="post" action="{{ url('/admin/login') }}">
+					{{ csrf_field() }}
+
 					<div class="block">
 						<div class="icn">Email</div>
 						<input type="email" name="email" class="txt" placeholder="" required="true" id="email-admin">
+						@if ($errors->has('email'))
+						<span class="help-block">
+							<strong>{{ $errors->first('email') }}</strong>
+						</span>
+						@endif
 					</div>
 					<div class="block">
 						<div class="icn">Password</div>
 						<input type="password" name="password" class="txt" placeholder="" required="true" id="paswd-admin">
+						@if ($errors->has('password'))
+						<span class="help-block">
+							<strong>{{ $errors->first('password') }}</strong>
+						</span>
+						@endif
 					</div>
 					<div class="block">
 						<input type="submit" name="login" value="Login" id="btn-login-admin" class="btn btn-active-2 btn-main-color">
