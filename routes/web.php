@@ -65,3 +65,10 @@ Route::get('/user/logout', 'LoginController@logout');
 
 //signup
 Route::post('/user/signup', 'LoginController@signupUser');
+
+//product
+Route::post('/product/post', 'PostController@product');
+Route::post('/product/image', 'PostController@image');
+Route::post('/product/size', 'PostController@size');
+Route::post('/product/color', 'PostController@color');
+Route::post('/product/settingup', 'PostController@settingup');
