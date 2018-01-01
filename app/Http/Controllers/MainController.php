@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Transaction;
 use App\TransactionDetail;
-use App\Costumer;
+use App\Customer;
 use App\Cart;
 use Illuminate\Support\Facades\DB;
 

@@ -28,7 +28,7 @@ class AjaxController extends Controller
             $cart->size = $r['size'];
             $cart->color = $r['color'];
             $cart->quantity = $r['quantity'];
-            $cart->costumer_email = $costumer_email;
+            $cart->costumer_email = $customer_email;
             $cart->product_id = $r['product_id'];
 
             $cart->save();
@@ -111,7 +111,7 @@ class AjaxController extends Controller
         try {
             $csa = new CSA();
 
-            $csa->costumer_email = $costumer_email;
+            $csa->costumer_email = $customer_email;
             $csa->address = $r['address'];
             $csa->kecamatan = $r['kecamatan'];
             $csa->kotamadya = $r['kotamadya'];
@@ -122,7 +122,7 @@ class AjaxController extends Controller
 
             $csa->save();
 
-            $returnHTML = view('costumer_shipping_address/index', [
+            $returnHTML = view('customer_shipping_address/index', [
                 'csa' => $csa,
             ])->render();
 

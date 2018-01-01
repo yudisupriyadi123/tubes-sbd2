@@ -22,7 +22,7 @@ class Cart extends Model
 
     public function costumer()
     {
-        return $this->hasOne('App\Costumer');
+        return $this->hasOne('App\Customer');
     }
 
     static function getWithJoinProductByIds($cart_ids)
