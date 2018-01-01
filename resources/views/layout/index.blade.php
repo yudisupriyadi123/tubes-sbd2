@@ -149,6 +149,13 @@
 								    	<label>Login</label>
 								    </button>
 								</a>
+								@else
+								<a href="{{ url('/logout') }}">
+								    <button class="head-top btn-head btn btn-main-color">
+								    	<label>Logout ({{ Auth::user()['name'] }})</label>
+								    </button>
+								</a>
+								@endif
 							</div>
 						</div>
 
