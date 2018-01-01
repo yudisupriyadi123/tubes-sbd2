@@ -12,8 +12,7 @@
 	@include('home.biggest-discounted-product',
     ['biggest_discount_products' => $biggest_discount_products])
 
-    <!-- TODO: atur $product disini -->
-	@include('home.most-saled-product')
+	@include('home.all-product')
 
 </div>
 @endsection

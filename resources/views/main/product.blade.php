@@ -4,7 +4,7 @@
 			On Sale
 		</div>
 		<div class="top">
-			<div class="images need-zoom" style="background-image: url('{{ url('/') }}/img/banner1.jpg');"></div>
+			<div class="images need-zoom" style="background-image: url('{{ url('/').'/'.$product->image }}');"></div>
 		</div>
 	</a>
 	<div class="cen">
@@ -14,7 +14,7 @@
 				<div class="des-idr">
 					<!-- TODO: make discount logic code cleaner -->
 					<label class="idr">IDR {{$product->price - ($product->price * ($product->discount_in_percent/100))}}</label>
-					<label class="idr2">IDR {{$product->price}}</l	abel>
+					<label class="idr2">IDR {{$product->price}}</label>
 				</div>
 			</div>
 		</div>

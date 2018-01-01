@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\CategoryModel;
+use App\GetpostModel;
 use App\Product;
 
 class AdminController extends Controller
@@ -38,7 +40,11 @@ class AdminController extends Controller
     {
         $idadmin = session()->get('idadmin');
         if (!empty($idadmin)) {
-            return view('admin/post', ['title' => 'Add Product']);
+            $ctr = CategoryModel::Get();
+            return view('admin/post', [
+                'title' => 'Post',
+                'category' => $ctr,
+            ]);
         } else {
             return view('admin/login');
         }
@@ -65,11 +71,8 @@ class AdminController extends Controller
     {
         $idadmin = session()->get('idadmin');
         if (!empty($idadmin)) {
-            $newest_products =
-            Product::orderBy('created_at', 'desc')
-                ->take(5)
-                ->get();
-            return view('admin/products', ['title' => 'List Products','newest_products' => $newest_products]);
+            $prd = GetpostModel::AllProduct(100);
+            return view('admin/products', ['title' => 'List Products', 'prd' => $prd]);
         } else {
             return view('admin/login');
         }
@@ -78,7 +81,11 @@ class AdminController extends Controller
     {
         $idadmin = session()->get('idadmin');
         if (!empty($idadmin)) {
-            return view('admin/categories', ['title' => 'Categories']);
+            $ctr = CategoryModel::Get();
+            return view('admin/categories', [
+                'title' => 'Categories',
+                'category' => $ctr,
+            ]);
         } else {
             return view('admin/login');
         }
@@ -105,7 +112,8 @@ class AdminController extends Controller
     {
         $idadmin = session()->get('idadmin');
         if (!empty($idadmin)) {
-            return view('admin/profile', ['title' => 'Profile']);
+            $prd = GetpostModel::AllProduct(100);
+            return view('admin/profile', ['title' => 'Profile', 'prd' => $prd]);
         } else {
             return view('admin/login');
         }

@@ -287,10 +287,9 @@
 				<div class="facility">
 					<div class="select">
 						<select name="place" id="product-category">
-							<option value="99">Choose Category</option>
-							@for ($i=1; $i < 25; $i++)
-							<option value="{{ $i }}">Category {{ $i }}</option>
-							@endfor
+							@foreach ($category as $ctr)
+							<option value="{{ $ctr->id }}">{{ $ctr->name }}</option>
+							@endforeach
 						</select>
 					</div>
 				</div>

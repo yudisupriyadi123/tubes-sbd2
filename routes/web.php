@@ -15,13 +15,13 @@ Route::get('/', 'HomeController@index');
 Route::get('/shops', 'MainController@shops');
 Route::get('/recent', 'MainController@recent');
 Route::get('/popular', 'MainController@popular');
-Route::get('/top', 'MainController@top');
+Route::get('/discount', 'MainController@discount');
 Route::get('/search', 'MainController@search');
 Route::get('/product/{id}', 'MainController@product');
 Route::get('/order/cek', 'MainController@orderCek');
 Route::post('/order/cek', 'MainController@orderCek');
 Route::get('/order/proof', 'MainController@orderProof');
-Route::get('/category/{ctr}', 'MainController@category');
+Route::get('/category', 'MainController@category');
 Route::get('/cart', 'MainController@cart');
 Route::get('/purchase/{idcart}', 'MainController@purchase');
 Route::get('/purchase/all', 'MainController@purchaseAll');
@@ -72,3 +72,9 @@ Route::post('/product/image', 'PostController@image');
 Route::post('/product/size', 'PostController@size');
 Route::post('/product/color', 'PostController@color');
 Route::post('/product/settingup', 'PostController@settingup');
+
+//category
+Route::get('/admin/category/get', 'CategoryController@get');
+Route::post('/admin/category/add', 'CategoryController@addParent');
+Route::post('/admin/category/delete', 'CategoryController@delete');
+Route::post('/admin/category/addChild', 'CategoryController@addChild');

@@ -8,9 +8,9 @@
 	</h1>
 	<div class="home-content main-width">
 		<div class="home-products grid-5-2">
-			<?php for ($i = 0; $i < 20; $i++) { ?>
+			@foreach ($prd as $product)
 			@include('main.product')
-			<?php } ?>
+			@endforeach
 		</div>
 	</div>
 </div>

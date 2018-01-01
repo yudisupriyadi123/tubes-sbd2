@@ -36,14 +36,14 @@
 	position: relative;
 	text-align: center;
 	width: 100%;
-	padding: 45% 0%;
+	padding: 50px 0;
+	cursor: pointer;
+	font-size: 18px;
+	display: inline-block;
 	background-color: #fff;
 	color: #999;
-	cursor: pointer;
-	border-radius: 0%;
-	border: 1px #e1e1e1 solid;
-	font-size: 30px;
-	display: inline-block;
+	text-transform: uppercase;
+	box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
 }
 .frame-ctr:hover {
 	transition: 0.3s;
