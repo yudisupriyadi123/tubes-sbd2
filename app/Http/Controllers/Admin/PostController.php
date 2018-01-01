@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\PostModel;
 
@@ -52,7 +53,7 @@ class PostController extends Controller
     	//create image real
     	$destinationPath = 'img/posting/foto/';
     	$image->move($destinationPath, $filename);
-    	
+
     	//save data img local
     	$data = array(
     		'id' => NULL,
@@ -72,7 +73,7 @@ class PostController extends Controller
     	$product_id = $req['id'];
     	$spl = explode(',', $size);
     	try {
-    		for ($i=0; $i < count($spl); $i++) { 
+		for ($i=0; $i < count($spl); $i++) {
 	    		$data = array(
 	    			'id' => NULL,
 	    			'size' => $spl[$i],
@@ -91,7 +92,7 @@ class PostController extends Controller
     	$product_id = $req['id'];
     	$spl = explode(',', $color);
     	try {
-    		for ($i=0; $i < count($spl); $i++) { 
+            for ($i=0; $i < count($spl); $i++) {
 	    		$data = array(
 	    			'id' => NULL,
 	    			'color' => $spl[$i],

@@ -95,10 +95,10 @@ Route::group(['middleware' => 'admin_auth'], function(){
     Route::get('/admin/profile',                'Admin\AdminController@profile');
     Route::get('/admin/customer/{idcustomer}',  'Admin\AdminController@customer');
 
-    //product
-    Route::post('/product/post', 'PostController@product');
-    Route::post('/product/image', 'PostController@image');
-    Route::post('/product/size', 'PostController@size');
-    Route::post('/product/color', 'PostController@color');
-    Route::post('/product/settingup', 'PostController@settingup');
+    //posting product
+    Route::post('/product/post',        'Admin\PostController@product');
+    Route::post('/product/image',       'Admin\PostController@image');
+    Route::post('/product/size',        'Admin\PostController@size');
+    Route::post('/product/color',       'Admin\PostController@color');
+    Route::post('/product/settingup',   'Admin\PostController@settingup');
 });
