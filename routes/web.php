@@ -29,15 +29,18 @@ Route::get('/product/{id}',         'MainController@product');
 Route::get('/category/{ctr}',       'MainController@category');
 Route::get('/customer/{idcustomer}', 'CustomerController@customer');
 
-Route::get('/login',    'Customer\Auth\LoginController@showLoginForm')->name('login');
-Route::post('/login',   'Customer\Auth\LoginController@login');
-Route::get('/register', 'Customer\Auth\LoginController@logout');
+Route::get('/login',     'Customer\Auth\LoginController@showLoginForm');
+Route::post('/login',    'Customer\Auth\LoginController@login');
+Route::get('/register',  'Customer\Auth\RegisterController@showRegistrationForm');
+Route::post('/register', 'Customer\Auth\RegisterController@register');
 
 //Route::post('/admin/login', 'LoginController@loginAdmin');
 //Route::get('/admin/logout', 'LoginController@logoutAdmin');
 //Route::get('/admin/login', 'Admin\Auth\LoginController@loginAdmin');
-Route::get('/admin/login',  'Admin\Auth\LoginController@showLoginForm');
-Route::post('/admin/login', 'Admin\Auth\LoginController@login');
+Route::get('/admin/login',      'Admin\Auth\LoginController@showLoginForm');
+Route::post('/admin/login',     'Admin\Auth\LoginController@login');
+Route::get('/admin/register',   'Admin\Auth\RegisterController@showRegistrationForm');
+Route::post('/admin/register',  'Admin\Auth\RegisterController@register');
 
 /*
 |--------------------------------------------------------------------------
@@ -78,7 +81,7 @@ Route::group(['middleware' => 'customer_auth'], function(){
 |
 */
 Route::group(['middleware' => 'admin_auth'], function(){
-    Route::get('/admin/logout',                 'Admin\Admin\Auth\LoginController@logout');
+    Route::get('/admin/logout',                 'Admin\Auth\LoginController@logout');
 
     Route::get('/admin',                        'Admin\AdminController@index');
     Route::get('/admin/dashboard',              'Admin\AdminController@dashboard');
@@ -99,4 +102,3 @@ Route::group(['middleware' => 'admin_auth'], function(){
     Route::post('/product/color', 'PostController@color');
     Route::post('/product/settingup', 'PostController@settingup');
 });
-
