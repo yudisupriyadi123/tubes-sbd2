@@ -14,8 +14,17 @@ class Costumer extends Authenticatable
      */
     protected $table = 'costumer';
 
+    /**
+     * By default, laravel assume 'id' as primary key column.
+     *
+     * @var string
+     */
     protected $primaryKey = 'email';
 
+    /**
+     * I do not need and not created column 'created_at' and 'updated_at'.
+     * @var string
+     */
     public $timestamps = false;
 
     /**
