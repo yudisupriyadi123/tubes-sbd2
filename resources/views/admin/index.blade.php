@@ -17,14 +17,21 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/frame.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/costumer.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/cart.css') }}">
-	
+	<link rel="stylesheet" type="text/css" href="{{ asset('/js/jquery-ui/jquery-ui.min.css') }}">
 
 	<script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('/js/jquery-ui/jquery-ui.min.js') }}"></script>
 
 	<script type="text/javascript">		
 		window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
+        
+        $.ajaxSetup({
+	        headers: {
+	            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	        }
+	    });
 	</script>
 </head>
 <body>
@@ -86,6 +93,12 @@
 			    		<label class="ttl">Setting</label>
 			    	</li>
 			    </a>
+			    <a href="{{ url('/admin/info') }}">
+			    	<li>
+			    		<label class="icn fa fa-lg fa-info"></label>
+			    		<label class="ttl">Info</label>
+			    	</li>
+			    </a>
 			    <a href="{{ url('/admin/logout') }}">
 			    	<li>
 			    		<label class="icn fa fa-lg fa-power-off"></label>
@@ -122,6 +135,7 @@
 		</div>
 		<div id="body">
 			<div class="ctn">
+				@include("main.loading")
 				@yield("content")
 			</div>
 		</div>
