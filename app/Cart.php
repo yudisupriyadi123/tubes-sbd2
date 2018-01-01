@@ -30,4 +30,9 @@ class Cart extends Model
         return Cart::whereIn('cart.id', $cart_ids)
                     ->join('product AS prod', 'prod.id', '=', 'cart.product_id');
     }
+
+    public function getTotalPrice()
+    {
+        return $this->quantity * $this->product->getDiscountedPrice();
+    }
 }
