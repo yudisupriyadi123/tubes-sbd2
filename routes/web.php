@@ -29,7 +29,7 @@ Route::get('/product/{id}',         'MainController@product');
 Route::get('/category/{ctr}',       'MainController@category');
 Route::get('/customer/{idcustomer}', 'CustomerController@customer');
 
-Route::get('/login',     'Customer\Auth\LoginController@showLoginForm');
+Route::get('/login',     'Customer\Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login',    'Customer\Auth\LoginController@login');
 Route::get('/register',  'Customer\Auth\RegisterController@showRegistrationForm');
 Route::post('/register', 'Customer\Auth\RegisterController@register');
