@@ -21,8 +21,7 @@ class AjaxController extends Controller
     {
         $r = $req->all();
 
-        // TODO: get current logged in costumer email
-        $costumer_email = "fake_costumer@gmail.com";
+        $customer_email = Auth::user()['email'];
 
         try {
             $cart = new Cart;
@@ -107,8 +106,7 @@ class AjaxController extends Controller
     {
         $r = $req->all();
 
-        // TODO: get current logged in costumer email
-        $costumer_email = "fake_costumer@gmail.com";
+        $customer_email = Auth::user()['email'];
 
         try {
             $csa = new CSA();
@@ -144,7 +142,8 @@ class AjaxController extends Controller
     {
         $r = $req->all();
 
-        $csa_items = CSA::where('costumer_email', '=', $r['costumer_email'])->get();
+        $customer_email = Auth::user()['email'];
+        $csa_items = CSA::where('costumer_email', '=', $customer_email)->get();
 
         $returnHTML = view('ajax/list-of-costumer-shipping-address', [
                         'csa_items' => $csa_items,
