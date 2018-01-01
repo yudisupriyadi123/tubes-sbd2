@@ -14,7 +14,7 @@
 		@if (!Auth::check())
 		You must login
 		@else
-<?php $cart_items = \App\Costumer::getCartItemsWithJoinProduct(Auth::user()['email'])->get() ?>
+<?php $cart_items = \App\Customer::find(Auth::user()['email'])->cart()->get() ?>
 			@if ($cart_items->count() == 0)
 			Empty
 			@else
