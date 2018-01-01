@@ -22,6 +22,14 @@ class Costumer extends Authenticatable
     protected $primaryKey = 'email';
 
     /**
+     * Will stop laravel to assume the primary key is AUTO INCREMENT.
+     * Important when use Auth::user()
+     *
+     * @var string
+     */
+    public $incrementing = false;
+
+    /**
      * I do not need and not created column 'created_at' and 'updated_at'.
      * @var string
      */
