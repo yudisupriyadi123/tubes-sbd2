@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Admin\Auth;
 
 use App\Costumer;
 use App\Http\Controllers\Controller;
@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/admin/dashboard';
 
     /**
      * Create a new controller instance.
@@ -48,9 +48,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:30',
-            'email' => 'required|string|email|max:35|unique:costumer',
-            'address' => 'required|string|max:50',
+            'email' => 'required|string|email|max:35|unique:admin',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -63,18 +61,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return Costumer::create([
-            'name' => $data['name'],
+        return Admin::create([
             'email' => $data['email'],
-            'address' => $data['address'],
             'password' => bcrypt($data['password']),
         ]);
     }
 
     function showRegistrationForm()
     {
-        return view('sign/up', [
-            'title' => 'Sign Up',
+        // TODO: buat laman viewnya
+        return view('admin/register', [
+            'title' => 'Register New Admin',
         ]);
     }
 }

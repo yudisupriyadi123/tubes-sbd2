@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Customer;
 
+use Auth;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Cart;
-use App\Costumer;
+use App\Customer;
 use App\Transaction;
 use App\TransactionDetail;
 
@@ -55,12 +57,11 @@ class CheckoutController extends Controller
     {
         $r = $req->all();
 
-        // TODO: get current logged in costumer email
-        $costumer_email = "fake_costumer@gmail.com";
+        $customer_email = Auth::user()['email'];
 
         $trans = new Transaction;
         $trans->courier = $r['courier'];
-        $trans->costumer_email = $costumer_email;
+        $trans->costumer_email = $customer_email;
         $trans->costumer_shipping_address_id = $r['csa_id'];
         $trans->save();
 
