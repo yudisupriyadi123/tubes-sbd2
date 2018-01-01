@@ -22,21 +22,24 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/frame.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/costumer.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/js/jquery-ui/jquery-ui.min.css') }}">
+
 	<script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('/js/jquery-ui/jquery-ui.min.js') }}"></script>
 
 	<script type="text/javascript">
-
-		window.Laravel = {!! json_encode([
-            'csrfToken' => csrf_token(),
-        ]) !!};
-
         function setScroll(ctr) {
         	if (ctr == "hide") {
         		$('html').addClass('no-scroll');
         	}
         	else {
         		$('html').removeClass('no-scroll');
+        	}
+        }
+        function opFailed(stt, msg='') {
+        	if (stt == 'open') {
+        		$('#failed').show().html(msg);
+        	} else {
+        		$('#failed').hide().html(msg);
         	}
         }
         function openCtr() {
@@ -57,6 +60,15 @@
         function closeMenu() {
         	$('#menu-mobile').animate({'right':'-100%'},300);
         }
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
+
+        $.ajaxSetup({
+	        headers: {
+	            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	        }
+	    });
 		$(document).ready(function() {
 			$(document).scroll(function(event) {
 				var top = $(this).scrollTop();
@@ -150,6 +162,11 @@
 								    </button>
 								</a>
 								@else
+								<a href="{{ url('/customer') }}">
+								    <button class="head-top btn-head btn btn-white-color-red">
+								    	<span class="usr">MY PROFILE</span>
+								    </button>
+								</a>
 								<a href="{{ url('/logout') }}">
 								    <button class="head-top btn-head btn btn-main-color">
 								    	<label>Logout ({{ Auth::user()['name'] }})</label>
@@ -175,6 +192,9 @@
 				</ul>
 			</div>
 		</div>
+	</div>
+	<div class="failed" id="failed" onclick="opFailed('close')">
+		This is an message
 	</div>
 </div>
 <div id="body">
@@ -253,6 +273,9 @@
 				    </a>
 				    <a href="{{ url('signup') }}">
 				    	<li>Create an Account</li>
+				    </a>
+				    <a href="{{ url('admin') }}">
+				    	<li>Admin</li>
 				    </a>
 				</ul>
 			</div>

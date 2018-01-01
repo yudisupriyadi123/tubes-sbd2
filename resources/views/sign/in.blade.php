@@ -9,10 +9,11 @@
 					<img src="{{ url('/') }}/icons/ao2.png" alt="logo">
 				</a>
 			</div>
-			<h2>Login Here</h2>
+			<h2>Customer Login</h2>
 		</div>
 		<div class="mid">
 			<div class="border-bottom"></div>
+
 			<form class="form-horizontal" method="POST" action="{{ route('login') }}">
 				{{ csrf_field() }}
 
@@ -35,7 +36,7 @@
 					@endif
 				</div>
 				<div class="block">
-					<input type="submit" name="login" value="Login" class="btn btn-active-2 btn-main-color">
+					<input type="submit" name="login" value="Login" id="btn-login-user" class="btn btn-active-2 btn-main-color">
 				</div>
 			</form>
 			<div class="border-bottom">
