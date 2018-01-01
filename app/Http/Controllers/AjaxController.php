@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use App\Cart;
@@ -160,7 +162,7 @@ class AjaxController extends Controller
         try {
             $csa = CSA::find($id);
 
-            return  response()->json([
+            return response()->json([
                 'status' => 'OK',
                 'data'=> $csa,
             ]);
