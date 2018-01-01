@@ -37,6 +37,11 @@ class Product extends Model
                     ->get();
     }
 
+    public function getDiscountedPrice()
+    {
+        return $this->price - ($this->price * ($this->discount_in_percent/100));
+    }
+
     public function sizes()
     {
         return $this->hasMany('\App\ProductSizes', 'product_id', 'id');
