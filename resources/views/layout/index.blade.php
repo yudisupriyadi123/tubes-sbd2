@@ -138,12 +138,13 @@
 							    	@include('main.cart')
 							    </div>
 
-							    <a href="{{ url('/signup') }}">
+								@if (!Auth::check())
+							    <a href="{{ url('/register') }}">
 								    <button class="head-top btn-head btn btn-active-3 btn-white-color-red">
 								    	<label>Signup</label>
 								    </button>
 								</a>
-							    <a href="{{ url('/signin') }}">
+							    <a href="{{ url('/login') }}">
 								    <button class="head-top btn-head btn btn-main-color">
 								    	<label>Login</label>
 								    </button>
