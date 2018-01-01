@@ -146,8 +146,8 @@ class AjaxController extends Controller
         $csa_items = CSA::where('costumer_email', '=', $customer_email)->get();
 
         $returnHTML = view('ajax/list-of-costumer-shipping-address', [
-                        'csa_items' => $csa_items,
-                     ])->render();
+            'csa_items' => $csa_items,
+        ])->render();
 
         return  response()->json([
             'status' => 'OK',

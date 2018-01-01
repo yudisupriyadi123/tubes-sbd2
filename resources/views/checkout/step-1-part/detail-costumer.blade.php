@@ -1,8 +1,3 @@
-<!-- DIALOG FORM 1 -->
-@include('checkout.step-1-part.dialog-form-create-new-address')
-<!-- DIALOG FORM 2 -->
-@include('checkout.step-1-part.dialog-form-choose-address')
-
 <div class="mn">
     <div class="place-mn top">
         <h3>Detail Customer</h3>
@@ -92,7 +87,7 @@ $(document).ready(function() {
             }
         },
         close: function() {
-            form[ 0 ].reset();
+            $("#new-address-form")[0].reset();
             allFields.removeClass( "ui-state-error" );
         }
     });

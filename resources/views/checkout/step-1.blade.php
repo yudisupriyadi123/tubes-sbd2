@@ -46,4 +46,9 @@
 	</div>
 </form>
 
+<!-- DIALOG FORM 1 -->
+@include('checkout.step-1-part.dialog-form-create-new-address')
+<!-- DIALOG FORM 2 -->
+@include('checkout.step-1-part.dialog-form-choose-address')
+
 @endsection

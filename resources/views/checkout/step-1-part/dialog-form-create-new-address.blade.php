@@ -1,7 +1,7 @@
 <div id="dialog-form" class="dialog-form" title="Create new shipping address">
   <p class="validateTips">All form fields are required.</p>
 
-  <form>
+<form id="new-address-form" method="post" action="javascript:void(0)">
     <fieldset>
         <label for="address">Address</label>
         <input type="text" name="address" id="address" class="text ui-widget-content ui-corner-all">
@@ -27,7 +27,7 @@
         <!-- Allow form submission with keyboard without duplicating the dialog button -->
         <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
     </fieldset>
-  </form>
+</form>
 </div>
 
 
