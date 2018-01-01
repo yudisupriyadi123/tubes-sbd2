@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'web_customer',
         'passwords' => 'users',
     ],
 
@@ -36,9 +36,14 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'web_customer' => [
             'driver' => 'session',
-            'provider' => 'costumers',
+            'provider' => 'customers',
+        ],
+
+        'web_admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
         ],
 
         'api' => [
@@ -65,9 +70,14 @@ return [
     */
 
     'providers' => [
-        'costumers' => [
+        'customers' => [
             'driver' => 'eloquent',
-            'model' => App\Costumer::class,
+            'model' => App\Customer::class,
+        ],
+
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
         ],
 
         //'users' => [
