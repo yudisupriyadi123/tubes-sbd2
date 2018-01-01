@@ -40,6 +40,11 @@ class RegisterController extends Controller
         $this->middleware('admin_guest');
     }
 
+    public function guard()
+    {
+        return Auth::guard('web_admin');
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
