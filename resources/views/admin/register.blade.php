@@ -34,7 +34,7 @@
                         <img src="{{ url('/') }}/icons/ao2.png" alt="logo">
                     </a>
                 </div>
-                <h2>Admin Login</h2>
+                <h2>Admin Register</h2>
             </div>
             <div class="mid">
                 <div class="border-bottom"></div>
