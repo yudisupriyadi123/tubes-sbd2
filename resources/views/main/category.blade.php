@@ -1,3 +1,4 @@
+<?php use App\CategoryModel; ?>
 <div class="menu-main-ctr">
 	<div class="ctr-head">Top Chooices</div>
 	<ol>
@@ -7,16 +8,10 @@
 	    		<label class="ttl">Recently Posts</label>
 	    	</li>
 	    </a>
-	    <a href="{{ url('/popular') }}">
+	    <a href="{{ url('/discount') }}">
 	    	<li>
-	    		<label class="icn fa fa-lg fa-line-chart"></label>
-	    		<label class="ttl">Popular Posts</label>
-	    	</li>
-	    </a>
-	    <a href="{{ url('/top') }}">
-	    	<li>
-	    		<label class="icn fa fa-lg fa-fire"></label>
-	    		<label class="ttl">Most Viewed</label>
+	    		<label class="icn fa fa-lg fa-percent"></label>
+	    		<label class="ttl">Bigest Discounted</label>
 	    	</li>
 	    </a>
 	    <a href="{{ url('/shops') }}">
@@ -28,13 +23,13 @@
 	</ol>
 	<div class="ctr-head">All Categories</div>
 	<ol>
-		@for ($i=1; $i <= 15; $i++)
-	    <a href="{{ url('/category/ctr'.$i) }}">
+		@foreach (CategoryModel::Get() as $ctr)
+	    <a href="{{ url('/category?idctr='.$ctr->id.'&name='.$ctr->name) }}">
 	    	<li>
-	    		<label class="icn fa fa-lg fa-shopping-bag"></label>
-	    		<label class="ttl">category {{ $i }}</label>
+	    		<label class="icn fa fa-lg fa-th"></label>
+	    		<label class="ttl">{{ $ctr->name }}</label>
 	    	</li>
 	    </a>
-	    @endfor
+	    @endforeach
 	</ol>
 </div>

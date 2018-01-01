@@ -12,6 +12,36 @@
 */
 //Auth::routes();
 
+<<<<<<< HEAD
+Route::get('/', 'HomeController@index');
+Route::get('/shops', 'MainController@shops');
+Route::get('/recent', 'MainController@recent');
+Route::get('/popular', 'MainController@popular');
+Route::get('/discount', 'MainController@discount');
+Route::get('/search', 'MainController@search');
+Route::get('/product/{id}', 'MainController@product');
+Route::get('/order/cek', 'MainController@orderCek');
+Route::post('/order/cek', 'MainController@orderCek');
+Route::get('/order/proof', 'MainController@orderProof');
+Route::get('/category', 'MainController@category');
+Route::get('/cart', 'MainController@cart');
+Route::get('/purchase/{idcart}', 'MainController@purchase');
+Route::get('/purchase/all', 'MainController@purchaseAll');
+Route::get('/signin', 'MainController@signin');
+Route::get('/signup', 'MainController@signup');
+Route::get('/cart', 'MainController@cart');
+Route::post('/ajax/add-to-cart', 'AjaxController@addToCart');
+Route::post('/ajax/on-change-quantity-cart-item', 'AjaxController@onChangeQuantityOfCartItem');
+Route::get('/ajax/on-change-quantity-cart-item', 'AjaxController@onChangeQuantityOfCartItem');
+Route::post('/checkout/step1', 'MainController@checkoutStep1');
+Route::post('/checkout/step2', 'MainController@checkoutStep2');
+Route::get('/ajax/add-csa', 'AjaxController@addCSA');
+Route::post('/ajax/add-csa', 'AjaxController@addCSA');
+Route::post('/ajax/get-csa-by-id', 'AjaxController@getCSAbyId');
+// TODO: hapus
+Route::get('/ajax/get-all-csa', 'AjaxController@getAllCSA');
+Route::post('/ajax/get-all-csa', 'AjaxController@getAllCSA');
+=======
 /*
 |--------------------------------------------------------------------------
 | Public route
@@ -62,6 +92,7 @@ Route::group(['middleware' => 'customer_auth'], function(){
     Route::get('/ajax/update-cart', 'AjaxController@updateCart');
     Route::post('/ajax/on-change-quantity-cart-item', 'AjaxController@onChangeQuantityOfCartItem');
     Route::get('/ajax/on-change-quantity-cart-item', 'AjaxController@onChangeQuantityOfCartItem');
+>>>>>>> 6d86dfc34b97162754116fdaa3f89e39562f430e
 
     Route::get('/ajax/add-csa', 'AjaxController@addCSA');
     Route::post('/ajax/add-csa', 'AjaxController@addCSA');
@@ -95,6 +126,20 @@ Route::group(['middleware' => 'admin_auth'], function(){
     Route::get('/admin/profile',                'Admin\AdminController@profile');
     Route::get('/admin/customer/{idcustomer}',  'Admin\AdminController@customer');
 
+<<<<<<< HEAD
+//product
+Route::post('/product/post', 'PostController@product');
+Route::post('/product/image', 'PostController@image');
+Route::post('/product/size', 'PostController@size');
+Route::post('/product/color', 'PostController@color');
+Route::post('/product/settingup', 'PostController@settingup');
+
+//category
+Route::get('/admin/category/get', 'CategoryController@get');
+Route::post('/admin/category/add', 'CategoryController@addParent');
+Route::post('/admin/category/delete', 'CategoryController@delete');
+Route::post('/admin/category/addChild', 'CategoryController@addChild');
+=======
     //posting product
     Route::post('/product/post',        'Admin\PostController@product');
     Route::post('/product/image',       'Admin\PostController@image');
@@ -102,3 +147,4 @@ Route::group(['middleware' => 'admin_auth'], function(){
     Route::post('/product/color',       'Admin\PostController@color');
     Route::post('/product/settingup',   'Admin\PostController@settingup');
 });
+>>>>>>> 6d86dfc34b97162754116fdaa3f89e39562f430e

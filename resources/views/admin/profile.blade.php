@@ -74,40 +74,36 @@
 			-->
 			<!--on confirmed-->
 			<div class="ctn ctn-show" id="all">
-				@for ($i=1; $i < 4; $i++)
+				@foreach ($prd as $product)
 				<div class="mn place">
 					<div class="frame-cart">
 						<div class="mid-cart">
 							<div class="mid-1">
-								<div class="image-cart" style="background-image: url('{{ url('/') }}/img/banner1.jpg');"></div>
+								<div class="image-cart" style="background-image: url('{{ url('/').'/'.$product->image }}');"></div>
 							</div>
 							<div class="mid-2">
-								<div class="ttl">
-									The title product will be in here.
+								<div class="ttl" style="font-size: 18px;">
+									<b>{{ $product->name }}</b>
 								</div>
-								<div class="total-order">
-									<span>Total Order</span>
-									<span>3 Products</span>
+								<div class="total-order" style="font-size: 15px;">
+									{{ 'IDR '.$product->price }}
 								</div>
-							</div>
-							<div class="mid-3">
-								<span>IDR 350,000,00</span>
 							</div>
 						</div>
 						<div class="bot-cart">
 							<div class="sub">
-								<div>Subtotal: <b>IDR 350,000,00</b></div>
-								<div class="sh">Shipping not included</div>
+								<div>Stock: <b>{{ $product->stock }}</b></div>
+								<div class="sh">Published on {{ $product->created_at }}</div>
 							</div>
 							<div class="pur">
-								<a href="{{ url('/order/'.$i.'/detail') }}">
+								<a href="{{ url('/order/'.$product->id.'/detail') }}">
 									<input type="button" name="purchase" class="btn btn-white-color-red" value="On Sale">
 								</a>
 							</div>
 						</div>
 					</div>
 				</div>
-				@endfor
+				@endforeach
 			</div>
 
 			<div class="ctn ctn-hide" id="conf">

@@ -8,21 +8,24 @@ use App\Transaction;
 use App\TransactionDetail;
 use App\Customer;
 use App\Cart;
-use Illuminate\Support\Facades\DB;
+use App\GetpostModel;
 
 class MainController extends Controller
 {
     function shops()
     {
-    	return view('/shops/index',['title' => 'All Products']);
+        $prd = GetpostModel::AllProduct(100);
+    	return view('/shops/index',['title' => 'All Products', 'prd' => $prd]);
     }
     function recent()
     {
-        return view('/shops/index',['title' => 'Recently Posts']);
+        $prd = GetpostModel::RecentProduct(100);
+        return view('/shops/index',['title' => 'Recently Posts', 'prd' => $prd]);
     }
-    function top()
+    function discount()
     {
-    	return view('/shops/index',['title' => 'Popular Posts']);
+        $prd = GetpostModel::BigDiscount(100);
+    	return view('/shops/index',['title' => 'Biggest Discount', 'prd' => $prd]);
     }
     function popular()
     {
@@ -31,11 +34,26 @@ class MainController extends Controller
     function search()
     {
         $ctr = $_GET['q'];
-        return view('/search/index',['title' => $ctr]);
+        $prd = GetpostModel::SearchProduct($ctr);
+        return view('/search/index',['title' => $ctr, 'prd' => $prd]);
     }
     function product($id)
     {
         // TODO: jangan lupa ganti khusu untuk admin
+<<<<<<< HEAD
+        $newest_products = GetpostModel::RecentProduct(5);
+        $prd = GetpostModel::ViewProduct($id);
+        $size = GetpostModel::GetSize($id);
+        $color = GetpostModel::GetColor($id);
+        $image = GetpostModel::GetImage($id);
+        return view('/product/index',[
+            'title' => 'Product',
+            'prd' => $prd,
+            'size' => $size,
+            'color' => $color,
+            'image' => $image,
+            'newest_products' => $newest_products
+=======
         $product = Product::find($id);
         $product_sizes = $product->sizes;
         $product_colors = $product->colors;
@@ -49,11 +67,14 @@ class MainController extends Controller
             'product_colors' => $product_colors,
             'product_images' => $product_images,
             'product_thumbnail' => $product_thumbnail,
+>>>>>>> 6d86dfc34b97162754116fdaa3f89e39562f430e
         ]);
     }
-    function category($ctr)
+    function category()
     {
-        return view('/category/index',['title' => 'Category '.$ctr]);
+        $ctr = $_GET['idctr'];
+        $prd = GetpostModel::PostCategory($ctr);
+        return view('/category/index',['title' => 'Category', 'prd' => $prd]);
     }
     function purchase($idcart)
     {
@@ -64,3 +85,4 @@ class MainController extends Controller
         return view('/purchase/index',['title' => 'Purchase All']);
     }
 }
+
