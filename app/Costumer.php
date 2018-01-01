@@ -36,6 +36,13 @@ class Costumer extends Authenticatable
     public $timestamps = false;
 
     /**
+     * This setting will impact at login or logout process
+     *
+     * @var string
+     */
+    protected $remember_token = false;
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
