@@ -59,18 +59,48 @@
 		</div>
 		<div class="mid">
 			<div class="border-bottom"></div>
-			<form id="signup-user" action="javascript:void(0)">
+			<form class="form-horizontal" method="POST" action="{{ url('/register') }}">
+                {{ csrf_field() }}
+
 				<div class="block">
 					<div class="icn">Full Name</div>
-					<input type="text" name="name" class="txt" placeholder="" required="true" id="name-user">
+					<input type="text" name="name" class="txt" placeholder="" required="true">
+					@if ($errors->has('name'))
+	                    <span class="help-block">
+	                        <strong>{{ $errors->first('name') }}</strong>
+	                    </span>
+	                @endif
 				</div>
 				<div class="block">
 					<div class="icn">Your Email</div>
-					<input type="email" name="email" class="txt" placeholder="" required="true" id="email-user">
+					<input type="email" name="email" class="txt" placeholder="" required="true">
+					@if ($errors->has('email'))
+	                    <span class="help-block">
+	                        <strong>{{ $errors->first('email') }}</strong>
+	                    </span>
+	                @endif
+				</div>
+				<div class="block">
+					<div class="icn">Your Home Address</div>
+					<input type="text" name="address" class="txt" placeholder="" required="true">
+					@if ($errors->has('address'))
+	                    <span class="help-block">
+	                        <strong>{{ $errors->first('address') }}</strong>
+	                    </span>
+	                @endif
 				</div>
 				<div class="block">
 					<div class="icn">Create Password</div>
-					<input type="password" name="password" class="txt" placeholder="" required="true" id="password-user">
+					<input type="password" name="password" class="txt" placeholder="" required="true">
+					@if ($errors->has('password'))
+	                    <span class="help-block">
+	                        <strong>{{ $errors->first('password') }}</strong>
+	                    </span>
+	                @endif
+				</div>
+				<div class="block">
+					<div class="icn">Password Confirmation</div>
+					<input type="password" name="password_confirmation" class="txt" placeholder="" required="true">
 				</div>
 				<div class="block">
 					<div class="icn">Address</div>

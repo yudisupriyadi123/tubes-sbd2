@@ -27,4 +27,9 @@ class Transaction extends Model
     {
         return Self::whereRaw("MD5(`id`) = '{$r['trans_id']}'");
     }
+
+    public function transactionDetail()
+    {
+        return $this->hasMany('\App\TransactionDetail', 'transaction_id', 'id');
+    }
 }

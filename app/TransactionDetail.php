@@ -38,4 +38,14 @@ class TransactionDetail extends Model
             $cart_item->delete();
         }
     }
+
+    public function product()
+    {
+        return $this->hasOne('\App\Product', 'id', 'product_id');
+    }
+
+    public function getTotalPrice()
+    {
+        return $this->quantity * $this->product->getDiscountedPrice();
+    }
 }

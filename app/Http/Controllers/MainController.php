@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Transaction;
 use App\TransactionDetail;
-use App\Costumer;
+use App\Customer;
 use App\Cart;
 use App\GetpostModel;
 
@@ -40,6 +40,7 @@ class MainController extends Controller
     function product($id)
     {
         // TODO: jangan lupa ganti khusu untuk admin
+<<<<<<< HEAD
         $newest_products = GetpostModel::RecentProduct(5);
         $prd = GetpostModel::ViewProduct($id);
         $size = GetpostModel::GetSize($id);
@@ -52,6 +53,21 @@ class MainController extends Controller
             'color' => $color,
             'image' => $image,
             'newest_products' => $newest_products
+=======
+        $product = Product::find($id);
+        $product_sizes = $product->sizes;
+        $product_colors = $product->colors;
+        $product_images = $product->images;
+        $product_thumbnail = $product->thumbnail;
+
+        return view('/product/index',[
+            'title' => 'Product '.$product->name,
+            'product' => $product,
+            'product_sizes' => $product_sizes,
+            'product_colors' => $product_colors,
+            'product_images' => $product_images,
+            'product_thumbnail' => $product_thumbnail,
+>>>>>>> 6d86dfc34b97162754116fdaa3f89e39562f430e
         ]);
     }
     function category()
@@ -67,14 +83,6 @@ class MainController extends Controller
     function puchaseAll()
     {
         return view('/purchase/index',['title' => 'Purchase All']);
-    }
-    function signin()
-    {
-        return view('/sign/in',['title' => 'Signin']);
-    }
-    function signup()
-    {
-        return view('/sign/up',['title' => 'Signup']);
     }
 }
 

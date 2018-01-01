@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use App\Cart;
@@ -15,23 +17,27 @@ class AjaxController extends Controller
      * @param  Request  $req
      * @return Response
      */
-    function addToCart($req)
+    function addToCart(Request $req)
     {
-        // TODO: get current logged in costumer email
-        $costumer_email = "fake_costumer@gmail.com";
+        $r = $req->all();
+
+        $customer_email = Auth::user()['email'];
 
         try {
             $cart = new Cart;
 
-            $cart->size = $req->size;
-            $cart->color = $req->color;
-            $cart->quantity = $req->quantity;
-            $cart->costumer_email = $costumer_email;
-            $cart->product_id = $req->product_id;
+            $cart->size = $r['size'];
+            $cart->color = $r['color'];
+            $cart->quantity = $r['quantity'];
+            $cart->costumer_email = $customer_email;
+            $cart->product_id = $r['product_id'];
 
             $cart->save();
 
-            return response()->json(['status' => 'OK']);
+            return response()->json([
+                'status' => 'OK',
+                'cart_id' => $cart->id,
+            ]);
         } catch (QueryException $e) {
             return response()->json([
                 'status' => 'ERR',
@@ -39,6 +45,31 @@ class AjaxController extends Controller
             ]);
         }
 
+    }
+
+    function updateCart(Request $req)
+    {
+        $r = $req->all();
+
+        try {
+            $cart = Cart::find($r['cart_id']);
+
+            $cart->size = $r['size'];
+            $cart->color = $r['color'];
+            $cart->quantity = $r['quantity'];
+
+            $cart->save();
+
+            return response()->json([
+                'status' => 'OK',
+                'cart_id' => $cart->id,
+            ]);
+        } catch (QueryException $e) {
+            return response()->json([
+                'status' => 'ERR',
+                'message' => $e->getMessage(),
+            ]);
+        }
     }
 
     /**
@@ -75,13 +106,12 @@ class AjaxController extends Controller
     {
         $r = $req->all();
 
-        // TODO: get current logged in costumer email
-        $costumer_email = "fake_costumer@gmail.com";
+        $customer_email = Auth::user()['email'];
 
         try {
             $csa = new CSA();
 
-            $csa->costumer_email = $costumer_email;
+            $csa->costumer_email = $customer_email;
             $csa->address = $r['address'];
             $csa->kecamatan = $r['kecamatan'];
             $csa->kotamadya = $r['kotamadya'];
@@ -92,7 +122,7 @@ class AjaxController extends Controller
 
             $csa->save();
 
-            $returnHTML = view('costumer_shipping_address/index', [
+            $returnHTML = view('customer_shipping_address/index', [
                 'csa' => $csa,
             ])->render();
 
@@ -112,11 +142,12 @@ class AjaxController extends Controller
     {
         $r = $req->all();
 
-        $csa_items = CSA::where('costumer_email', '=', $r['costumer_email'])->get();
+        $customer_email = Auth::user()['email'];
+        $csa_items = CSA::where('costumer_email', '=', $customer_email)->get();
 
         $returnHTML = view('ajax/list-of-costumer-shipping-address', [
-                        'csa_items' => $csa_items,
-                     ])->render();
+            'csa_items' => $csa_items,
+        ])->render();
 
         return  response()->json([
             'status' => 'OK',
@@ -130,7 +161,7 @@ class AjaxController extends Controller
         try {
             $csa = CSA::find($id);
 
-            return  response()->json([
+            return response()->json([
                 'status' => 'OK',
                 'data'=> $csa,
             ]);

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<?php $iduser = session()->get('iduser'); ?>
 <head>
 	<title>Academy Otaku - @yield("title")</title>
 	<meta charset=utf-8>
@@ -151,28 +150,28 @@
 							    	@include('main.cart')
 							    </div>
 
-							    @if (!empty($iduser))
-								    <a href="{{ url('/costumer') }}">
-									    <button class="head-top btn-head btn btn-white-color-red">
-									    	<span class="usr">MY PROFILE</span>
-									    </button>
-									</a>
-									<a href="{{ url('/user/logout') }}">
-									    <button class="head-top btn-head btn btn-main-color">
-									    	<span class="fa fa-lg fa-power-off"></span>
-									    </button>
-									</a>
+								@if (!Auth::check())
+							    <a href="{{ url('/register') }}">
+								    <button class="head-top btn-head btn btn-active-3 btn-white-color-red">
+								    	<label>Signup</label>
+								    </button>
+								</a>
+							    <a href="{{ url('/login') }}">
+								    <button class="head-top btn-head btn btn-main-color">
+								    	<label>Login</label>
+								    </button>
+								</a>
 								@else
-								    <a href="{{ url('/signup') }}">
-									    <button class="head-top btn-head btn btn-active-3 btn-white-color-red">
-									    	<label>SIGNUP</label>
-									    </button>
-									</a>
-								    <a href="{{ url('/signin') }}">
-									    <button class="head-top btn-head btn btn-main-color">
-									    	<label>LOGIN</label>
-									    </button>
-									</a>
+								<a href="{{ url('/customer') }}">
+								    <button class="head-top btn-head btn btn-white-color-red">
+								    	<span class="usr">MY PROFILE</span>
+								    </button>
+								</a>
+								<a href="{{ url('/logout') }}">
+								    <button class="head-top btn-head btn btn-main-color">
+								    	<label>Logout ({{ Auth::user()['name'] }})</label>
+								    </button>
+								</a>
 								@endif
 							</div>
 						</div>

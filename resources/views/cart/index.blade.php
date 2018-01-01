@@ -40,12 +40,20 @@
             });
         });
 
+        var total_price = 0;
         $("input[name^=cart_ids]").attr('disabled', true);
         $(".ck.ckbox").click(function(){
-            var bool = true;
-            if ($(this).prop('checked') == true) bool = false;
-
-            $(this).closest(".mn.mid").find("input[name^=cart_ids]").attr('disabled', bool);
+            var parentElm = $(this).closest(".mn.mid");
+            if ($(this).prop('checked') == true) {
+                parentElm.find("input[name^=cart_ids]").attr('disabled', false);
+                total_price += parseInt(parentElm.find("input[name=total_price]").val());
+                $("#total-price").text(total_price);
+            } else {
+                parentElm.find("input[name^=cart_ids]").attr('disabled', true);
+                total_price -= parseInt(parentElm.find("input[name=total_price]").val());
+                $("#total-price").text(total_price);
+            }
+            if (total_price == 0) $("#total-price").text('000,000,00');
         });
     });
 </script>
@@ -66,12 +74,14 @@
             </div>
             @foreach ($cart_items as $key => $cart_item)
             <div class="mn mid">
-                <input type="hidden" name="cart_ids[]" value="{{ $cart_item->cart_id }}">
+                <input type="hidden" name="cart_ids[]" value="{{ $cart_item->id }}">
+                <input type="hidden" name="total_price" value="{{ $cart_item->getTotalPrice() }}">
+
                 <div class="frame-cart">
                     <div class="top">
                         <span class="cek left">
                             <input type="checkbox" class="ck ckbox" value="false">
-                            <span>Select This Product</span>
+                            <span>Select product</span>
                         </span>
                         <span class="right">
                             <button type="button" class="btn btn-white-color">
@@ -81,29 +91,29 @@
                     </div>
                     <div class="mid-cart">
                         <div class="mid-1">
-                            <div class="image-cart" style="background-image: url('{{ url('/') }}/img/banner1.jpg');"></div>
+                            <div class="image-cart" style="background-image: url('{{ asset($cart_item->product->thumbnail->image) }}');"></div>
                         </div>
                         <div class="mid-2">
                             <div class="ttl">
-                                {{ $cart_item->product_name }}
+                                {{ $cart_item->product->name }}
                             </div>
                             <div class="place-stock">
                                 <button type="button" class="op btn-qty" id="qty-min">
                                     <label class="fa fa-lg fa-minus"></label>
                                 </button>
-                                <input type="text" name="qty" class="op txt" placeholder="qty" value="{{ $cart_item->cart_quantity }}" id="qty" readonly>
+                                <input type="text" name="qty" class="op txt" placeholder="qty" value="{{ $cart_item->quantity }}" id="qty" readonly>
                                 <button type="button" class="op btn-qty" id="qty-plus">
                                     <label class="fa fa-lg fa-plus"></label>
                                 </button>
                             </div>
                         </div>
                         <div class="mid-3">
-                            <span>IDR {{ $cart_item->product_price_discount }}</span>
+                            <span>IDR {{ $cart_item->product->price }}</span>
                         </div>
                     </div>
                     <div class="bot-cart">
                         <div class="sub">
-                            <div>Subtotal: <b class="subtotal">IDR {{ $cart_item->product_price_discount * $cart_item->cart_quantity }} </b></div>
+                            <div>Subtotal: <b class="subtotal">IDR {{ $cart_item->getTotalPrice() }} </b></div>
                             <div class="sh">Shipping not included</div>
                         </div>
                         <div class="pur">
@@ -124,7 +134,7 @@
                 <div class="mid">
                     <div class="sub">
                         <label class="ttl">Total Shopping</label>
-                        <label class="sh"><b>IDR 350,000,00</b></label>
+                        <label class="sh"><b>IDR <span id="total-price">000,000,00</span></b></label>
                     </div>
                     <div class="pur">
 

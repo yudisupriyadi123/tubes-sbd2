@@ -11,7 +11,7 @@ class CSA extends Model
      *
      * @var string
      */
-    protected $table = 'costumer_shipping_addresses';
+    protected $table = 'customer_shipping_addresses';
 
     public $timestamps = false;
 }

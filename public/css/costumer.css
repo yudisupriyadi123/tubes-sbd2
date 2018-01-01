@@ -81,3 +81,18 @@
 		grid-column: 1;
 	}
 }
+
+.order-box {
+	margin-bottom: 0 !important;
+}
+
+.order-box .mid-cart {
+  grid-template-columns: 300px 300px 100px;
+  color: #999 !important;
+  font-size: 15px;
+  border: none !important;
+}
+
+.order-box .mid-cart .value {
+	color: #888 !important;
+}

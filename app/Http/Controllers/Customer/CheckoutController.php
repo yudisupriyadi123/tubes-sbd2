@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Customer;
 
+use Auth;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Cart;
-use App\Costumer;
+use App\Customer;
 use App\Transaction;
 use App\TransactionDetail;
 
@@ -29,12 +32,11 @@ class CheckoutController extends Controller
                 'cart.id AS cart_id',
                 'cart.quantity AS cart_quantity',
                 'prod.name AS product_name',
-                'prod.discount_in_percent/100 AS product_discount'
-                DB::raw('prod.price - (prod.price * product_discount) AS product_price_discount'),
+                DB::raw('prod.price - (prod.price * (prod.discount_in_percent/100)) AS product_price_discount'),
             ]);
 
         // TODO: buat view nya
-        return view('/purchase/index', [
+        return view('/checkout/step-1', [
             'title' => 'Checkout Step 1',
             'cart_items' => $cart_items,
         ]);
@@ -55,12 +57,11 @@ class CheckoutController extends Controller
     {
         $r = $req->all();
 
-        // TODO: get current logged in costumer email
-        $costumer_email = "fake_costumer@gmail.com";
+        $customer_email = Auth::user()['email'];
 
         $trans = new Transaction;
         $trans->courier = $r['courier'];
-        $trans->costumer_email = $costumer_email;
+        $trans->costumer_email = $customer_email;
         $trans->costumer_shipping_address_id = $r['csa_id'];
         $trans->save();
 
