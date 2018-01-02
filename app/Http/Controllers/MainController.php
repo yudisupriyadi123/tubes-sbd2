@@ -19,7 +19,8 @@ class MainController extends Controller
     }
     function recent()
     {
-        $prd = GetpostModel::RecentProduct(100);
+        $max_product = 100;
+        $prd = Product::getNewests($max_product);
         return view('/shops/index',['title' => 'Recently Posts', 'prd' => $prd]);
     }
     function discount()
