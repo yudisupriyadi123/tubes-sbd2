@@ -165,7 +165,7 @@
           <div class="color need-p">
             <p><b>Availble color on</b></p>
             @foreach ($product_colors as $key => $color)
-              <button data-id="{{ $color->id }}" class="btn btn-color color-{{$color->color}}"></button>
+              <button data-id="{{ $color->id }}" class="btn btn-color" style="background-color: {{ $color->color }};"></button>
             @endforeach
           </div>
           <div class="stock need-p">

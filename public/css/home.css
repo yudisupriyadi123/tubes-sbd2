@@ -37,7 +37,6 @@
 	text-align: center;
 	width: 100%;
 	padding: 50px 0;
-	cursor: pointer;
 	font-size: 18px;
 	display: inline-block;
 	background-color: #fff;
@@ -53,20 +52,20 @@
 .home-articles {
 	position: relative;
 	width: 100%;
-	height: 400px;
+	height: 500px;
 	overflow: hidden;
 	margin-bottom: 30px;
 }
 .home-articles .left {
 	position: relative;
-	width: 70%;
-	height: 400px;
+	width: 60%;
+	height: 500px;
 	float: left;
 	background-color: #f0f0f0;
 }
 .home-articles .right {
 	position: relative;
-	width: 30%;
+	width: 40%;
 	float: right;
 	background-color: #e1e1e1;
 }
@@ -90,13 +89,13 @@
 .home-articles .left .frame-articles {
 	position: relative;
 	width: 100%;
-	padding-bottom: 400px;
+	padding-bottom: 500px;
 	background-color: #000;
 }
 .home-articles .right .frame-articles {
 	position: relative;
-	width: 100%;
-	padding-bottom: 200px;
+	width: 50%;
+	padding-bottom: 250px;
 	float: left;
 	background-color: #000;
 }
@@ -104,7 +103,6 @@
 	background-size: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
-	cursor: pointer;
 }
 
 .home-products {
