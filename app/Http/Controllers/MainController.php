@@ -40,20 +40,6 @@ class MainController extends Controller
     function product($id)
     {
         // TODO: jangan lupa ganti khusu untuk admin
-<<<<<<< HEAD
-        $newest_products = GetpostModel::RecentProduct(5);
-        $prd = GetpostModel::ViewProduct($id);
-        $size = GetpostModel::GetSize($id);
-        $color = GetpostModel::GetColor($id);
-        $image = GetpostModel::GetImage($id);
-        return view('/product/index',[
-            'title' => 'Product',
-            'prd' => $prd,
-            'size' => $size,
-            'color' => $color,
-            'image' => $image,
-            'newest_products' => $newest_products
-=======
         $product = Product::find($id);
         $product_sizes = $product->sizes;
         $product_colors = $product->colors;
@@ -67,7 +53,6 @@ class MainController extends Controller
             'product_colors' => $product_colors,
             'product_images' => $product_images,
             'product_thumbnail' => $product_thumbnail,
->>>>>>> 6d86dfc34b97162754116fdaa3f89e39562f430e
         ]);
     }
     function category()
