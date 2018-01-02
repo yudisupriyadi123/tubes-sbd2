@@ -96,7 +96,7 @@
 						<div class="mid-cart">
 							<div class="mid-1">
 								<div class="ttl">
-									Order ID: <b class="value">{{ $order->id }}</b>
+									Order ID: <b class="value">{{ md5($order->id) }}</b>
 								</div>
 								<div class="ttl">
 									<span>Courier:</span>
