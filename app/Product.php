@@ -13,6 +13,11 @@ class Product extends Model
      */
     protected $table = 'product';
 
+    static function getAll($max_record)
+    {
+        return Self::all()->take($max_record);
+    }
+
     /**
      * Return the newest product created
      *
