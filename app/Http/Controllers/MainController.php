@@ -9,12 +9,14 @@ use App\TransactionDetail;
 use App\Customer;
 use App\Cart;
 use App\GetpostModel;
+use App\ProductCategory;
 
 class MainController extends Controller
 {
     function shops()
     {
-        $prd = GetpostModel::AllProduct(100);
+        $max_product = 100;
+        $prd = Product::getAll($max_product);
     	return view('/shops/index',['title' => 'All Products', 'prd' => $prd]);
     }
     function recent()
@@ -25,18 +27,30 @@ class MainController extends Controller
     }
     function discount()
     {
-        $prd = GetpostModel::BigDiscount(100);
+        $max_product = 100;
+        $prd = Product::getBiggestDiscounted($max_product);
     	return view('/shops/index',['title' => 'Biggest Discount', 'prd' => $prd]);
     }
     function popular()
     {
-    	return view('/shops/index',['title' => 'Most Viewed']);
+        // TODO: belum dibuat logika mendapatkan produk populer
+        $max_product = 100;
+        $prd = Product::getBiggestDiscounted($max_product);
+
+    	return view('/shops/index',[
+            'title' => 'Most Viewed',
+            'prd' => $prd,
+        ]);
     }
     function search()
     {
-        $ctr = $_GET['q'];
-        $prd = GetpostModel::SearchProduct($ctr);
-        return view('/search/index',['title' => $ctr, 'prd' => $prd]);
+        $keyword = $_GET['q'];
+        $prd = Product::search($keyword);
+
+        return view('/search/index',[
+            'title' => "Search on ${keyword}",
+            'prd' => $prd,
+        ]);
     }
     function product($id)
     {
@@ -58,17 +72,20 @@ class MainController extends Controller
     }
     function category()
     {
-        $ctr = $_GET['idctr'];
-        $prd = GetpostModel::PostCategory($ctr);
-        return view('/category/index',['title' => 'Category', 'prd' => $prd]);
-    }
-    function purchase($idcart)
-    {
-        return view('/purchase/index',['title' => 'Purchase '.$idcart]);
-    }
-    function puchaseAll()
-    {
-        return view('/purchase/index',['title' => 'Purchase All']);
+        $id_ctr = $_GET['idctr'];
+        $ctr    = ProductCategory::find($id_ctr);
+
+        if ($ctr) {
+            $prd = Product::getByCategory($id_ctr);
+        } else {
+            $prd = null;
+        }
+
+        return view('/category/index', [
+            'title' => 'Category',
+            'prd' => $prd,
+            'ctr' => $ctr,
+        ]);
     }
 }
 
