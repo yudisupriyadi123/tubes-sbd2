@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Product;
+use App\CategoryModel;
+use App\GetpostModel;
 
 class AdminController extends Controller
 {
@@ -22,7 +24,12 @@ class AdminController extends Controller
     }
     function post()
     {
-        return view('admin/post', ['title' => 'Add Product']);
+        $ctr = CategoryModel::Get();
+
+        return view('admin/post', [
+            'title' => 'Add Product',
+            'category' => $ctr,
+        ]);
     }
     function orders()
     {
@@ -34,6 +41,8 @@ class AdminController extends Controller
     }
     function products()
     {
+        $prd = GetpostModel::AllProduct(100);
+
         $newest_products =
         Product::orderBy('created_at', 'desc')
             ->take(5)
@@ -42,11 +51,17 @@ class AdminController extends Controller
         return view('admin/products', [
             'title' => 'List Products',
             'newest_products' => $newest_products,
+            'prd' => $prd,
         ]);
     }
     function categories()
     {
-        return view('admin/categories', ['title' => 'Categories']);
+        $ctr = CategoryModel::Get();
+
+        return view('admin/categories', [
+            'title' => 'Categories',
+            'category' => $ctr,
+        ]);
     }
     function setting()
     {
@@ -58,7 +73,12 @@ class AdminController extends Controller
     }
     function profile()
     {
-        return view('admin/profile', ['title' => 'Profile']);
+        $prd = GetpostModel::AllProduct(100);
+
+        return view('admin/profile', [
+            'title' => 'Profile',
+            'prd' => $prd,
+        ]);
     }
     function customer($idcustomer)
     {
