@@ -23,9 +23,9 @@ class Transaction extends Model
         $this->attributes['created_at'] = \Carbon\Carbon::now();
     }
 
-    static function getByIdMD5()
+    static function getByIdMD5($md5ed_trans_id)
     {
-        return Self::whereRaw("MD5(`id`) = '{$r['trans_id']}'");
+        return Self::whereRaw("MD5(`id`) = '${md5ed_trans_id}'");
     }
 
     public function transactionDetail()
