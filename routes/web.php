@@ -97,10 +97,10 @@ Route::group(['middleware' => 'admin_auth'], function(){
     Route::get('/admin/customer/{idcustomer}',  'Admin\AdminController@customer');
 
     //category
-    Route::get('/admin/category/get', 'CategoryController@get');
-    Route::post('/admin/category/add', 'CategoryController@addParent');
-    Route::post('/admin/category/delete', 'CategoryController@delete');
-    Route::post('/admin/category/addChild', 'CategoryController@addChild');
+    Route::get('/admin/category/get',       'Admin\CategoryController@get');
+    Route::post('/admin/category/add',      'Admin\CategoryController@addParent');
+    Route::post('/admin/category/delete',   'Admin\CategoryController@delete');
+    Route::post('/admin/category/addChild', 'Admin\CategoryController@addChild');
 
     //posting product
     Route::post('/product/post',        'Admin\PostController@product');
