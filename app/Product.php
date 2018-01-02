@@ -42,6 +42,16 @@ class Product extends Model
                     ->get();
     }
 
+    static function getByCategory($category_id)
+    {
+        return Self::where('category_id', '=', $category_id)->get();
+    }
+
+    static function search($keyword)
+    {
+        return Self::where('name', 'like', "%${keyword}%")->get();
+    }
+
     public function getDiscountedPrice()
     {
         return $this->price - ($this->price * ($this->discount_in_percent/100));
