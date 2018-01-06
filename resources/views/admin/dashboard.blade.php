@@ -25,10 +25,10 @@
 			<div class="frame-order">
 				<div class="ctn head">
 					<div class="ctn-1">
-						ID Order
+						Order ID
 					</div>
 					<div class="ctn-2">
-						Full Name
+						Customer
 					</div>
 					<div class="ctn-3">
 						Ship to
