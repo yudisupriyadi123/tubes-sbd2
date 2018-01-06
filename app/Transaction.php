@@ -34,6 +34,18 @@ class Transaction extends Model
         return Self::whereRaw("MD5(`id`) = '${md5ed_trans_id}'");
     }
 
+    public function getTotalPrice()
+    {
+        $total_price = 0;
+
+        // iterate over all TransactionDetail
+        foreach ($this->transactionDetail as $item) {
+            $total_price += $item->getTotalPrice();
+        }
+
+        return $total_price;
+    }
+
     public function transactionDetail()
     {
         return $this->hasMany('\App\TransactionDetail', 'transaction_id', 'id');
