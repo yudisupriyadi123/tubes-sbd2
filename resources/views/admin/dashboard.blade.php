@@ -43,24 +43,36 @@
 						Actions
 					</div>
 				</div>
-				@for ($i=1; $i <= 5; $i++)
+				@if ($need_approved_orders->count() == 0)
+					<!-- TODO: make html more efficient -->
+					<div class="ctn value	">
+						<div class="ctn-1"></div>
+						<div class="ctn-2"></div>
+						<div class="ctn-3">No order found</div>
+						<div class="ctn-4"></div>
+						<div class="ctn-5"></div>
+						<div class="ctn-6"></div>
+					</div>
+				@endif
+				@foreach ($need_approved_orders as $na_order)
 				<div class="ctn value">
 					<div class="ctn-1">
-						<a href="{{ url('/') }}">
-							12045
+						<!-- TODO: ubah url -->
+						<a href="{{ url('/') }}" class="ellipsis-text-overflow">
+							{{ md5($na_order->id) }}
 						</a>
 					</div>
 					<div class="ctn-2">
-						<span>Ganjar Hadiatna</span>
+						<span>{{ $na_order->customer->name }}</span>
 					</div>
 					<div class="ctn-3">
-						Bandung, Jawa Barat, Kec. Lembang Kel. Desa Cibodas 07/02 40391
+						{{ $na_order->csa->getInlineFullAddress() }}
 					</div>
 					<div class="ctn-4">
-						2012/12/12 07:07:07 pm
+						{{ $na_order->created_at }}
 					</div>
 					<div class="ctn-5">
-						IDR 350,000,00
+						{{ $na_order->getTotalPrice() }}
 					</div>
 					<div class="ctn-6">
 						<button class="btn-circle btn-main-color-2">
@@ -74,7 +86,7 @@
 						</button>
 					</div>
 				</div>
-				@endfor
+				@endforeach
 				<div class="ctn value">
 					<div class="ctn-1"></div>
 					<div class="ctn-2"></div>

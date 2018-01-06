@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Product;
 use App\CategoryModel;
+use App\Transaction;
 
 class AdminController extends Controller
 {
@@ -19,7 +20,14 @@ class AdminController extends Controller
     }
     function dashboard()
     {
-        return view('admin/dashboard', ['title' => 'Dashboard']);
+        $max_item = 5;
+
+        $need_approved_orders = Transaction::getNeedApproved($max_item);
+
+        return view('admin/dashboard', [
+            'title' => 'Dashboard',
+            'need_approved_orders' => $need_approved_orders,
+        ]);
     }
     function post()
     {
