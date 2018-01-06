@@ -8,7 +8,6 @@ use App\Transaction;
 use App\TransactionDetail;
 use App\Customer;
 use App\Cart;
-use App\GetpostModel;
 use App\ProductCategory;
 
 class MainController extends Controller

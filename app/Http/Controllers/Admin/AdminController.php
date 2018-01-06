@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Product;
 use App\CategoryModel;
-use App\GetpostModel;
 
 class AdminController extends Controller
 {
@@ -41,17 +40,12 @@ class AdminController extends Controller
     }
     function products()
     {
-        $prd = GetpostModel::AllProduct(100);
-
-        $newest_products =
-        Product::orderBy('created_at', 'desc')
-            ->take(5)
-            ->get();
+        $max_product = 100;
+        $products = Product::getAll($max_product);
 
         return view('admin/products', [
             'title' => 'List Products',
-            'newest_products' => $newest_products,
-            'prd' => $prd,
+            'products' => $products,
         ]);
     }
     function categories()
@@ -73,11 +67,12 @@ class AdminController extends Controller
     }
     function profile()
     {
-        $prd = GetpostModel::AllProduct(100);
+        $max_product = 100;
+        $products = Product::getAll($max_product);
 
         return view('admin/profile', [
             'title' => 'Profile',
-            'prd' => $prd,
+            'products' => $products,
         ]);
     }
     function customer($idcustomer)
