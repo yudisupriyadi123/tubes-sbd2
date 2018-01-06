@@ -194,10 +194,10 @@
             </button>
             @endif
             <!--id nya harus diganti-->
-            <a href="{{ url('/purchase/12045') }}">
+            <a href="#">
               <button class="btn btn-main-color-2">
-                <label class="fa fa-lg fa-money"></label>
-                <label>Order Now</label>
+                <!-- <label class="fa fa-lg fa-money"></label> -->
+                <label>|<!-- Order Now --></label>
               </button>
             </a>
           </div>
