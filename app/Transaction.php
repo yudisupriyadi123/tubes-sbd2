@@ -50,4 +50,16 @@ class Transaction extends Model
     {
         return $this->hasMany('\App\TransactionDetail', 'transaction_id', 'id');
     }
+
+    public function customer()
+    {
+        // TODO: fix typo on database structure
+        return $this->hasOne('\App\Customer', 'email', 'costumer_email');
+    }
+
+    public function csa()
+    {
+        // TODO: fix typo on database structure
+        return $this->hasOne('\App\CSA', 'id', 'costumer_shipping_address_id');
+    }
 }
