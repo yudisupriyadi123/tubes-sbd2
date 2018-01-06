@@ -337,7 +337,7 @@ a {
 	font-size: 15px;
 }
 
-.alert {
+.alert.checkout-step-1 {
 	display: block;
 	color: red;
 	background-color: yellow;
@@ -404,4 +404,44 @@ a {
 	#loading .place {
 		width: 80%;
 	}
+}
+
+.text-center {
+	text-align: center;
+}
+
+.ellipsis-text-overflow {
+	display: block; /* for tag <a> problem */
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+/* action button in order page, for example */
+a.btn-circle {
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
+}
+a.btn-circle i {
+  line-height: 25px;
+}
+
+.alert {
+	font-size: 16px;
+	padding: 15px;
+	box-sizing: border-box;
+	border: 1px solid white;
+}
+
+.alert.with-margin-bottom {
+	margin-bottom: 30px;
+}
+
+.alert-success {
+	background: #38de97;
+	color: white;
+}
+.alert-danger {
+	background: #de6138;
+	color: white;
 }

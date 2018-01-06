@@ -18,7 +18,7 @@
 			var courier = $("select[name=courier]").val();
 			console.log(courier);
 			if (csa_id == -1 || courier == "") {
-				$("#submit-hint").html('<span class="alert">Courier and shipping address is required</span>');
+				$("#submit-hint").html('<span class="alert checkout-step-1">Courier and shipping address is required</span>');
 				event.preventDefault();
 			}
 
