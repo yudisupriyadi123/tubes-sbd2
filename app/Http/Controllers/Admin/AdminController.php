@@ -38,10 +38,7 @@ class AdminController extends Controller
             'category' => $ctr,
         ]);
     }
-    function orders()
-    {
-        return view('admin/orders', ['title' => 'List Orders']);
-    }
+
     function customers()
     {
         return view('admin/customers', ['title' => 'List Customers']);
