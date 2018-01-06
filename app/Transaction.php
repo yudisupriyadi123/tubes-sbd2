@@ -29,6 +29,29 @@ class Transaction extends Model
                 ->take($max_record)
                 ->get();
     }
+
+    static function getWaitingPayment($max_record)
+    {
+        return Self::where('status', '=', 'waiting_payment')
+                ->take($max_record)
+                ->get();
+    }
+
+    static function getPaymentVerified($max_record)
+    {
+        return Self::where('status', '=', 'payment_verified')
+                ->take($max_record)
+                ->get();
+    }
+
+    static function getRecentSuccess($max_record)
+    {
+        return Self::where('status', '=', 'done')
+                ->orderBy('created_at', 'desc')
+                ->take($max_record)
+                ->get();
+    }
+
     static function getByIdMD5($md5ed_trans_id)
     {
         return Self::whereRaw("MD5(`id`) = '${md5ed_trans_id}'");
