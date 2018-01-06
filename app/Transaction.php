@@ -23,6 +23,12 @@ class Transaction extends Model
         $this->attributes['created_at'] = \Carbon\Carbon::now();
     }
 
+    static function getNeedApproved($max_record)
+    {
+        return Self::where('status', '=', 'waiting_approval')
+                ->take($max_record)
+                ->get();
+    }
     static function getByIdMD5($md5ed_trans_id)
     {
         return Self::whereRaw("MD5(`id`) = '${md5ed_trans_id}'");
