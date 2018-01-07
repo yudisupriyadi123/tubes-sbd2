@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\CategoryModel;
 use App\Transaction;
+use App\Customer;
 
 class AdminController extends Controller
 {
@@ -23,10 +24,12 @@ class AdminController extends Controller
         $max_item = 5;
 
         $need_approved_orders = Transaction::getNeedApproved($max_item);
+        $customers = Customer::all()->take($max_item);
 
         return view('admin/dashboard', [
             'title' => 'Dashboard',
             'need_approved_orders' => $need_approved_orders,
+            'customers' => $customers,
         ]);
     }
     function post()
