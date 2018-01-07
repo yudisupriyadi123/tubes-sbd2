@@ -182,15 +182,22 @@
             </div>
           </div>
           <div class="post-btn">
+            @if ($product->stock > 0)
             <button class="btn btn-main-color" id="btn-addto-cart">
               <label class="fa fa-lg fa-shopping-cart"></label>
               <label>Add to Cart</label>
             </button>
+            @else
+            <button class="btn btn-main-color">
+              <label class="fa fa-lg fa-shopping-cart"></label>
+              <label>Out of stock</label>
+            </button>
+            @endif
             <!--id nya harus diganti-->
-            <a href="{{ url('/purchase/12045') }}">
+            <a href="#">
               <button class="btn btn-main-color-2">
-                <label class="fa fa-lg fa-money"></label>
-                <label>Order Now</label>
+                <!-- <label class="fa fa-lg fa-money"></label> -->
+                <label>|<!-- Order Now --></label>
               </button>
             </a>
           </div>

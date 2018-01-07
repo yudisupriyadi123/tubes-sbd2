@@ -36,7 +36,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('customer_guest');
     }
 
     /**
@@ -68,6 +68,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'address' => $data['address'],
             'password' => bcrypt($data['password']),
+            // TODO: use photo uploader in customer register
+            'photo' => '/img/avatar.png',
         ]);
     }
 

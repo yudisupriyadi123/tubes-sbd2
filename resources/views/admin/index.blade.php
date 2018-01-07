@@ -22,11 +22,11 @@
 	<script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('/js/jquery-ui/jquery-ui.min.js') }}"></script>
 
-	<script type="text/javascript">		
+	<script type="text/javascript">
 		window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
-        
+
         $.ajaxSetup({
 	        headers: {
 	            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -69,7 +69,7 @@
 			    		<label class="ttl">Orders</label>
 			    	</li>
 			    </a>
-			    <a href="{{ url('/admin/costumers') }}">
+			    <a href="{{ url('/admin/customers') }}">
 			    	<li>
 			    		<label class="icn fa fa-lg fa-users"></label>
 			    		<label class="ttl">Costumers</label>

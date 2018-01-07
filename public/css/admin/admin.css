@@ -245,4 +245,16 @@
 	padding: 10px 2.5% 40px 2.5%;
 	display: inline-block;
 }
+<<<<<<< HEAD
+=======
+
+.frame-order .ctn.customer-specific {
+    grid-template-columns: 100px 100px 180px 1fr 120px 100px;
+}
+
+.image.customer-avatar {
+    background-color: transparent;
+}
+
+>>>>>>> 4e7874ea3ad9c707a6b563fa68a291fa5886f160
 /*admin profile*/

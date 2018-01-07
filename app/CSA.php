@@ -14,4 +14,9 @@ class CSA extends Model
     protected $table = 'customer_shipping_addresses';
 
     public $timestamps = false;
+
+    public function getInlineFullAddress()
+    {
+        return "{$this->address}, kecamatan {$this->kecamatan}, {$this->kotamadya}, {$this->provinsi}, {$this->postal_code}. Penerima: {$this->receiver_name}";
+    }
 }

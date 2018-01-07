@@ -25,7 +25,7 @@
 						Actions
 					</div>
 				</div>
-				@foreach ($prd as $product)
+				@foreach ($products as $product)
 				<div class="ctn value">
 					<div class="ctn-1">
 						<a href="{{ url('/product/'.$product->id) }}">

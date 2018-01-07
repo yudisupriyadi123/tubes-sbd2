@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Product;
 use App\CategoryModel;
-use App\GetpostModel;
+use App\Transaction;
+use App\Customer;
 
 class AdminController extends Controller
 {
@@ -16,11 +17,20 @@ class AdminController extends Controller
     }
     function index()
     {
-        return view('admin/dashboard', ['title' => 'Dashboard']);
+        return redirect('admin/dashboard');
     }
     function dashboard()
     {
-        return view('admin/dashboard', ['title' => 'Dashboard']);
+        $max_item = 5;
+
+        $need_approved_orders = Transaction::getNeedApproved($max_item);
+        $customers = Customer::all()->take($max_item);
+
+        return view('admin/dashboard', [
+            'title' => 'Dashboard',
+            'need_approved_orders' => $need_approved_orders,
+            'customers' => $customers,
+        ]);
     }
     function post()
     {
@@ -31,27 +41,19 @@ class AdminController extends Controller
             'category' => $ctr,
         ]);
     }
-    function orders()
-    {
-        return view('admin/orders', ['title' => 'List Orders']);
-    }
+
     function customers()
     {
         return view('admin/customers', ['title' => 'List Customers']);
     }
     function products()
     {
-        $prd = GetpostModel::AllProduct(100);
-
-        $newest_products =
-        Product::orderBy('created_at', 'desc')
-            ->take(5)
-            ->get();
+        $max_product = 100;
+        $products = Product::getAll($max_product);
 
         return view('admin/products', [
             'title' => 'List Products',
-            'newest_products' => $newest_products,
-            'prd' => $prd,
+            'products' => $products,
         ]);
     }
     function categories()
@@ -73,11 +75,12 @@ class AdminController extends Controller
     }
     function profile()
     {
-        $prd = GetpostModel::AllProduct(100);
+        $max_product = 100;
+        $products = Product::getAll($max_product);
 
         return view('admin/profile', [
             'title' => 'Profile',
-            'prd' => $prd,
+            'products' => $products,
         ]);
     }
     function customer($idcustomer)

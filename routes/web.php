@@ -96,6 +96,14 @@ Route::group(['middleware' => 'admin_auth'], function(){
     Route::get('/admin/profile',                'Admin\AdminController@profile');
     Route::get('/admin/customer/{idcustomer}',  'Admin\AdminController@customer');
 
+    // order spesific
+    Route::get('/admin/orders/status/need-approved',    'Admin\OrderController@needApproved');
+    Route::get('/admin/orders/status/waiting-payment',  'Admin\OrderController@waitingPayment');
+    Route::get('/admin/orders/status/payment-verified', 'Admin\OrderController@paymentVerified');
+    Route::get('/admin/orders/status/recent-success',   'Admin\OrderController@recentSuccess');
+
+    Route::get('/admin/orders/change-status/{id}/to/{state}',   'Admin\OrderController@changeState');
+
     //category
     Route::get('/admin/category/get',       'Admin\CategoryController@get');
     Route::post('/admin/category/add',      'Admin\CategoryController@addParent');

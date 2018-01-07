@@ -74,7 +74,7 @@
 			-->
 			<!--on confirmed-->
 			<div class="ctn ctn-show" id="all">
-				@foreach ($prd as $product)
+				@foreach ($products as $product)
 				<div class="mn place">
 					<div class="frame-cart">
 						<div class="mid-cart">

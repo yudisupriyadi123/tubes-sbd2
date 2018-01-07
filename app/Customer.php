@@ -48,7 +48,7 @@ class Customer extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'address', 'password',
+        'name', 'email', 'address', 'password', 'photo',
     ];
 
     /**
@@ -59,6 +59,16 @@ class Customer extends Authenticatable
     protected $hidden = [
         'password',
     ];
+
+    public function getFirstName()
+    {
+        return explode(' ', $this->name, 2)[0];
+    }
+
+    public function getLastName()
+    {
+        return explode(' ', $this->name, 2)[1];
+    }
 
     public function cart()
     {
