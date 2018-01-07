@@ -103,21 +103,21 @@
     </div>
   </div>
   <div class="block">
-    <h3>Costumers</h3>
+    <h3>Customers</h3>
     <div class="content">
       <div class="frame-order">
-        <div class="ctn head">
+        <div class="ctn head customer-specific">
           <div class="ctn-1">
-            ID User
+            Email
           </div>
           <div class="ctn-2">
-            Full Name
+            First Name
           </div>
           <div class="ctn-3">
-            Address
+            Last Name
           </div>
           <div class="ctn-4">
-            Email
+            Address
           </div>
           <div class="ctn-5">
             Photo
@@ -126,32 +126,31 @@
             Actions
           </div>
         </div>
-        @for ($i=1; $i <= 5; $i++)
-        <div class="ctn value">
-          <div class="ctn-1">
-            <a href="{{ url('/') }}">
-              12045
-            </a>
+        @foreach ($customers as $customer)
+        <div class="ctn value customer-specific">
+          <div class="ctn-1 ellipsis-text-overflow">
+              {{ $customer->email }}
           </div>
-          <div class="ctn-2">
-            <span>Ganjar Hadiatna</span>
+          <div class="ctn-2 ellipsis-text-overflow">
+            <span>{{ $customer->getFirstName() }}</span>
           </div>
-          <div class="ctn-3">
-            Bandung, Jawa Barat, Kec. Lembang Kel. Desa Cibodas 07/02 40391
+          <div class="ctn-3 ellipsis-text-overflow">
+            <span>{{ $customer->getLastName() }}</span>
           </div>
           <div class="ctn-4">
-            ganjar@gmail.com
+            {{ $customer->address }}
           </div>
           <div class="ctn-5">
-            <div class="image" style="background-image: url('{{ url('/') }}/img/banner1.jpg');"></div>
+            <div class="image customer-avatar" style="background-image: url('{{ asset($customer->photo) }}');"></div>
           </div>
           <div class="ctn-6">
+            <!-- TODO: atur url customer detail -->
             <a href="{{ url('/') }}">
               <input type="button" name="detail" class="btn btn-main-color-2" value="Detail">
             </a>
           </div>
         </div>
-        @endfor
+        @endforeach
         <div class="ctn value">
           <div class="ctn-1"></div>
           <div class="ctn-2"></div>
