@@ -60,6 +60,16 @@ class Customer extends Authenticatable
         'password',
     ];
 
+    public function getFirstName()
+    {
+        return explode(' ', $this->name, 2)[0];
+    }
+
+    public function getLastName()
+    {
+        return explode(' ', $this->name, 2)[1];
+    }
+
     public function cart()
     {
         // TODO: fix typo on database structure
