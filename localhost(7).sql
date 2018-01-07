@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 02, 2018 at 06:47 AM
+-- Generation Time: Jan 07, 2018 at 01:03 PM
 -- Server version: 5.5.57-MariaDB-1ubuntu0.14.04.1
 -- PHP Version: 7.0.23-1+ubuntu14.04.1+deb.sury.org+1
 
@@ -81,14 +81,15 @@ CREATE TABLE IF NOT EXISTS `cart` (
   PRIMARY KEY (`id`),
   KEY `cart_costumer_email_index` (`costumer_email`),
   KEY `cart_product_id_index` (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `cart`
 --
 
 INSERT INTO `cart` (`id`, `size`, `color`, `quantity`, `costumer_email`, `product_id`) VALUES
-(6, '1', '2', 6, 'test@gmail.com', 29);
+(6, '1', '2', 6, 'test@gmail.com', 29),
+(7, '2', '2', 1, 'test@gmail.com', 29);
 
 -- --------------------------------------------------------
 
@@ -110,8 +111,8 @@ CREATE TABLE IF NOT EXISTS `customer` (
 --
 
 INSERT INTO `customer` (`email`, `password`, `name`, `address`, `photo`) VALUES
-('fake_costumer@gmail.com', '$2y$10$HHMnQN7DjFEE6sjPXUaO2.Upmmc1MkpXZMFdMpOcDE.Rx78Km5Hd.', 'Fake Customer', 'Jl Fake Address No.99', NULL),
-('test@gmail.com', '$2y$10$gTmzP2Wisz3uZhQkwNChiuZVBCjdZi6wfDK.SQjuG81sxtydePdBK', 'Test 123', 'Jl Mekar Indah No.11', NULL);
+('fake_costumer@gmail.com', '$2y$10$HHMnQN7DjFEE6sjPXUaO2.Upmmc1MkpXZMFdMpOcDE.Rx78Km5Hd.', 'Fake Customer', 'Jl Fake Address No.99', '/img/avatar.png'),
+('test@gmail.com', '$2y$10$gTmzP2Wisz3uZhQkwNChiuZVBCjdZi6wfDK.SQjuG81sxtydePdBK', 'Test 123', 'Jl Mekar Indah No.11', '/img/avatar.png');
 
 -- --------------------------------------------------------
 
@@ -276,8 +277,8 @@ CREATE TABLE IF NOT EXISTS `product_colors` (
 --
 
 INSERT INTO `product_colors` (`id`, `color`, `product_id`) VALUES
-(1, 'merah', 29),
-(2, 'biru', 29),
+(1, 'red', 29),
+(2, 'blue', 29),
 (3, 'grey', 36),
 (4, 'brown', 36),
 (5, 'grey', 37),
@@ -358,18 +359,15 @@ CREATE TABLE IF NOT EXISTS `transaction` (
   PRIMARY KEY (`id`),
   KEY `transaction_costumer_email_index` (`costumer_email`),
   KEY `destination_shipping_address` (`costumer_shipping_address_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `transaction`
 --
 
 INSERT INTO `transaction` (`id`, `status`, `courier`, `payment_has_verified_at`, `created_at`, `costumer_email`, `costumer_shipping_address_id`) VALUES
-(10, 'waiting_approval', 'JNE', NULL, '2017-12-24 07:53:21', NULL, 12),
-(11, 'waiting_approval', 'JNE', NULL, '2017-12-24 07:53:39', NULL, 12),
-(12, 'waiting_approval', 'JNE', NULL, '2017-12-24 09:50:18', NULL, 12),
-(13, 'waiting_approval', 'JNE', NULL, '2017-12-28 02:09:53', NULL, 10),
-(14, 'waiting_approval', 'JNE', NULL, '2018-01-01 08:01:46', 'test@gmail.com', 1);
+(14, 'waiting_approval', 'JNE', NULL, '2018-01-06 10:42:01', 'test@gmail.com', 1),
+(15, 'waiting_approval', 'JNE', NULL, '2018-01-06 10:42:03', 'test@gmail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -387,16 +385,15 @@ CREATE TABLE IF NOT EXISTS `transaction_detail` (
   PRIMARY KEY (`id`),
   KEY `transaction_detail_transaction_id_index` (`transaction_id`),
   KEY `transaction_detail_product_id_index` (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `transaction_detail`
 --
 
 INSERT INTO `transaction_detail` (`id`, `size`, `color`, `quantity`, `transaction_id`, `product_id`) VALUES
-(5, 'M', 'RED', 25, 12, 30),
-(6, 'M', 'BLUE', 13, 13, 31),
-(7, '2', '1', 1, 14, 29);
+(7, '2', '1', 1, 14, 29),
+(8, '2', '1', 1, 15, 29);
 
 --
 -- Constraints for dumped tables
