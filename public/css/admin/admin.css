@@ -187,6 +187,14 @@
 	grid-gap: 10px;
 	font-size: 14px;
 }
+.frame-order table {
+	width: 100%;
+	background-color: #fff;
+	padding: 20px;
+}
+.frame-order table thead tr th {
+	font-size: 14px;
+}
 .ctn .head {
 	font-weight: 900;
 }
