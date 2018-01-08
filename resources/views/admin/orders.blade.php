@@ -265,7 +265,71 @@
 			</div>
 		</div>
 	</div>
+	<div class="block">
+		<h3>Has Sent Orders</h3>
+		<div class="content">
+			<div class="frame-order">
+				<div class="ctn head">
+					<div class="ctn-1">
+						Order ID
+					</div>
+					<div class="ctn-2">
+						Customer
+					</div>
+					<div class="ctn-3">
+						Ship to
+					</div>
+					<div class="ctn-4">
+						Date
+					</div>
+					<div class="ctn-5">
+						Total
+					</div>
+					<div class="ctn-6">
+						Actions
+					</div>
+				</div>
+				@if ($has_sent_orders->count() == 0)
+					<!-- TODO: make html more efficient -->
+					<div class="ctn value">
+						<div class="ctn-1"></div>
+						<div class="ctn-2"></div>
+						<div class="ctn-3">No order found</div>
+						<div class="ctn-4"></div>
+						<div class="ctn-5"></div>
+						<div class="ctn-6"></div>
+					</div>
+				@endif
+				@foreach ($has_sent_orders as $na_order)
+				<div class="ctn value">
+					<div class="ctn-1">
+						<!-- TODO: ubah url -->
+						<a href="{{ url('/') }}" class="ellipsis-text-overflow">
+							{{ md5($na_order->id) }}
+						</a>
+					</div>
+					<div class="ctn-2">
+						<span>{{ $na_order->customer->name }}</span>
+					</div>
+					<div class="ctn-3">
+						{{ $na_order->csa->getInlineFullAddress() }}
+					</div>
+					<div class="ctn-4">
+						{{ $na_order->created_at }}
+					</div>
+					<div class="ctn-5">
+						{{ $na_order->getTotalPrice() }}
+					</div>
+					<div class="ctn-6">
+						<a class="btn-circle btn-main-color-2" href="#">
+							<i class="fa fa-lg fa-ellipsis-h"></i>
+						</a>
+						<a class="btn-circle btn-main-color-2" href="{{ url('/admin/orders/change-status/'.$na_order->id.'/to/done') }}">
+							<i class="fa fa-lg fa-check"></i>
 						</button>
+						<a class="btn-circle btn-main-color-2" href="#">
+							<i class="fa fa-lg fa-eye"></i>
+						</a>
 					</div>
 				</div>
 				@endforeach

@@ -44,6 +44,13 @@ class Transaction extends Model
                 ->get();
     }
 
+    static function getHasSent($max_record)
+    {
+        return Self::where('status', '=', 'product_has_sent')
+                ->take($max_record)
+                ->get();
+    }
+
     static function getRecentSuccess($max_record)
     {
         return Self::where('status', '=', 'done')

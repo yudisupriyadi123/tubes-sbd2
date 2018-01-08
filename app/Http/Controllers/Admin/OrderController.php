@@ -14,6 +14,7 @@ class OrderController extends Controller
         $need_approved_orders    = Transaction::getNeedApproved($max_item);
         $waiting_payment_orders  = Transaction::getWaitingPayment($max_item);
         $payment_verified_orders = Transaction::getPaymentVerified($max_item);
+        $has_sent_orders         = Transaction::getHasSent($max_item);
         $recent_success_orders   = Transaction::getRecentSuccess($max_item);
 
         $max_item = 30;
@@ -25,6 +26,7 @@ class OrderController extends Controller
             'need_approved_orders'      => $need_approved_orders,
             'waiting_payment_orders'    => $waiting_payment_orders,
             'payment_verified_orders'   => $payment_verified_orders,
+            'has_sent_orders'           => $has_sent_orders,
             'recent_success_orders'     => $recent_success_orders,
         ]);
     }
@@ -111,6 +113,7 @@ class OrderController extends Controller
             case 'waiting_approval' :break;
             case 'rejected'         :break;
             case 'waiting_payment'  :break;
+            case 'payment_verified' :break;
             case 'product_has_sent' :break;
             case 'done'             :break;
             default                 :return -1;
