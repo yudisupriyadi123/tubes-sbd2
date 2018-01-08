@@ -88,7 +88,7 @@ Route::group(['middleware' => 'admin_auth'], function(){
     Route::get('/admin/dashboard',              'Admin\AdminController@dashboard');
     Route::get('/admin/post',                   'Admin\AdminController@post');
     Route::get('/admin/categories',             'Admin\AdminController@categories');
-    Route::get('/admin/orders',                 'Admin\AdminController@orders');
+    Route::get('/admin/orders',                 'Admin\OrderController@index');
     Route::get('/admin/customers',              'Admin\AdminController@customers');
     Route::get('/admin/products',               'Admin\AdminController@products');
     Route::get('/admin/setting',                'Admin\AdminController@setting');
