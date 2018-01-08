@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 07, 2018 at 01:03 PM
+-- Generation Time: Jan 08, 2018 at 10:34 PM
 -- Server version: 5.5.57-MariaDB-1ubuntu0.14.04.1
 -- PHP Version: 7.0.23-1+ubuntu14.04.1+deb.sury.org+1
 
@@ -350,9 +350,10 @@ INSERT INTO `product_sizes` (`id`, `size`, `product_id`) VALUES
 
 CREATE TABLE IF NOT EXISTS `transaction` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `status` enum('waiting_approval','rejected','approved','waiting_payment','product_has_sent','done') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'waiting_approval',
+  `status` enum('waiting_approval','rejected','approved','waiting_payment','product_has_sent','done','payment_verified','payment_proof_rejected') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'waiting_approval',
   `courier` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL,
   `payment_has_verified_at` datetime DEFAULT NULL,
+  `proof_photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `costumer_email` varchar(35) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `costumer_shipping_address_id` int(10) unsigned DEFAULT NULL,
@@ -365,9 +366,9 @@ CREATE TABLE IF NOT EXISTS `transaction` (
 -- Dumping data for table `transaction`
 --
 
-INSERT INTO `transaction` (`id`, `status`, `courier`, `payment_has_verified_at`, `created_at`, `costumer_email`, `costumer_shipping_address_id`) VALUES
-(14, 'waiting_approval', 'JNE', NULL, '2018-01-06 10:42:01', 'test@gmail.com', 1),
-(15, 'waiting_approval', 'JNE', NULL, '2018-01-06 10:42:03', 'test@gmail.com', 1);
+INSERT INTO `transaction` (`id`, `status`, `courier`, `payment_has_verified_at`, `proof_photo`, `created_at`, `costumer_email`, `costumer_shipping_address_id`) VALUES
+(14, 'product_has_sent', 'JNE', NULL, 'img/proof_photo_customer/11154.png', '2018-01-08 15:28:22', 'test@gmail.com', 1),
+(15, 'waiting_payment', 'JNE', NULL, '', '2018-01-08 14:54:58', 'test@gmail.com', 1);
 
 -- --------------------------------------------------------
 
