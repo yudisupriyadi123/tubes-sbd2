@@ -133,4 +133,36 @@ class OrderController extends Controller
 
         return 0;
     }
+
+    function reviewProof($id)
+    {
+        $trans = Transaction::find($id);
+
+        return view('/admin/reviewProofOrder', [
+            'title' => 'Review Proof',
+            'trans' => $trans,
+        ]);
+    }
+
+    function makeProofVerified($id)
+    {
+        $trans = Transaction::find($id);
+        $trans->status = 'payment_verified';
+        $trans->save();
+
+        return redirect('/admin/orders')
+                ->with('status', 'OK')
+                ->with('message', 'Payment verified for the order');
+    }
+
+    function makeProofRejected($id)
+    {
+        $trans = Transaction::find($id);
+        $trans->status = 'payment_proof_rejected';
+        $trans->save();
+
+        return redirect('/admin/orders')
+                ->with('status', 'OK')
+                ->with('message', 'Payment has rejected');
+    }
 }

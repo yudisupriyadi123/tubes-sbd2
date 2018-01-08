@@ -445,3 +445,12 @@ a.btn-circle i {
 	background: #de6138;
 	color: white;
 }
+
+/* used only in an admin page */
+#proof-photo-wrapper {
+	text-align: center;
+}
+#proof-photo {
+	max-width: 100%;
+	margin: 0 auto 10px 0;
+}

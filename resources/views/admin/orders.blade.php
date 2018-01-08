@@ -120,7 +120,7 @@
 						Total
 					</div>
 					<div class="ctn-6">
-						Actions
+						Proof
 					</div>
 				</div>
 				@if ($waiting_payment_orders->count() == 0)
@@ -155,15 +155,11 @@
 						{{ $na_order->getTotalPrice() }}
 					</div>
 					<div class="ctn-6">
-						<a class="btn-circle btn-main-color-2" href="#">
-							<i class="fa fa-lg fa-ellipsis-h"></i>
-						</a>
-						<a class="btn-circle btn-main-color-2" href="{{ url('/admin/orders/change-status/'.$na_order->id.'/to/payment_verified') }}">
-							<i class="fa fa-lg fa-check"></i>
-						</button>
-						<a class="btn-circle btn-main-color-2" href="#">
-							<i class="fa fa-lg fa-eye"></i>
-						</a>
+						@if (! empty($na_order->proof_photo))
+						<a href="{{ url('admin/order/review-proof/'.$na_order->id) }}" class="btn btn-main-color-2">Review</a>
+						@else
+						<span style="font-size:13px">Not uploaded yet</span>
+						@endif
 					</div>
 				</div>
 				@endforeach

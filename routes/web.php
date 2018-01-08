@@ -105,6 +105,9 @@ Route::group(['middleware' => 'admin_auth'], function(){
     Route::get('/admin/orders/status/recent-success',   'Admin\OrderController@recentSuccess');
 
     Route::get('/admin/orders/change-status/{id}/to/{state}',   'Admin\OrderController@changeState');
+    Route::get('/admin/order/review-proof/{id}',     'Admin\OrderController@reviewProof');
+    Route::get('/admin/order/proof/{id}/verified',   'Admin\OrderController@makeProofVerified');
+    Route::get('/admin/order/proof/{id}/rejected',    'Admin\OrderController@makeProofRejected');
 
     //category
     Route::get('/admin/category/get',       'Admin\CategoryController@get');
