@@ -59,18 +59,18 @@ Route::group(['middleware' => 'customer_auth'], function(){
     Route::post('/checkout/step1',  'Customer\CheckoutController@checkoutStep1');
     Route::post('/checkout/step2',  'Customer\CheckoutController@checkoutStep2');
 
-    Route::post('/ajax/add-to-cart', 'AjaxController@addToCart');
-    Route::post('/ajax/update-cart', 'AjaxController@updateCart');
-    Route::get('/ajax/update-cart', 'AjaxController@updateCart');
+    Route::post('/ajax/add-to-cart',                  'AjaxController@addToCart');
+    Route::post('/ajax/update-cart',                  'AjaxController@updateCart');
+    Route::get('/ajax/update-cart',                   'AjaxController@updateCart');
     Route::post('/ajax/on-change-quantity-cart-item', 'AjaxController@onChangeQuantityOfCartItem');
-    Route::get('/ajax/on-change-quantity-cart-item', 'AjaxController@onChangeQuantityOfCartItem');
+    Route::get('/ajax/on-change-quantity-cart-item',  'AjaxController@onChangeQuantityOfCartItem');
 
-    Route::get('/ajax/add-csa', 'AjaxController@addCSA');
-    Route::post('/ajax/add-csa', 'AjaxController@addCSA');
-    Route::post('/ajax/get-csa-by-id', 'AjaxController@getCSAbyId');
+    Route::get('/ajax/add-csa',         'AjaxController@addCSA');
+    Route::post('/ajax/add-csa',        'AjaxController@addCSA');
+    Route::post('/ajax/get-csa-by-id',  'AjaxController@getCSAbyId');
     // TODO: hapus
-    Route::get('/ajax/get-all-csa', 'AjaxController@getAllCSA');
-    Route::post('/ajax/get-all-csa', 'AjaxController@getAllCSA');
+    Route::get('/ajax/get-all-csa',     'AjaxController@getAllCSA');
+    Route::post('/ajax/get-all-csa',    'AjaxController@getAllCSA');
 
     Route::get('/customer', 'Customer\CustomerController@index');
     Route::get('/logout',   'Customer\Auth\LoginController@logout');
