@@ -340,7 +340,7 @@
 					<div class="ctn-4"></div>
 					<div class="ctn-5"></div>
 					<div class="ctn-6">
-						<a href="{{ url('/admin/orders/status/payment-verified') }}">
+						<a href="{{ url('/admin/orders/status/has-sent') }}">
 							<input type="button" name="view_more" class="btn btn-main-color" value="View All">
 						</a>
 					</div>

@@ -67,6 +67,18 @@ class OrderController extends Controller
         ]);
     }
 
+    function hasSent()
+    {
+        $max_item = 30;
+
+        $has_sent_orders = Transaction::getHasSent($max_item);
+
+        return view('admin/orders_all', [
+            'title' => 'Has-Sent Orders',
+            'orders' => $has_sent_orders,
+        ]);
+    }
+
     function recentSuccess()
     {
         $max_item = 30;

@@ -100,6 +100,7 @@ Route::group(['middleware' => 'admin_auth'], function(){
     Route::get('/admin/orders/status/need-approved',    'Admin\OrderController@needApproved');
     Route::get('/admin/orders/status/waiting-payment',  'Admin\OrderController@waitingPayment');
     Route::get('/admin/orders/status/payment-verified', 'Admin\OrderController@paymentVerified');
+    Route::get('/admin/orders/status/has-sent',         'Admin\OrderController@hasSent');
     Route::get('/admin/orders/status/recent-success',   'Admin\OrderController@recentSuccess');
 
     Route::get('/admin/orders/change-status/{id}/to/{state}',   'Admin\OrderController@changeState');
