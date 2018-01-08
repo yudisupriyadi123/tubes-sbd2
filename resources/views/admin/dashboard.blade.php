@@ -66,7 +66,8 @@
             <span>{{ $na_order->customer->name }}</span>
           </div>
           <div class="ctn-3">
-            {{ $na_order->csa->getInlineFullAddress() }}
+            <!-- ini error -->
+            <!-- $na_order->csa->getInlineFullAddress() -->
           </div>
           <div class="ctn-4">
             {{ $na_order->created_at }}
@@ -102,6 +103,73 @@
       </div>
     </div>
   </div>
+  
+  <!--payment place-->
+  <div class="block">
+    <h3>Payment Proof</h3>
+    <div class="content">
+      <div class="frame-order">
+        <div class="ctn head">
+          <div class="ctn-1">
+            Order ID
+          </div>
+          <div class="ctn-2">
+            Customer
+          </div>
+          <div class="ctn-3">
+            Purchase
+          </div>
+          <div class="ctn-4">
+            Date
+          </div>
+          <div class="ctn-5">
+            Product
+          </div>
+          <div class="ctn-6">
+            Actions
+          </div>
+        </div>
+        @foreach ($customers as $customer)
+        <div class="ctn value customer-specific">
+          <div class="ctn-1 ellipsis-text-overflow">
+              {{ $customer->email }}
+          </div>
+          <div class="ctn-2 ellipsis-text-overflow">
+            <span>{{ $customer->getFirstName() }}</span>
+          </div>
+          <div class="ctn-3 ellipsis-text-overflow">
+            <span>{{ $customer->getLastName() }}</span>
+          </div>
+          <div class="ctn-4">
+            {{ $customer->address }}
+          </div>
+          <div class="ctn-5">
+            <div class="image customer-avatar" style="background-image: url('{{ asset($customer->photo) }}');"></div>
+          </div>
+          <div class="ctn-6">
+            <!-- TODO: atur url customer detail -->
+            <a href="{{ url('/') }}">
+              <input type="button" name="detail" class="btn btn-main-color-2" value="Detail">
+            </a>
+          </div>
+        </div>
+        @endforeach
+        <div class="ctn value">
+          <div class="ctn-1"></div>
+          <div class="ctn-2"></div>
+          <div class="ctn-3"></div>
+          <div class="ctn-4"></div>
+          <div class="ctn-5"></div>
+          <div class="ctn-6">
+            <a href="{{ url('/admin/costumers') }}">
+              <input type="button" name="view_more" class="btn btn-main-color" value="View All">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="block">
     <h3>Customers</h3>
     <div class="content">

@@ -265,9 +265,6 @@
 				    <a href="{{ url('order/proof') }}">
 				    	<li>Send a Payment Proof</li>
 				    </a>
-				    <a href="{{ url('order/cek') }}">
-				    	<li>Check your Order</li>
-				    </a>
 				    <a href="{{ url('signin') }}">
 				    	<li>Signin to your Account</li>
 				    </a>

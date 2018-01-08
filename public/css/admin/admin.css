@@ -187,6 +187,14 @@
 	grid-gap: 10px;
 	font-size: 14px;
 }
+.frame-order table {
+	width: 100%;
+	background-color: #fff;
+	padding: 20px;
+}
+.frame-order table thead tr th {
+	font-size: 14px;
+}
 .ctn .head {
 	font-weight: 900;
 }
@@ -245,6 +253,8 @@
 	padding: 10px 2.5% 40px 2.5%;
 	display: inline-block;
 }
+<<<<<<< HEAD
+=======
 
 .frame-order .ctn.customer-specific {
     grid-template-columns: 100px 100px 180px 1fr 120px 100px;
@@ -254,4 +264,5 @@
     background-color: transparent;
 }
 
+>>>>>>> 4e7874ea3ad9c707a6b563fa68a291fa5886f160
 /*admin profile*/

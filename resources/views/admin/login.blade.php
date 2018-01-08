@@ -45,7 +45,7 @@
 						<div class="icn">Email</div>
 						<input type="email" name="email" class="txt" placeholder="" required="true" id="email-admin">
 						@if ($errors->has('email'))
-						<span class="help-block">
+						<span class="help-block" style="padding-top: 10px; color: #CA4F4F;">
 							<strong>{{ $errors->first('email') }}</strong>
 						</span>
 						@endif
@@ -54,7 +54,7 @@
 						<div class="icn">Password</div>
 						<input type="password" name="password" class="txt" placeholder="" required="true" id="paswd-admin">
 						@if ($errors->has('password'))
-						<span class="help-block">
+						<span class="help-block" style="padding-top: 10px; color: #CA4F4F;">
 							<strong>{{ $errors->first('password') }}</strong>
 						</span>
 						@endif
