@@ -44,4 +44,32 @@ class OrderController extends Controller
     {
         return view('/order/proof',['title' => 'Order Proof']);
     }
+
+    function uploadProof(Request $req)
+    {
+        $r = $req->all();
+
+        $file = $r['file'];
+        $destinationPath    = 'img/proof_photo_customer';
+        $extension          = $file->getClientOriginalExtension();
+        // TODO: it should check if randomed file name is not exist in directory
+        // rename file with random number + ext
+        $fileName           = rand(11111, 99999) . '.' . $extension;
+        $upload_success     = $file->move(public_path($destinationPath), $fileName);
+
+
+        $trans = Transaction::getByIdMD5($r['order_id'])->first();
+        $trans->proof_photo = "{$destinationPath}/{$fileName}";
+        $trans->save();
+
+        if ($upload_success) {
+            return back()
+                    ->with('status', 'OK')
+                    ->with('message', 'OK! Please patience, admin will review that');
+        }
+
+        return back()
+                ->with('status', 'BAD')
+                ->with('message', 'Move uploaded file is fail');
+    }
 }

@@ -50,9 +50,10 @@ Route::post('/admin/register',  'Admin\Auth\RegisterController@register');
 |
 */
 Route::group(['middleware' => 'customer_auth'], function(){
-    Route::get('/order/check',    'Customer\OrderController@check');
-    Route::post('/order/check',   'Customer\OrderController@check');
-    Route::get('/order/proof',  'Customer\OrderController@proof');
+    Route::get('/order/check',          'Customer\OrderController@check');
+    Route::post('/order/check',         'Customer\OrderController@check');
+    Route::get('/order/proof',          'Customer\OrderController@proof');
+    Route::post('/order/upload-proof',  'Customer\OrderController@uploadProof');
 
     Route::get('/cart',             'Customer\CartController@index');
     Route::post('/checkout/step1',  'Customer\CheckoutController@checkoutStep1');
