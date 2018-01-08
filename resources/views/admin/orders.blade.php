@@ -158,7 +158,7 @@
 						<a class="btn-circle btn-main-color-2" href="#">
 							<i class="fa fa-lg fa-ellipsis-h"></i>
 						</a>
-						<a class="btn-circle btn-main-color-2" href="{{ url('/admin/orders/change-status/{$na_order->id}/to/waiting_payment') }}">
+						<a class="btn-circle btn-main-color-2" href="{{ url('/admin/orders/change-status/'.$na_order->id.'/to/payment_verified') }}">
 							<i class="fa fa-lg fa-check"></i>
 						</button>
 						<a class="btn-circle btn-main-color-2" href="#">
@@ -238,14 +238,33 @@
 						{{ $na_order->getTotalPrice() }}
 					</div>
 					<div class="ctn-6">
-						<button class="btn-circle btn-main-color-2">
-							<div class="fa fa-lg fa-ellipsis-h"></div>
+						<a class="btn-circle btn-main-color-2" href="#">
+							<i class="fa fa-lg fa-ellipsis-h"></i>
+						</a>
+						<a class="btn-circle btn-main-color-2" href="{{ url('/admin/orders/change-status/'.$na_order->id.'/to/product_has_sent') }}">
+							<i class="fa fa-lg fa-check"></i>
 						</button>
-						<button class="btn-circle btn-main-color-2">
-							<div class="fa fa-lg fa-check"></div>
-						</button>
-						<button class="btn-circle btn-main-color-2">
-							<div class="fa fa-lg fa-eye"></div>
+						<a class="btn-circle btn-main-color-2" href="#">
+							<i class="fa fa-lg fa-eye"></i>
+						</a>
+					</div>
+				</div>
+				@endforeach
+				<div class="ctn value">
+					<div class="ctn-1"></div>
+					<div class="ctn-2"></div>
+					<div class="ctn-3"></div>
+					<div class="ctn-4"></div>
+					<div class="ctn-5"></div>
+					<div class="ctn-6">
+						<a href="{{ url('/admin/orders/status/payment-verified') }}">
+							<input type="button" name="view_more" class="btn btn-main-color" value="View All">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 						</button>
 					</div>
 				</div>
