@@ -36,6 +36,11 @@ class TransactionDetail extends Model
 
             $trans_detail->save();
             $cart_item->delete();
+
+            // decrease stock
+            $product = Product::find($trans_detail->product_id);
+            $product->stock -= $trans_detail->quantity;
+            $product->save();
         }
     }
 
