@@ -3,16 +3,16 @@
 @section('content')
 <div class="frame-home">
 
-	@include('home.banner')
+    @include('home.banner')
 
-	@include('home.categories')
+    @include('home.categories')
 
-	@include('home.newest-product', ['newest_products' => $newest_products])
+    @include('home.newest-product', ['newest_products' => $newest_products])
 
-	@include('home.biggest-discounted-product',
+    @include('home.biggest-discounted-product',
     ['biggest_discount_products' => $biggest_discount_products])
 
-	@include('home.all-product')
+    @include('home.all-product')
 
 </div>
 @endsection

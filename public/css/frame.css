@@ -1,127 +1,127 @@
 .frame-products {
-	position: relative;
-	width: 100%;
-	height: auto;
-	background-color: #fff;
-	overflow: hidden;
-	border-radius: 0px;
-	border: 1px #e1e1e1 solid;
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 0px;
+  border: 1px #e1e1e1 solid;
 }
 .frame-products:hover {
-	-webkit-transition: 0.3s;
-	   -moz-transition: 0.3s;
-	    -ms-transition: 0.3s;
-	     -o-transition: 0.3s;
-	        transition: 0.3s;
-	box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
 }
 .frame-products:hover > .cen .bot .btn {
-	transition: 0.3s;
-	background-color: #CA4F4F;
-	color: #fff;
-	border: 2px #CA4F4F solid;
+  transition: 0.3s;
+  background-color: #CA4F4F;
+  color: #fff;
+  border: 2px #CA4F4F solid;
 }
 .frame-products .onsale {
-	position: absolute;
-	top: 5px;
-	right: 5px;
-	z-index: 1;
-	background-color: #CA4F4F;
-	color: #fff;
-	width: 50px;
-	padding: 8px 0px;
-	border-radius: 100%;
-	text-align: center;
-	font-size: 14px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 1;
+  background-color: #CA4F4F;
+  color: #fff;
+  width: 50px;
+  padding: 8px 0px;
+  border-radius: 100%;
+  text-align: center;
+  font-size: 14px;
 }
 .frame-products .top .images {
-	position: relative;
-	margin: auto;
-	width: 100%;
-	background-color: #000;
-	padding-bottom: 100%;
-	background-size: 100%;
-	background-position: center;
-	background-repeat: no-repeat;
+  position: relative;
+  margin: auto;
+  width: 100%;
+  background-color: #000;
+  padding-bottom: 100%;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .frame-products .cen {
-	position: relative;
-	margin: auto;
-	width: 90%;
-	padding: 5%;
-	font-size: 14px;
-	font-family: sans-serif;
-	color: #555;
-	line-height: 1.5;
-	cursor: default;
+  position: relative;
+  margin: auto;
+  width: 90%;
+  padding: 5%;
+  font-size: 14px;
+  font-family: sans-serif;
+  color: #555;
+  line-height: 1.5;
+  cursor: default;
 }
 .frame-products .cen .idr {
-	font-weight: 900;
-	color: #CA4F4F;
-	font-size: 16px;
+  font-weight: 900;
+  color: #CA4F4F;
+  font-size: 16px;
 }
 .frame-products .cen .idr2 {
-	text-decoration: line-through;
+  text-decoration: line-through;
 }
 .frame-products .cen .rated {
-	font-size: 14px;
+  font-size: 14px;
 }
 .frame-products .cen .rated .st {
-	color: #CA4F4F;
+  color: #CA4F4F;
 }
 .frame-products .cen .tgl {
-	font-size: 12px;
+  font-size: 12px;
 }
 .frame-products .cen .bot {
-	position: relative;
-	width: 100%;
-	height: 50px;
-	line-height: 50px;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
 }
 .frame-products .cen .mid {
-	position: relative;
-	width: 100%;
+  position: relative;
+  width: 100%;
 }
 .frame-products .cen .bot .btn {
-	width: 100%;
+  width: 100%;
 }
 .frame-products .cen .bot ul li {
-	list-style: none;
-	float: left;
+  list-style: none;
+  float: left;
 }
 .frame-products .cen .bot ul li .fa {
-	font-size: 18px;
-	width: 40px;
-	height: 40px;
-	line-height: 40px;
-	color: #555;
-	text-align: center;
-	border-radius: 100%;
-	cursor: pointer;
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  color: #555;
+  text-align: center;
+  border-radius: 100%;
+  cursor: pointer;
 }
 .frame-products .cen .bot ul li .fa:hover {
-	-webkit-transition: 0.3s;
-	   -moz-transition: 0.3s;
-	    -ms-transition: 0.3s;
-	     -o-transition: 0.3s;
-	        transition: 0.3s;
-	background-color: #f0f0f0;
-	color: #555;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  background-color: #f0f0f0;
+  color: #555;
 }
 .frame-products .cen .bot ul li .bot-left {
-	margin-right: 5px;
+  margin-right: 5px;
 }
 .frame-products .cen .bot ul li .bot-right {
-	position: absolute;
-	width: 40px;
-	line-height: 40px;
-	top: 10px;
-	right: 0px;
+  position: absolute;
+  width: 40px;
+  line-height: 40px;
+  top: 10px;
+  right: 0px;
 }
 .frame-products .cen .bot ul li .bot-right-color {
-	color: #CA4F4F;
+  color: #CA4F4F;
 }
 .frame-products .cen .bot ul li .bot-right-color:hover {
-	background-color: #CA4F4F;
-	color: #fff;
+  background-color: #CA4F4F;
+  color: #fff;
 }

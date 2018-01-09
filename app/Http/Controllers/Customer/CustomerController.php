@@ -26,7 +26,7 @@ class CustomerController extends Controller
         $rejected_orders = $customer->transaction->where('status', 'rejected');
         $canceled_orders = $customer->transaction->where('status', 'canceled');
 
-		return view('customer/index', [
+        return view('customer/index', [
             'title'              => 'Customer',
             'customer'           => $customer,
             'on_process_orders'  => $on_process_orders,
@@ -37,7 +37,7 @@ class CustomerController extends Controller
     }
     function customer($idcustomer)
     {
-    	return view('customer/index', [
+        return view('customer/index', [
             'title' => "Customer {$idcustomer}",
         ]);
     }

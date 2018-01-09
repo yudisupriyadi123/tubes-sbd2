@@ -26,23 +26,23 @@ class PostModel extends Model
     }
     public function scopePostImage($query, $data)
     {
-    	return DB::table('product_images')
+      return DB::table('product_images')
         ->insert($data);
     }
     public function scopePostSize($query, $data)
     {
-    	return DB::table('product_sizes')
+      return DB::table('product_sizes')
         ->insert($data);
     }
     public function scopePostColor($query, $data)
     {
-    	return DB::table('product_colors')
+      return DB::table('product_colors')
         ->insert($data);
     }
     public function scopePostSettingUp($query, $id, $data)
     {
-    	return DB::table('product')
-    	->where('product.id','=',$id)
+      return DB::table('product')
+      ->where('product.id','=',$id)
         ->update($data);
     }
     public function scopeGetImageListId($query, $id)

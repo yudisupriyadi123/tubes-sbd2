@@ -16,7 +16,7 @@ class MainController extends Controller
     {
         $max_product = 100;
         $prd = Product::getAll($max_product);
-    	return view('/shops/index',['title' => 'All Products', 'prd' => $prd]);
+        return view('/shops/index',['title' => 'All Products', 'prd' => $prd]);
     }
     function recent()
     {
@@ -28,7 +28,7 @@ class MainController extends Controller
     {
         $max_product = 100;
         $prd = Product::getBiggestDiscounted($max_product);
-    	return view('/shops/index',['title' => 'Biggest Discount', 'prd' => $prd]);
+        return view('/shops/index',['title' => 'Biggest Discount', 'prd' => $prd]);
     }
     function popular()
     {
@@ -36,7 +36,7 @@ class MainController extends Controller
         $max_product = 100;
         $prd = Product::getBiggestDiscounted($max_product);
 
-    	return view('/shops/index',[
+        return view('/shops/index',[
             'title' => 'Most Viewed',
             'prd' => $prd,
         ]);
