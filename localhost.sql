@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 08, 2018 at 10:34 PM
+-- Generation Time: Jan 09, 2018 at 01:04 PM
 -- Server version: 5.5.57-MariaDB-1ubuntu0.14.04.1
 -- PHP Version: 7.0.23-1+ubuntu14.04.1+deb.sury.org+1
 
@@ -81,14 +81,13 @@ CREATE TABLE IF NOT EXISTS `cart` (
   PRIMARY KEY (`id`),
   KEY `cart_costumer_email_index` (`costumer_email`),
   KEY `cart_product_id_index` (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `cart`
 --
 
 INSERT INTO `cart` (`id`, `size`, `color`, `quantity`, `costumer_email`, `product_id`) VALUES
-(6, '1', '2', 6, 'test@gmail.com', 29),
 (7, '2', '2', 1, 'test@gmail.com', 29);
 
 -- --------------------------------------------------------
@@ -111,6 +110,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
 --
 
 INSERT INTO `customer` (`email`, `password`, `name`, `address`, `photo`) VALUES
+('abc@gmail.com', '$2y$10$bA93RbGSDr674VM09Pqv8e8aXp3OnYndxkmYVEAjWkOo8Rv0YrYF2', 'abc', 'ABC', '/img/avatar.png'),
 ('fake_costumer@gmail.com', '$2y$10$HHMnQN7DjFEE6sjPXUaO2.Upmmc1MkpXZMFdMpOcDE.Rx78Km5Hd.', 'Fake Customer', 'Jl Fake Address No.99', '/img/avatar.png'),
 ('test@gmail.com', '$2y$10$gTmzP2Wisz3uZhQkwNChiuZVBCjdZi6wfDK.SQjuG81sxtydePdBK', 'Test 123', 'Jl Mekar Indah No.11', '/img/avatar.png');
 
@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `customer_shipping_addresses` (
   `receiver_phone_number` varchar(18) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `costumer_shipping_addresses_costumer_email_index` (`costumer_email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `customer_shipping_addresses`
@@ -145,7 +145,8 @@ INSERT INTO `customer_shipping_addresses` (`id`, `costumer_email`, `address`, `k
 (4, 'test@gmail.com', '3', '3', '3', '3', '3', '3', '3'),
 (5, 'test@gmail.com', '4', '4', '4', '4', '4', '4', '4'),
 (6, 'test@gmail.com', '5', '5', '5', '5', '5', '5', '5'),
-(7, 'test@gmail.com', '6', '6', '6', '6', '6', '6', '6');
+(7, 'test@gmail.com', '6', '6', '6', '6', '6', '6', '6'),
+(8, 'test@gmail.com', 'Jl Test 123 No.125', 'Rancasari', 'Bandung', 'Jawa Barat', '195710', 'Endang Sukasih', '081561531');
 
 -- --------------------------------------------------------
 
@@ -211,7 +212,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   PRIMARY KEY (`id`),
   KEY `product_category_id_index` (`category_id`),
   KEY `thumbnail_image_id` (`thumbnail_image_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=39 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=40 ;
 
 --
 -- Dumping data for table `product`
@@ -227,7 +228,8 @@ INSERT INTO `product` (`id`, `name`, `price`, `discount_in_percent`, `descriptio
 (35, 'JnjZJuS4PR', 700000, 10, 'This is brief description of product', 50, NULL, '2018-01-01 13:37:47', '0000-00-00 00:00:00', 1),
 (36, 'Celana Chino', 120000, 10, 'Celana Chino pantas untuk kerja, maupun menghandiri acara formal.<br>', 40, 1, '2018-01-01 15:26:13', '2018-01-01 15:25:09', 3),
 (37, 'Celana Training', 50000, 5, 'Pantas bagi anda yang suka olahraga dan menginginkan kenyamanan.<br>', 10, 2, '2018-01-01 15:28:13', '2018-01-01 15:27:39', 5),
-(38, 'atag2', 110000, 10, 'ihgauijhg a9hqou hg9qhgoq<br>', 25, 1, '2018-01-01 15:50:28', '2018-01-01 15:50:11', 6);
+(38, 'atag2', 110000, 10, 'ihgauijhg a9hqou hg9qhgoq<br>', 25, 1, '2018-01-01 15:50:28', '2018-01-01 15:50:11', 6),
+(39, 'test1234', 100000, 0, 'Memberikan kesan menarik ketika dipakai<br>', 8, 1, '2018-01-09 04:45:46', '2018-01-08 21:45:46', 9);
 
 -- --------------------------------------------------------
 
@@ -270,7 +272,7 @@ CREATE TABLE IF NOT EXISTS `product_colors` (
   `product_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `product_colors_product_id_index` (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `product_colors`
@@ -285,7 +287,8 @@ INSERT INTO `product_colors` (`id`, `color`, `product_id`) VALUES
 (6, 'black', 37),
 (7, 'green', 37),
 (8, 'red', 38),
-(9, 'white', 38);
+(9, 'white', 38),
+(10, 'red', 39);
 
 -- --------------------------------------------------------
 
@@ -299,7 +302,7 @@ CREATE TABLE IF NOT EXISTS `product_images` (
   `product_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `product_images_product_id_index` (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `product_images`
@@ -311,7 +314,10 @@ INSERT INTO `product_images` (`id`, `image`, `product_id`) VALUES
 (3, 'img/posting/foto/15148203401514798560pictlrpost15067000522721827595_270223940157178_4134483789990592512_n.jpg', 36),
 (4, 'img/posting/foto/15148204771514790974mbuntu9.jpg', 37),
 (5, 'img/posting/foto/15148204771514790805mbuntu2.png', 37),
-(6, 'img/posting/foto/15148218161514806098pictlrpost150220991818gintama_chibi_by_kenndrawd95zdpm.jpg', 38);
+(6, 'img/posting/foto/15148218161514806098pictlrpost150220991818gintama_chibi_by_kenndrawd95zdpm.jpg', 38),
+(7, 'img/posting/foto/1515469576mbuntu2.png', 39),
+(8, 'img/posting/foto/15154695761514816746tkpost150436948018rest22.png', 39),
+(9, 'img/posting/foto/151546957615148204771514790974mbuntu9.jpg', 39);
 
 -- --------------------------------------------------------
 
@@ -325,7 +331,7 @@ CREATE TABLE IF NOT EXISTS `product_sizes` (
   `product_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `product_sizes_product_id_index` (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `product_sizes`
@@ -340,7 +346,9 @@ INSERT INTO `product_sizes` (`id`, `size`, `product_id`) VALUES
 (6, 'L', 37),
 (7, 'S', 38),
 (8, 'M', 38),
-(9, 'L', 38);
+(9, 'L', 38),
+(10, 'S', 39),
+(11, 'M', 39);
 
 -- --------------------------------------------------------
 
@@ -353,14 +361,14 @@ CREATE TABLE IF NOT EXISTS `transaction` (
   `status` enum('waiting_approval','rejected','approved','waiting_payment','product_has_sent','done','payment_verified','payment_proof_rejected') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'waiting_approval',
   `courier` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL,
   `payment_has_verified_at` datetime DEFAULT NULL,
-  `proof_photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `proof_photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `costumer_email` varchar(35) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `costumer_shipping_address_id` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `transaction_costumer_email_index` (`costumer_email`),
   KEY `destination_shipping_address` (`costumer_shipping_address_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `transaction`
@@ -368,7 +376,11 @@ CREATE TABLE IF NOT EXISTS `transaction` (
 
 INSERT INTO `transaction` (`id`, `status`, `courier`, `payment_has_verified_at`, `proof_photo`, `created_at`, `costumer_email`, `costumer_shipping_address_id`) VALUES
 (14, 'product_has_sent', 'JNE', NULL, 'img/proof_photo_customer/11154.png', '2018-01-08 15:28:22', 'test@gmail.com', 1),
-(15, 'waiting_payment', 'JNE', NULL, '', '2018-01-08 14:54:58', 'test@gmail.com', 1);
+(15, 'payment_proof_rejected', 'JNE', NULL, 'img/proof_photo_customer/65231.png', '2018-01-09 05:05:13', 'test@gmail.com', 1),
+(16, 'waiting_approval', 'JNE', NULL, NULL, '2018-01-08 15:48:07', 'test@gmail.com', 1),
+(17, 'done', 'JNE', NULL, NULL, '2018-01-09 05:16:07', 'test@gmail.com', 1),
+(18, 'done', 'JNE', NULL, 'img/proof_photo_customer/65823.jpg', '2018-01-09 02:39:42', 'test@gmail.com', 1),
+(19, 'done', 'JNE', NULL, 'img/proof_photo_customer/27254.jpg', '2018-01-09 05:02:28', 'test@gmail.com', 8);
 
 -- --------------------------------------------------------
 
@@ -386,7 +398,7 @@ CREATE TABLE IF NOT EXISTS `transaction_detail` (
   PRIMARY KEY (`id`),
   KEY `transaction_detail_transaction_id_index` (`transaction_id`),
   KEY `transaction_detail_product_id_index` (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `transaction_detail`
@@ -394,7 +406,11 @@ CREATE TABLE IF NOT EXISTS `transaction_detail` (
 
 INSERT INTO `transaction_detail` (`id`, `size`, `color`, `quantity`, `transaction_id`, `product_id`) VALUES
 (7, '2', '1', 1, 14, 29),
-(8, '2', '1', 1, 15, 29);
+(8, '2', '1', 1, 15, 29),
+(9, '4', '3', 3, 16, 36),
+(10, '9', '8', 1, 17, 38),
+(11, '1', '2', 6, 18, 29),
+(12, '11', '10', 2, 19, 39);
 
 --
 -- Constraints for dumped tables
