@@ -158,7 +158,7 @@
           <div class="ctn-4"></div>
           <div class="ctn-5"></div>
           <div class="ctn-6">
-            <a href="{{ url('/admin/costumers') }}">
+            <a href="{{ url('/admin/customers') }}">
               <input type="button" name="view_more" class="btn btn-main-color" value="View All">
             </a>
           </div>
