@@ -67,7 +67,9 @@ class Customer extends Authenticatable
 
     public function getLastName()
     {
-        return explode(' ', $this->name, 2)[1];
+        $separate = explode(' ', $this->name, 2);
+        if (count($separate) == 2) return $separate[1];
+        return '';
     }
 
     public function cart()
