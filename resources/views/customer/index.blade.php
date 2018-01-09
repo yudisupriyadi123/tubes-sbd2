@@ -62,7 +62,7 @@ $(document).ready(function() {
                     <ul>
                         <li>
                             <span class="icn fa fa-lg fa-chevron-right"></span>
-                            <span>Send a Payment Proof</span>
+                            <span><a href='{{ url('/order/proof') }}'>Send a Payment Proof</a></span>
                         </li>
                         <li>
                             <span class="icn fa fa-lg fa-chevron-right"></span>
@@ -79,7 +79,7 @@ $(document).ready(function() {
                         <li class="desc-panel-select" key="on_proc">On Process</li>
                         <li key="succ">Success</li>
                         <li key="has_sent">Has Sent</li>
-                        <li key="rejected">Rejected</li>
+                        <li key="rejected">Payment Rejected</li>
                     </ul>
                 </div>
             </div>
@@ -114,6 +114,9 @@ $(document).ready(function() {
                             <div class="mid-3">
                                 <div class="ttl">
                                     Count: <b class="value">{{ $order->transactionDetail->count() }}</b>
+                                </div>
+                                <div class="ttl">
+                                    <a href="{{ url('order/run-check/'.$order->id) }}" class="btn btn-link btn-main-color">open message</a>
                                 </div>
                             </div>
                         </div>
@@ -166,7 +169,7 @@ $(document).ready(function() {
                         <div class="mid-cart">
                             <div class="mid-1">
                                 <div class="ttl">
-                                    Order ID: <b class="value">{{ $order->id }}</b>
+                                    Order ID: <b class="value">{{ md5($order->id) }}</b>
                                 </div>
                                 <div class="ttl">
                                     <span>Courier:</span>
@@ -184,6 +187,9 @@ $(document).ready(function() {
                             <div class="mid-3">
                                 <div class="ttl">
                                     Count: <b class="value">{{ $order->transactionDetail->count() }}</b>
+                                </div>
+                                <div class="ttl">
+                                    <a href="{{ url('order/run-check/'.$order->id) }}" class="btn btn-link btn-main-color">open message</a>
                                 </div>
                             </div>
                         </div>
@@ -236,7 +242,7 @@ $(document).ready(function() {
                         <div class="mid-cart">
                             <div class="mid-1">
                                 <div class="ttl">
-                                    Order ID: <b class="value">{{ $order->id }}</b>
+                                    Order ID: <b class="value">{{ md5($order->id) }}</b>
                                 </div>
                                 <div class="ttl">
                                     <span>Courier:</span>
@@ -298,18 +304,18 @@ $(document).ready(function() {
             </div>
 
             <div class="ctn ctn-hide" id="rejected">
-                @if ($rejected_orders->count() == 0)
+                @if ($payment_rejected_orders->count() == 0)
                 <div class="mn place" style="text-align: center">
                     Empty
                 </div>
                 @endif
-                @foreach ($rejected_orders as $key => $order)
+                @foreach ($payment_rejected_orders as $key => $order)
                 <div class="mn place order-box">
                     <div class="frame-cart">
                         <div class="mid-cart">
                             <div class="mid-1">
                                 <div class="ttl">
-                                    Order ID: <b class="value">{{ $order->id }}</b>
+                                    Order ID: <b class="value">{{ md5($order->id) }}</b>
                                 </div>
                                 <div class="ttl">
                                     <span>Courier:</span>
@@ -327,6 +333,9 @@ $(document).ready(function() {
                             <div class="mid-3">
                                 <div class="ttl">
                                     Count: <b class="value">{{ $order->transactionDetail->count() }}</b>
+                                </div>
+                                <div class="ttl">
+                                    <a href="{{ url('order/run-check/'.$order->id) }}" class="btn btn-link btn-main-color">open message</a>
                                 </div>
                             </div>
                         </div>

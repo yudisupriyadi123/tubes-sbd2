@@ -51,7 +51,8 @@ Route::post('/admin/register',  'Admin\Auth\RegisterController@register');
 */
 Route::group(['middleware' => 'customer_auth'], function(){
     Route::get('/order/check',          'Customer\OrderController@check');
-    Route::post('/order/check',         'Customer\OrderController@check');
+    Route::post('/order/run-check-post', 'Customer\OrderController@postRunCheck');
+    Route::get('/order/run-check/{id}', 'Customer\OrderController@runCheck');
     Route::get('/order/proof',          'Customer\OrderController@proof');
     Route::post('/order/upload-proof',  'Customer\OrderController@uploadProof');
     Route::get('/order/{id}/status/received',  'Customer\OrderController@receivedConfirmed');

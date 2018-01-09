@@ -7,6 +7,6 @@
         {{ md5($trans_id) }}
 
         <br><br>
-        <p class="hint">Please send your money to <b>BNI (100-1234-888)</b> then upload your proof photo. Admin will review that and then will send your product.</p>
+        <p class="hint">Don't send money until admin <b>accept</b> your order. You can check on your profile to see status of the order </p>
     </div>
 @endsection

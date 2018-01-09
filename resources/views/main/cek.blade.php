@@ -9,7 +9,7 @@
             <div class="border-bottom"></div>
         </div>
         <div class="mid">
-            <form method="post" action="{{ url('order/check') }}">
+            <form method="post" action="{{ url('order/run-check-post') }}">
                 {{ csrf_field() }}
                 @if (isset($order_id_not_found))
                 <div class="block">

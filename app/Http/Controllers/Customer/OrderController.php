@@ -12,19 +12,45 @@ class OrderController extends Controller
      * Web page used by costumer to check their order status.
      *
      */
-    function check(Request $req)
+    function check()
     {
-        if (!$req->isMethod('post')) {
-            return view('/main/cek',['title' => 'Order Cek']);
+        return view('/main/cek',['title' => 'Order Cek']);
+    }
+
+    /**
+     * Check given transaction id from clicked link.
+     *
+     */
+    function runCheck($id)
+    {
+        $trans = Transaction::find($id);
+
+        if (!$trans) {
+            return view('/main/cek',[
+                'title' => 'Order Cek',
+                'order_id_not_found' => true
+            ]);
         }
 
+        return view('/order/order-status', [
+            'title' => 'Order Status',
+            'status' => $trans->status,
+        ]);
+    }
+
+    /**
+     * Check given transaction id from check-order page.
+     *
+     */
+    function postRunCheck(Request $req)
+    {
         $r = $req->all();
 
-        // @var $r['trans_id'] is md5-ed transactionId
+        // $r['trans_id'] is md5-ed transactionId
         $trans = Transaction::getByIdMD5($r['trans_id'])->first();
 
         if (!$trans) {
-            return view('/order/cek',[
+            return view('/main/cek',[
                 'title' => 'Order Cek',
                 'order_id_not_found' => true
             ]);

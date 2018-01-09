@@ -20,7 +20,13 @@
                 Upload your payment proof at {{ url('order/proof') }}
                 @endif
                 @if ($status == 'waiting_payment')
-                Waiting payment proof to arrive.
+                Your order accepted. Please send your money to <b>BNI (100-1234-888)</b> then upload your proof photo. Admin will review that and then will send your product.
+                @endif
+                @if ($status == 'payment_verified')
+                The payment is successful confirmed. Wait until we send your product.
+                @endif
+                @if ($status == 'payment_proof_rejected')
+                There are something wrong with your transfer. Please transfer again and re-proof.
                 @endif
                 @if ($status == 'product_has_sent')
                 Your product is on the way. Check at courier website to track.

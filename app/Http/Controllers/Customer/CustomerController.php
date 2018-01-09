@@ -26,20 +26,20 @@ class CustomerController extends Controller
         $success_orders  = $customer->transaction()->orderBy('created_at', 'desc')
                                                    ->where('status', 'done')
                                                    ->get();
-        $rejected_orders = $customer->transaction()->orderBy('created_at', 'desc')
-                                                   ->where('status', 'rejected')
+        $payment_rejected_orders = $customer->transaction()->orderBy('created_at', 'desc')
+                                                   ->where('status', 'payment_proof_rejected')
                                                    ->get();
         $has_sent_orders = $customer->transaction()->orderBy('created_at', 'desc')
                                                    ->where('status', 'product_has_sent')
                                                    ->get();
 
         return view('customer/index', [
-            'title'              => 'Customer',
-            'customer'           => $customer,
-            'on_process_orders'  => $on_process_orders,
-            'success_orders'     => $success_orders,
-            'rejected_orders'    => $rejected_orders,
-            'has_sent_orders'    => $has_sent_orders,
+            'title'                   => 'Customer',
+            'customer'                => $customer,
+            'on_process_orders'       => $on_process_orders,
+            'success_orders'          => $success_orders,
+            'payment_rejected_orders' => $payment_rejected_orders,
+            'has_sent_orders'         => $has_sent_orders,
         ]);
     }
     function customer($idcustomer)
