@@ -6,7 +6,7 @@
         </div>
         <div class="mid">
             @foreach ($cart_items as $key => $cart_item)
-            <input type="hidden" name="cart_ids[]" value="{{ $cart_item->cart_id }}">
+            <input type="hidden" name="cart_ids[]" value="{{ $cart_item->id }}">
             <div class="frame-cart">
                 <div class="top">
                     <span class="cek left">
@@ -18,24 +18,24 @@
                 </div>
                 <div class="mid-cart">
                     <div class="mid-1">
-                        <div class="image-cart" style="background-image: url('{{ url('/') }}/img/banner1.jpg');"></div>
+                        <div class="image-cart" style="background-image: url('{{ asset($cart_item->product->thumbnail->image) }}');"></div>
                     </div>
                     <div class="mid-2">
                         <div class="ttl">
-                            {{ $cart_item->product_name }}
+                            {{ $cart_item->product->name }}
                         </div>
                         <div class="place-stock">
-                            <button class="op btn-qty" id="qty-min">
+                            <button type="button" class="op btn-qty" id="qty-min">
                                 <label class="fa fa-lg fa-minus"></label>
                             </button>
-                            <input type="text" name="qty" class="op txt" placeholder="qty" value="{{ $cart_item->cart_quantity }}" id="qty" readonly>
-                            <button class="op btn-qty" id="qty-plus">
+                            <input type="text" name="qty" class="op txt" placeholder="qty" value="{{ $cart_item->quantity }}" id="qty" readonly>
+                            <button type="button" class="op btn-qty" id="qty-plus">
                                 <label class="fa fa-lg fa-plus"></label>
                             </button>
                         </div>
                     </div>
                     <div class="mid-3">
-                        <span>IDR {{ $cart_item->product_price_discount * $cart_item->cart_quantity }}</span>
+                        <span>IDR {{ $cart_item->getTotalPrice() }}</span>
                     </div>
                 </div>
             </div>

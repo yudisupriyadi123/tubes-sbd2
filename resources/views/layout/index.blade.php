@@ -122,7 +122,7 @@ function setScroll(ctr) {
                         <li class="main-menu">
                             <div class="panel-logo">
                                 <a href="{{ url('/') }}">
-                                    <img src="{{ url('/') }}/icons/ao2.png" alt="logo">
+                                    <img src="{{ asset('icons/ao2.png') }}" alt="logo">
                                 </a>
                             </div>
                         </li>

@@ -16,15 +16,22 @@ class CustomerController extends Controller
 
         $customer = Customer::find($customer_email);
 
-        $on_process_orders = $customer->transaction->whereIn('status', [
+        $on_process_orders = $customer->transaction()->orderBy('created_at', 'desc')
+        ->whereIn('status', [
             'waiting_approval',
             'accepted',
             'waiting_payment',
-            'product_has_sent',
-        ]);
-        $success_orders  = $customer->transaction->where('status', 'done');
-        $rejected_orders = $customer->transaction->where('status', 'rejected');
-        $canceled_orders = $customer->transaction->where('status', 'canceled');
+            'payment_verified',
+        ])->get();
+        $success_orders  = $customer->transaction()->orderBy('created_at', 'desc')
+                                                   ->where('status', 'done')
+                                                   ->get();
+        $rejected_orders = $customer->transaction()->orderBy('created_at', 'desc')
+                                                   ->where('status', 'rejected')
+                                                   ->get();
+        $has_sent_orders = $customer->transaction()->orderBy('created_at', 'desc')
+                                                   ->where('status', 'product_has_sent')
+                                                   ->get();
 
         return view('customer/index', [
             'title'              => 'Customer',
@@ -32,7 +39,7 @@ class CustomerController extends Controller
             'on_process_orders'  => $on_process_orders,
             'success_orders'     => $success_orders,
             'rejected_orders'    => $rejected_orders,
-            'canceled_orders'    => $canceled_orders,
+            'has_sent_orders'    => $has_sent_orders,
         ]);
     }
     function customer($idcustomer)

@@ -78,7 +78,7 @@ $(document).ready(function() {
                     <ul>
                         <li class="desc-panel-select" key="on_proc">On Process</li>
                         <li key="succ">Success</li>
-                        <li key="canceled">Canceled</li>
+                        <li key="has_sent">Has Sent</li>
                         <li key="rejected">Rejected</li>
                     </ul>
                 </div>
@@ -194,7 +194,7 @@ $(document).ready(function() {
                     <div class="frame-cart">
                         <div class="mid-cart">
                             <div class="mid-1">
-                                <div class="image-cart" style="background-image: url('{{ asset($item->product->thumbnail->image) }}/img/banner1.jpg');"></div>
+                                <div class="image-cart" style="background-image: url('{{ asset($item->product->thumbnail->image) }}');"></div>
                             </div>
                             <div class="mid-2">
                                 <div class="ttl">
@@ -224,13 +224,13 @@ $(document).ready(function() {
                 @endforeach
             </div>
 
-            <div class="ctn ctn-hide" id="canceled">
-                @if ($canceled_orders->count() == 0)
+            <div class="ctn ctn-hide" id="has_sent">
+                @if ($has_sent_orders->count() == 0)
                 <div class="mn place" style="text-align: center">
                     Empty
                 </div>
                 @endif
-                @foreach ($canceled_orders as $key => $order)
+                @foreach ($has_sent_orders as $key => $order)
                 <div class="mn place order-box">
                     <div class="frame-cart">
                         <div class="mid-cart">
@@ -255,6 +255,9 @@ $(document).ready(function() {
                                 <div class="ttl">
                                     Count: <b class="value">{{ $order->transactionDetail->count() }}</b>
                                 </div>
+                                <div class="ttl">
+                                    <a href="{{ url('order/'.$order->id.'/status/received') }}" class="btn btn-link btn-main-color">Received</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -264,7 +267,7 @@ $(document).ready(function() {
                     <div class="frame-cart">
                         <div class="mid-cart">
                             <div class="mid-1">
-                                <div class="image-cart" style="background-image: url('{{ asset($item->product->thumbnail->image) }}/img/banner1.jpg');"></div>
+                                <div class="image-cart" style="background-image: url('{{ asset($item->product->thumbnail->image) }}');"></div>
                             </div>
                             <div class="mid-2">
                                 <div class="ttl">
@@ -334,7 +337,7 @@ $(document).ready(function() {
                     <div class="frame-cart">
                         <div class="mid-cart">
                             <div class="mid-1">
-                                <div class="image-cart" style="background-image: url('{{ asset($item->product->thumbnail->image) }}/img/banner1.jpg');"></div>
+                                <div class="image-cart" style="background-image: url('{{ asset($item->product->thumbnail->image) }}');"></div>
                             </div>
                             <div class="mid-2">
                                 <div class="ttl">

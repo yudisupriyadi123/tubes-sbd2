@@ -27,13 +27,7 @@ class CheckoutController extends Controller
     {
         $r = $req->all();
 
-        $cart_items = Cart::getWithJoinProductByIds($r['cart_ids'])
-            ->get([
-                'cart.id AS cart_id',
-                'cart.quantity AS cart_quantity',
-                'prod.name AS product_name',
-                DB::raw('prod.price - (prod.price * (prod.discount_in_percent/100)) AS product_price_discount'),
-            ]);
+        $cart_items = Cart::whereIn('id', $r['cart_ids'])->get();
 
         // TODO: buat view nya
         return view('/checkout/step-1', [

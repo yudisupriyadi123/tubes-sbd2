@@ -454,3 +454,15 @@ a.btn-circle i {
   max-width: 100%;
   margin: 0 auto 10px 0;
 }
+
+.btn-link {
+  display: inline-block;
+  text-align: center;
+}
+
+.order-box .ttl .btn-link {
+  padding: 3px 5px;
+  box-sizing: border-box;
+  width: 100%;
+  box-shadow: 1px 1px 1px #000;
+}

@@ -9,7 +9,12 @@
                     Price Product
                 </div>
                 <div class="mn-detail-right">
-                    <b>IDR 350.000,00</b>
+                    <?php
+                    $total_price = 0;
+                    foreach ($cart_items as $k => $cart_item) {
+                        $total_price += $cart_item->getTotalPrice();
+                    } ?>
+                    <b>IDR {{ $total_price }}</b>
                 </div>
             </div>
             <div class="mn-detail">
@@ -17,7 +22,7 @@
                     Payment Shipping
                 </div>
                 <div class="mn-detail-right">
-                    <b>IDR 10.000,00</b>
+                    <b>IDR 10.000</b>
                 </div>
             </div>
         </div>
@@ -27,7 +32,7 @@
                     Total Payment
                 </div>
                 <div class="mn-detail-right">
-                    <b class="ttl">IDR 10.000,00</b>
+                    <b class="ttl">IDR {{ $total_price + 10000 }}</b>
                 </div>
             </div>
             <button class="btn btn-main-color">Submit your Order</button>

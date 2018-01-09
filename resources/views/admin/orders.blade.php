@@ -282,7 +282,7 @@
                         Total
                     </div>
                     <div class="ctn-6">
-                        Actions
+                        Status
                     </div>
                 </div>
                 @if ($has_sent_orders->count() == 0)
@@ -317,15 +317,7 @@
                         {{ $na_order->getTotalPrice() }}
                     </div>
                     <div class="ctn-6">
-                        <a class="btn-circle btn-main-color-2" href="#">
-                            <i class="fa fa-lg fa-ellipsis-h"></i>
-                        </a>
-                        <a class="btn-circle btn-main-color-2" href="{{ url('/admin/orders/change-status/'.$na_order->id.'/to/done') }}">
-                            <i class="fa fa-lg fa-check"></i>
-                        </button>
-                        <a class="btn-circle btn-main-color-2" href="#">
-                            <i class="fa fa-lg fa-eye"></i>
-                        </a>
+                        <span style="font-size: 13px">waiting for customer confirmation</span>
                     </div>
                 </div>
                 @endforeach

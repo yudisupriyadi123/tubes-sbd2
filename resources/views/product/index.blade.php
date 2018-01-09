@@ -182,16 +182,23 @@
             </div>
           </div>
           <div class="post-btn">
-            @if ($product->stock > 0)
-            <button class="btn btn-main-color" id="btn-addto-cart">
-              <label class="fa fa-lg fa-shopping-cart"></label>
-              <label>Add to Cart</label>
-            </button>
+            @if (Auth::check())
+              @if ($product->stock > 0)
+              <button class="btn btn-main-color" id="btn-addto-cart">
+                <label class="fa fa-lg fa-shopping-cart"></label>
+                <label>Add to Cart</label>
+              </button>
+              @else
+              <button class="btn btn-main-color">
+                <label class="fa fa-lg fa-shopping-cart"></label>
+                <label>Out of stock</label>
+              </button>
+              @endif
             @else
-            <button class="btn btn-main-color">
+            <a href="{{ url('login') }}" class="btn btn-link btn-main-color">
               <label class="fa fa-lg fa-shopping-cart"></label>
-              <label>Out of stock</label>
-            </button>
+              <label>You must login</label>
+            </a>
             @endif
             <!--id nya harus diganti-->
             <a href="#">

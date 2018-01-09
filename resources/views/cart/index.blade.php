@@ -55,6 +55,16 @@
             }
             if (total_price == 0) $("#total-price").text('000,000,00');
         });
+
+        // TODO: use more correct logic
+        $(".ckbox-all").click(function(){
+            $(".ck.ckbox").trigger('click');
+        })
+
+        $(".btn-choose").click(function(){
+            var parentElm = $(this).closest(".mn.mid");
+            parentElm.find(".ck.ckbox").trigger('click');
+        });
     });
 </script>
 <form method="post" action="{{url('checkout/step1')}}">
@@ -66,7 +76,7 @@
             <div class="mn top">
                 <span class="cek left">
                     <input type="checkbox" class="ck ckbox-all" value="false">
-                    <span>Sellect All Transactions</span>
+                    <span>Select All Orders</span>
                 </span>
                 <span class="right">
                     <input type="button" name="delete_all" class="btn btn-white-color-red" value="Dellete All">
@@ -81,7 +91,7 @@
                     <div class="top">
                         <span class="cek left">
                             <input type="checkbox" class="ck ckbox" value="false">
-                            <span>Select product</span>
+                            <span>Select this</span>
                         </span>
                         <span class="right">
                             <button type="button" class="btn btn-white-color">
@@ -117,9 +127,7 @@
                             <div class="sh">Shipping not included</div>
                         </div>
                         <div class="pur">
-                            <a href="{{ url('/purchase/') }}">
-                                <input type="button" name="purchase" class="btn btn-main-color" value="Purchase Now">
-                            </a>
+                            <input type="button" class="btn btn-main-color btn-choose" value="Choose">
                         </div>
                     </div>
                 </div>

@@ -72,4 +72,13 @@ class OrderController extends Controller
                 ->with('status', 'BAD')
                 ->with('message', 'Move uploaded file is fail');
     }
+
+    function receivedConfirmed($id)
+    {
+        $trans = Transaction::find($id);
+        $trans->status = 'done';
+        $trans->save();
+
+        return back();
+    }
 }

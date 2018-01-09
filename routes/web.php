@@ -54,6 +54,7 @@ Route::group(['middleware' => 'customer_auth'], function(){
     Route::post('/order/check',         'Customer\OrderController@check');
     Route::get('/order/proof',          'Customer\OrderController@proof');
     Route::post('/order/upload-proof',  'Customer\OrderController@uploadProof');
+    Route::get('/order/{id}/status/received',  'Customer\OrderController@receivedConfirmed');
 
     Route::get('/cart',             'Customer\CartController@index');
     Route::post('/checkout/step1',  'Customer\CheckoutController@checkoutStep1');

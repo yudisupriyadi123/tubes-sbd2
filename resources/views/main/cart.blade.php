@@ -2,7 +2,7 @@
     <div class="main-popup cart">
         <div class="top">
             <span class="left">
-                <b>Total <span>n</span> Produts</b>
+                <b>Your Cart</b>
             </span>
             <!--
             <span class="right">
@@ -39,11 +39,8 @@
         @endif
         </div>
         <div class="bot">
-            <a href="{{ url('/purchase/all') }}">
-                <input type="button" name="to_purchase" class="btn btn-main-color" value="Next to Purchase">
-            </a>
             <a href="{{ url('/cart') }}">
-                <input type="button" name="to_purchase" class="btn btn-white-color-red" value="View All Carts">
+                <input type="button" name="to_purchase" class="btn btn-main-color" value="View all carts">
             </a>
         </div>
     </div>
