@@ -98,6 +98,7 @@ Route::group(['middleware' => 'admin_auth'], function(){
     Route::get('/admin/info',                   'Admin\AdminController@info');
     Route::get('/admin/profile',                'Admin\AdminController@profile');
     Route::get('/admin/customer/{idcustomer}',  'Admin\AdminController@customer');
+    Route::get('/admin/report',                 'Admin\OrderController@report');
 
     // order spesific
     Route::get('/admin/orders/status/need-approved',    'Admin\OrderController@needApproved');

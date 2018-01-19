@@ -92,4 +92,64 @@ class Transaction extends Model
         // TODO: fix typo on database structure
         return $this->hasOne('\App\CSA', 'id', 'costumer_shipping_address_id');
     }
+
+    /* --------------------------------------------------------
+     | For report
+     | --------------------------------------------------------*/
+
+    static function getNeedApprovedCount()
+    {
+        return Self::where('status', '=', 'waiting_approval')->count();
+    }
+
+    static function getWaitingPaymentCount()
+    {
+        return Self::where('status', '=', 'waiting_payment')->count();
+    }
+
+    static function getPaymentVerifiedCount()
+    {
+        return Self::where('status', '=', 'payment_verified')->count();
+    }
+
+    static function getHasSentCount()
+    {
+        return Self::where('status', '=', 'product_has_sent')->count();
+    }
+
+    static function getSuccessCount()
+    {
+        return Self::where('status', '=', 'done')->count();
+    }
+
+    static function getLastMonthProfit()
+    {
+        $current_month = date('m');
+
+        $trans = Self::whereRaw("MONTH(`created_at`) = ${current_month}")->get();
+
+        $profit = 0;
+
+        // iterate over all Transaction
+        foreach ($trans as $tran) {
+            $profit += $tran->getTotalPrice();
+        }
+
+        return $profit;
+    }
+
+    static function getLastMonthProductSold()
+    {
+        $current_month = date('m');
+        $trans = Self::whereRaw("MONTH(`created_at`) = ${current_month}")->get();
+
+        $sold = 0;
+
+        // iterate over all Transaction
+        foreach ($trans as $tran) {
+            $sold += $tran->transactionDetail->count();
+        }
+
+        return $sold;
+    }
 }

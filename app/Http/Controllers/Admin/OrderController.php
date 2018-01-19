@@ -165,4 +165,27 @@ class OrderController extends Controller
                 ->with('status', 'OK')
                 ->with('message', 'Payment has rejected');
     }
+
+    function report()
+    {
+        $need_approved_count    = Transaction::getNeedApprovedCount();
+        $waiting_payment_count  = Transaction::getWaitingPaymentCount();
+        $payment_verified_count = Transaction::getPaymentVerifiedCount();
+        $has_sent_count         = Transaction::getHasSentCount();
+        $recent_success_count   = Transaction::getSuccessCount(); // difference
+
+        $last_month_profit              = Transaction::getLastMonthProfit();
+        $last_month_product_sold        = Transaction::getLastMonthProductSold();
+
+        return view('admin/report', [
+            'title'                     => 'Report',
+            'need_approved_count'       => $need_approved_count,
+            'waiting_payment_count'     => $waiting_payment_count,
+            'payment_verified_count'    => $payment_verified_count,
+            'has_sent_count'            => $has_sent_count,
+            'recent_success_count'      => $recent_success_count,
+            'last_month_profit'         => $last_month_profit,
+            'last_month_product_sold'   => $last_month_product_sold,
+        ]);
+    }
 }
