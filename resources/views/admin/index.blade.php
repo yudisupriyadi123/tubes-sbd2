@@ -81,10 +81,10 @@ headers: {
                         <label class="ttl">List Products</label>
                     </li>
                 </a>
-                <a href="{{ url('/admin/profile') }}">
+                <a href="{{ url('/admin/report') }}">
                     <li>
                         <label class="icn fa fa-lg fa-user"></label>
-                        <label class="ttl">Admin Profile</label>
+                        <label class="ttl">Report</label>
                     </li>
                 </a>
                 <a href="{{ url('/admin/setting') }}">
