@@ -163,6 +163,30 @@
 .grid-block-2 label {
   cursor: pointer;
 }
+.grid-block-4 {
+  column-count: 2;
+  column-gap: 20px;
+  -moz-column-count: 2;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 20px;
+}
+.grid-block-4 label {
+  cursor: pointer;
+  font-size: 14px;
+}
+.grid-block-4 ol li {
+  position: relative;
+  width: 100%;
+  padding: 50px 0;
+  background-color: #fff;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  text-align: center;
+  list-style: none;
+  display: inline-block;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
 
 /*orders*/
 .frame-order .ctn {

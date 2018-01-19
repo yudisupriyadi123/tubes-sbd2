@@ -65,9 +65,11 @@
           <div class="ctn-2">
             <span>{{ $na_order->customer->name }}</span>
           </div>
+          <!--ini error
           <div class="ctn-3">
-            {{ $na_order->csa->getInlineFullAddress() }}
+            $na_order->csa->getInlineFullAddress()
           </div>
+          -->
           <div class="ctn-4">
             {{ $na_order->created_at }}
           </div>
